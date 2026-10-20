@@ -1,0 +1,6 @@
+
+[dev]
+ruff
+black
+pytest
+pre-commit
