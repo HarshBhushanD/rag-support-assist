@@ -1,0 +1,495 @@
+{
+  "summary": {
+    "total_answers": 8,
+    "answers_requiring_review": 8,
+    "issue_counts": {
+      "extra_retrieved_sources": 7
+    }
+  },
+  "answers": [
+    {
+      "id": "q001",
+      "question": "How do I reset my password?",
+      "expected_answer": "Open Account Settings, select Security, and click Reset Password.",
+      "answerable": true,
+      "answer": "To reset your password, open Account Settings, select Security, and click Reset Password.",
+      "expected_sources": [
+        "account-help.md"
+      ],
+      "retrieved_sources": [
+        "account-help.md",
+        "database-troubleshooting.md"
+      ],
+      "abstained": false,
+      "abstention_correct": true,
+      "manual_review_required": true,
+      "issues": [
+        "extra_retrieved_sources"
+      ]
+    },
+    {
+      "id": "q002",
+      "question": "What should I check when a database connection fails?",
+      "expected_answer": "Check the database hostname, port, credentials, and network connectivity.",
+      "answerable": true,
+      "answer": "For database connection failures, verify the database hostname, port, credentials, and network connectivity.",
+      "expected_sources": [
+        "database-troubleshooting.md"
+      ],
+      "retrieved_sources": [
+        "database-troubleshooting.md",
+        "support-hours.md"
+      ],
+      "abstained": false,
+      "abstention_correct": true,
+      "manual_review_required": true,
+      "issues": [
+        "extra_retrieved_sources"
+      ]
+    },
+    {
+      "id": "q003",
+      "question": "What are the support hours?",
+      "expected_answer": "Monday to Friday, 9 AM to 5 PM.",
+      "answerable": true,
+      "answer": "Monday to Friday, 9 AM to 5 PM",
+      "expected_sources": [
+        "support-hours.md"
+      ],
+      "retrieved_sources": [
+        "support-hours.md",
+        "database-troubleshooting.md"
+      ],
+      "abstained": false,
+      "abstention_correct": true,
+      "manual_review_required": true,
+      "issues": [
+        "extra_retrieved_sources"
+      ]
+    },
+    {
+      "id": "q004",
+      "question": "Where can I change my account security settings?",
+      "expected_answer": "Open Account Settings and select Security.",
+      "answerable": true,
+      "answer": "Account Settings",
+      "expected_sources": [
+        "account-help.md"
+      ],
+      "retrieved_sources": [
+        "account-help.md",
+        "database-troubleshooting.md"
+      ],
+      "abstained": false,
+      "abstention_correct": true,
+      "manual_review_required": true,
+      "issues": [
+        "extra_retrieved_sources"
+      ]
+    },
+    {
+      "id": "q005",
+      "question": "Which database connection details should I verify?",
+      "expected_answer": "Verify the hostname, port, credentials, and network connectivity.",
+      "answerable": true,
+      "answer": "database hostname, port, credentials, network connectivity",
+      "expected_sources": [
+        "database-troubleshooting.md"
+      ],
+      "retrieved_sources": [
+        "database-troubleshooting.md",
+        "account-help.md"
+      ],
+      "abstained": false,
+      "abstention_correct": true,
+      "manual_review_required": true,
+      "issues": [
+        "extra_retrieved_sources"
+      ]
+    },
+    {
+      "id": "q006",
+      "question": "Is support available on Saturday?",
+      "expected_answer": "The provided document lists support hours as Monday to Friday, 9 AM to 5 PM, so Saturday availability is not established.",
+      "answerable": false,
+      "answer": "I don't have enough information in the provided documents to answer that question.",
+      "expected_sources": [
+        "support-hours.md"
+      ],
+      "retrieved_sources": [
+        "support-hours.md",
+        "database-troubleshooting.md"
+      ],
+      "abstained": true,
+      "abstention_correct": true,
+      "manual_review_required": true,
+      "issues": [
+        "extra_retrieved_sources"
+      ]
+    },
+    {
+      "id": "q007",
+      "question": "What is the support team's phone number?",
+      "expected_answer": "The provided documents do not specify a support phone number.",
+      "answerable": false,
+      "answer": "I don't have enough information in the provided documents to answer that question.",
+      "expected_sources": [],
+      "retrieved_sources": [
+        "support-hours.md",
+        "account-help.md"
+      ],
+      "abstained": true,
+      "abstention_correct": true,
+      "manual_review_required": true,
+      "issues": []
+    },
+    {
+      "id": "q008",
+      "question": "How do I change my account password?",
+      "expected_answer": "Open Account Settings, select Security, and click Reset Password.",
+      "answerable": true,
+      "answer": "To change your account password, open Account Settings, select Security, and click Reset Password.",
+      "expected_sources": [
+        "account-help.md"
+      ],
+      "retrieved_sources": [
+        "account-help.md",
+        "database-troubleshooting.md"
+      ],
+      "abstained": false,
+      "abstention_correct": true,
+      "manual_review_required": true,
+      "issues": [
+        "extra_retrieved_sources"
+      ]
+    }
+  ],
+  "retrieval_metrics": {
+    "dense": {
+      "top_k": 2,
+      "queries_evaluated": 7,
+      "hit_rate_at_k": 1.0,
+      "recall_at_k": 1.0,
+      "mrr": 1.0,
+      "details": [
+        {
+          "id": "q001",
+          "question": "How do I reset my password?",
+          "expected_sources": [
+            "account-help.md"
+          ],
+          "retrieved_sources": [
+            "account-help.md",
+            "database-troubleshooting.md"
+          ],
+          "hit": true,
+          "recall": 1.0,
+          "reciprocal_rank": 1.0
+        },
+        {
+          "id": "q002",
+          "question": "What should I check when a database connection fails?",
+          "expected_sources": [
+            "database-troubleshooting.md"
+          ],
+          "retrieved_sources": [
+            "database-troubleshooting.md",
+            "support-hours.md"
+          ],
+          "hit": true,
+          "recall": 1.0,
+          "reciprocal_rank": 1.0
+        },
+        {
+          "id": "q003",
+          "question": "What are the support hours?",
+          "expected_sources": [
+            "support-hours.md"
+          ],
+          "retrieved_sources": [
+            "support-hours.md",
+            "database-troubleshooting.md"
+          ],
+          "hit": true,
+          "recall": 1.0,
+          "reciprocal_rank": 1.0
+        },
+        {
+          "id": "q004",
+          "question": "Where can I change my account security settings?",
+          "expected_sources": [
+            "account-help.md"
+          ],
+          "retrieved_sources": [
+            "account-help.md",
+            "database-troubleshooting.md"
+          ],
+          "hit": true,
+          "recall": 1.0,
+          "reciprocal_rank": 1.0
+        },
+        {
+          "id": "q005",
+          "question": "Which database connection details should I verify?",
+          "expected_sources": [
+            "database-troubleshooting.md"
+          ],
+          "retrieved_sources": [
+            "database-troubleshooting.md",
+            "account-help.md"
+          ],
+          "hit": true,
+          "recall": 1.0,
+          "reciprocal_rank": 1.0
+        },
+        {
+          "id": "q006",
+          "question": "Is support available on Saturday?",
+          "expected_sources": [
+            "support-hours.md"
+          ],
+          "retrieved_sources": [
+            "support-hours.md",
+            "database-troubleshooting.md"
+          ],
+          "hit": true,
+          "recall": 1.0,
+          "reciprocal_rank": 1.0
+        },
+        {
+          "id": "q008",
+          "question": "How do I change my account password?",
+          "expected_sources": [
+            "account-help.md"
+          ],
+          "retrieved_sources": [
+            "account-help.md",
+            "database-troubleshooting.md"
+          ],
+          "hit": true,
+          "recall": 1.0,
+          "reciprocal_rank": 1.0
+        }
+      ]
+    },
+    "bm25": {
+      "top_k": 2,
+      "queries_evaluated": 7,
+      "hit_rate_at_k": 1.0,
+      "recall_at_k": 1.0,
+      "mrr": 1.0,
+      "details": [
+        {
+          "id": "q001",
+          "question": "How do I reset my password?",
+          "expected_sources": [
+            "account-help.md"
+          ],
+          "retrieved_sources": [
+            "account-help.md",
+            "database-troubleshooting.md"
+          ],
+          "hit": true,
+          "recall": 1.0,
+          "reciprocal_rank": 1.0
+        },
+        {
+          "id": "q002",
+          "question": "What should I check when a database connection fails?",
+          "expected_sources": [
+            "database-troubleshooting.md"
+          ],
+          "retrieved_sources": [
+            "database-troubleshooting.md",
+            "account-help.md"
+          ],
+          "hit": true,
+          "recall": 1.0,
+          "reciprocal_rank": 1.0
+        },
+        {
+          "id": "q003",
+          "question": "What are the support hours?",
+          "expected_sources": [
+            "support-hours.md"
+          ],
+          "retrieved_sources": [
+            "support-hours.md",
+            "database-troubleshooting.md"
+          ],
+          "hit": true,
+          "recall": 1.0,
+          "reciprocal_rank": 1.0
+        },
+        {
+          "id": "q004",
+          "question": "Where can I change my account security settings?",
+          "expected_sources": [
+            "account-help.md"
+          ],
+          "retrieved_sources": [
+            "account-help.md",
+            "database-troubleshooting.md"
+          ],
+          "hit": true,
+          "recall": 1.0,
+          "reciprocal_rank": 1.0
+        },
+        {
+          "id": "q005",
+          "question": "Which database connection details should I verify?",
+          "expected_sources": [
+            "database-troubleshooting.md"
+          ],
+          "retrieved_sources": [
+            "database-troubleshooting.md",
+            "account-help.md"
+          ],
+          "hit": true,
+          "recall": 1.0,
+          "reciprocal_rank": 1.0
+        },
+        {
+          "id": "q006",
+          "question": "Is support available on Saturday?",
+          "expected_sources": [
+            "support-hours.md"
+          ],
+          "retrieved_sources": [
+            "support-hours.md",
+            "account-help.md"
+          ],
+          "hit": true,
+          "recall": 1.0,
+          "reciprocal_rank": 1.0
+        },
+        {
+          "id": "q008",
+          "question": "How do I change my account password?",
+          "expected_sources": [
+            "account-help.md"
+          ],
+          "retrieved_sources": [
+            "account-help.md",
+            "database-troubleshooting.md"
+          ],
+          "hit": true,
+          "recall": 1.0,
+          "reciprocal_rank": 1.0
+        }
+      ]
+    },
+    "hybrid": {
+      "top_k": 2,
+      "queries_evaluated": 7,
+      "hit_rate_at_k": 1.0,
+      "recall_at_k": 1.0,
+      "mrr": 1.0,
+      "details": [
+        {
+          "id": "q001",
+          "question": "How do I reset my password?",
+          "expected_sources": [
+            "account-help.md"
+          ],
+          "retrieved_sources": [
+            "account-help.md",
+            "database-troubleshooting.md"
+          ],
+          "hit": true,
+          "recall": 1.0,
+          "reciprocal_rank": 1.0
+        },
+        {
+          "id": "q002",
+          "question": "What should I check when a database connection fails?",
+          "expected_sources": [
+            "database-troubleshooting.md"
+          ],
+          "retrieved_sources": [
+            "database-troubleshooting.md",
+            "support-hours.md"
+          ],
+          "hit": true,
+          "recall": 1.0,
+          "reciprocal_rank": 1.0
+        },
+        {
+          "id": "q003",
+          "question": "What are the support hours?",
+          "expected_sources": [
+            "support-hours.md"
+          ],
+          "retrieved_sources": [
+            "support-hours.md",
+            "database-troubleshooting.md"
+          ],
+          "hit": true,
+          "recall": 1.0,
+          "reciprocal_rank": 1.0
+        },
+        {
+          "id": "q004",
+          "question": "Where can I change my account security settings?",
+          "expected_sources": [
+            "account-help.md"
+          ],
+          "retrieved_sources": [
+            "account-help.md",
+            "database-troubleshooting.md"
+          ],
+          "hit": true,
+          "recall": 1.0,
+          "reciprocal_rank": 1.0
+        },
+        {
+          "id": "q005",
+          "question": "Which database connection details should I verify?",
+          "expected_sources": [
+            "database-troubleshooting.md"
+          ],
+          "retrieved_sources": [
+            "database-troubleshooting.md",
+            "account-help.md"
+          ],
+          "hit": true,
+          "recall": 1.0,
+          "reciprocal_rank": 1.0
+        },
+        {
+          "id": "q006",
+          "question": "Is support available on Saturday?",
+          "expected_sources": [
+            "support-hours.md"
+          ],
+          "retrieved_sources": [
+            "support-hours.md",
+            "database-troubleshooting.md"
+          ],
+          "hit": true,
+          "recall": 1.0,
+          "reciprocal_rank": 1.0
+        },
+        {
+          "id": "q008",
+          "question": "How do I change my account password?",
+          "expected_sources": [
+            "account-help.md"
+          ],
+          "retrieved_sources": [
+            "account-help.md",
+            "database-troubleshooting.md"
+          ],
+          "hit": true,
+          "recall": 1.0,
+          "reciprocal_rank": 1.0
+        }
+      ]
+    }
+  },
+  "limitations": [
+    "Issue flags are heuristics and require manual review.",
+    "Extra retrieved sources are not necessarily irrelevant.",
+    "Abstention flags depend on the correctness of the input labels."
+  ]
+}
