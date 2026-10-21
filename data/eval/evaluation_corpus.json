@@ -1,0 +1,18 @@
+
+[
+  {
+    "text": "To reset your password, open Account Settings, select Security, and click Reset Password.",
+    "source": "account-help.md",
+    "chunk_index": 0
+  },
+  {
+    "text": "For database connection failures, verify the database hostname, port, credentials, and network connectivity.",
+    "source": "database-troubleshooting.md",
+    "chunk_index": 0
+  },
+  {
+    "text": "Support hours are Monday to Friday, 9 AM to 5 PM.",
+    "source": "support-hours.md",
+    "chunk_index": 0
+  }
+]
