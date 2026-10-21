@@ -27,25 +27,36 @@ def load_document(file_path: str | Path) -> Document:
 
     if suffix == ".pdf":
         reader = PdfReader(str(path))
-        text = "\n".join(page.extract_text() or "" for page in reader.pages)
+        raw_text = "\n".join(page.extract_text() or "" for page in reader.pages)
+        text = process_text(raw_text)
 
     elif suffix in {".html", ".htm"}:
-        html = path.read_text(encoding="utf-8")
+        html = path.read_text(encoding="utf-8-sig")
         soup = BeautifulSoup(html, "html.parser")
 
         for element in soup(["script", "style", "noscript"]):
             element.decompose()
 
-        text = soup.get_text(separator=" ", strip=True)
+        if soup.title:
+            soup.title.decompose()
+
+        raw_text = soup.get_text(separator="\n", strip=True)
+        text = process_text(raw_text)
 
     elif suffix in {".md", ".markdown"}:
-        text = path.read_text(encoding="utf-8")
+        raw_text = path.read_text(encoding="utf-8-sig")
+
+        # Clean and redact each line independently.
+        # Preserve Markdown headings and paragraph boundaries.
+        lines = [process_text(line) for line in raw_text.splitlines() if line.strip()]
+
+        text = "\n".join(line for line in lines if line)
 
     else:
         raise ValueError(f"Unsupported file type: {suffix}")
 
     return {
-        "text": process_text(text),
+        "text": text,
         "source": path.name,
         "file_type": suffix.lstrip("."),
     }

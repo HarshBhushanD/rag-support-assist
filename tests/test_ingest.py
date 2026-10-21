@@ -34,7 +34,7 @@ def test_load_markdown_document(tmp_path):
 
     assert document["source"] == "guide.md"
     assert document["file_type"] == "md"
-    assert document["text"] == "Hello Contact [EMAIL_REDACTED]"
+    assert document["text"] == "Hello\nContact [EMAIL_REDACTED]"
 
 
 def test_load_documents_ignores_unsupported_files(tmp_path):
