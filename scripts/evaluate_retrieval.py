@@ -9,6 +9,9 @@ from src.ingest.chunker import chunk_document_recursive
 from src.ingest.loaders import load_documents
 from src.retrieval.retriever import RetrievalEngine
 
+ROOT = PROJECT_ROOT
+EVAL_DIR = ROOT / "data" / "eval"
+
 documents = load_documents("data/raw")
 
 chunks = [

@@ -1,0 +1,964 @@
+{
+  "dataset": "expanded_retrieval_dataset.json",
+  "corpus": "current_data_raw",
+  "chunking": {
+    "strategy": "recursive",
+    "chunk_size": 500,
+    "overlap": 100,
+    "total_chunks": 3,
+    "chunks_per_source": {
+      "api-help.html": 1,
+      "auth-help.md": 1,
+      "troubleshooting.md": 1
+    }
+  },
+  "answerable_questions": 10,
+  "unanswerable_questions": 5,
+  "notes": [
+    "Retrieval relevance is assessed using expected source filenames.",
+    "Unanswerable retrieval metrics do not measure generated-answer abstention.",
+    "No existing baseline or Day 11 result file is overwritten."
+  ],
+  "retrieval_metrics": {
+    "dense": {
+      "top_k": 2,
+      "queries_evaluated": 15,
+      "answerable_queries": 10,
+      "unanswerable_queries": 5,
+      "hit_rate_at_k": 1.0,
+      "recall_at_k": 0.95,
+      "mrr": 1.0,
+      "all_sources_recall_at_k": 0.9,
+      "unanswerable_empty_retrieval_rate": 0.0,
+      "unanswerable_returned_results_rate": 1.0,
+      "details": [
+        {
+          "id": "ex001",
+          "question": "My login is failing. What should I investigate?",
+          "expected_sources": [
+            "auth-help.md"
+          ],
+          "retrieved_sources": [
+            "auth-help.md",
+            "api-help.html"
+          ],
+          "is_unanswerable": false,
+          "hit": true,
+          "all_sources_found": true,
+          "recall": 1.0,
+          "reciprocal_rank": 1.0
+        },
+        {
+          "id": "ex002",
+          "question": "How can I fix an expired authentication token?",
+          "expected_sources": [
+            "auth-help.md"
+          ],
+          "retrieved_sources": [
+            "auth-help.md",
+            "api-help.html"
+          ],
+          "is_unanswerable": false,
+          "hit": true,
+          "all_sources_found": true,
+          "recall": 1.0,
+          "reciprocal_rank": 1.0
+        },
+        {
+          "id": "ex003",
+          "question": "What should I do after discovering that my API token is invalid?",
+          "expected_sources": [
+            "auth-help.md"
+          ],
+          "retrieved_sources": [
+            "auth-help.md",
+            "api-help.html"
+          ],
+          "is_unanswerable": false,
+          "hit": true,
+          "all_sources_found": true,
+          "recall": 1.0,
+          "reciprocal_rank": 1.0
+        },
+        {
+          "id": "ex004",
+          "question": "Is it safe to include authentication secrets in a support ticket?",
+          "expected_sources": [
+            "auth-help.md"
+          ],
+          "retrieved_sources": [
+            "auth-help.md",
+            "api-help.html"
+          ],
+          "is_unanswerable": false,
+          "hit": true,
+          "all_sources_found": true,
+          "recall": 1.0,
+          "reciprocal_rank": 1.0
+        },
+        {
+          "id": "ex005",
+          "question": "A database connection is failing. Which settings and services should I inspect?",
+          "expected_sources": [
+            "troubleshooting.md"
+          ],
+          "retrieved_sources": [
+            "troubleshooting.md",
+            "api-help.html"
+          ],
+          "is_unanswerable": false,
+          "hit": true,
+          "all_sources_found": true,
+          "recall": 1.0,
+          "reciprocal_rank": 1.0
+        },
+        {
+          "id": "ex006",
+          "question": "What network and connection details are relevant to database troubleshooting?",
+          "expected_sources": [
+            "troubleshooting.md"
+          ],
+          "retrieved_sources": [
+            "troubleshooting.md",
+            "api-help.html"
+          ],
+          "is_unanswerable": false,
+          "hit": true,
+          "all_sources_found": true,
+          "recall": 1.0,
+          "reciprocal_rank": 1.0
+        },
+        {
+          "id": "ex007",
+          "question": "Where should database passwords be stored according to the troubleshooting guide?",
+          "expected_sources": [
+            "troubleshooting.md"
+          ],
+          "retrieved_sources": [
+            "troubleshooting.md",
+            "auth-help.md"
+          ],
+          "is_unanswerable": false,
+          "hit": true,
+          "all_sources_found": true,
+          "recall": 1.0,
+          "reciprocal_rank": 1.0
+        },
+        {
+          "id": "ex008",
+          "question": "Which parts of an API request should I check when troubleshooting a failure?",
+          "expected_sources": [
+            "api-help.html"
+          ],
+          "retrieved_sources": [
+            "api-help.html",
+            "auth-help.md"
+          ],
+          "is_unanswerable": false,
+          "hit": true,
+          "all_sources_found": true,
+          "recall": 1.0,
+          "reciprocal_rank": 1.0
+        },
+        {
+          "id": "ex009",
+          "question": "Does API troubleshooting include checking the HTTP method?",
+          "expected_sources": [
+            "api-help.html"
+          ],
+          "retrieved_sources": [
+            "api-help.html",
+            "auth-help.md"
+          ],
+          "is_unanswerable": false,
+          "hit": true,
+          "all_sources_found": true,
+          "recall": 1.0,
+          "reciprocal_rank": 1.0
+        },
+        {
+          "id": "ex010",
+          "question": "What should I verify if both login and database connectivity are failing?",
+          "expected_sources": [
+            "auth-help.md",
+            "troubleshooting.md"
+          ],
+          "retrieved_sources": [
+            "troubleshooting.md",
+            "api-help.html"
+          ],
+          "is_unanswerable": false,
+          "hit": true,
+          "all_sources_found": false,
+          "recall": 0.5,
+          "reciprocal_rank": 1.0
+        },
+        {
+          "id": "ex011",
+          "question": "How do I reset a forgotten password using the account recovery page?",
+          "expected_sources": [],
+          "retrieved_sources": [
+            "auth-help.md",
+            "troubleshooting.md"
+          ],
+          "is_unanswerable": true,
+          "returned_results": true,
+          "empty_retrieval": false
+        },
+        {
+          "id": "ex012",
+          "question": "What are the support team's working hours and contact number?",
+          "expected_sources": [],
+          "retrieved_sources": [
+            "auth-help.md",
+            "api-help.html"
+          ],
+          "is_unanswerable": true,
+          "returned_results": true,
+          "empty_retrieval": false
+        },
+        {
+          "id": "ex013",
+          "question": "Which cloud provider hosts the database?",
+          "expected_sources": [],
+          "retrieved_sources": [
+            "troubleshooting.md",
+            "api-help.html"
+          ],
+          "is_unanswerable": true,
+          "returned_results": true,
+          "empty_retrieval": false
+        },
+        {
+          "id": "ex014",
+          "question": "What is the maximum number of API requests allowed per minute?",
+          "expected_sources": [],
+          "retrieved_sources": [
+            "api-help.html",
+            "auth-help.md"
+          ],
+          "is_unanswerable": true,
+          "returned_results": true,
+          "empty_retrieval": false
+        },
+        {
+          "id": "ex015",
+          "question": "What is the database server's hostname and port number?",
+          "expected_sources": [],
+          "retrieved_sources": [
+            "troubleshooting.md",
+            "api-help.html"
+          ],
+          "is_unanswerable": true,
+          "returned_results": true,
+          "empty_retrieval": false
+        }
+      ]
+    },
+    "bm25": {
+      "top_k": 2,
+      "queries_evaluated": 15,
+      "answerable_queries": 10,
+      "unanswerable_queries": 5,
+      "hit_rate_at_k": 1.0,
+      "recall_at_k": 1.0,
+      "mrr": 0.95,
+      "all_sources_recall_at_k": 1.0,
+      "unanswerable_empty_retrieval_rate": 0.0,
+      "unanswerable_returned_results_rate": 1.0,
+      "details": [
+        {
+          "id": "ex001",
+          "question": "My login is failing. What should I investigate?",
+          "expected_sources": [
+            "auth-help.md"
+          ],
+          "retrieved_sources": [
+            "troubleshooting.md",
+            "auth-help.md"
+          ],
+          "is_unanswerable": false,
+          "hit": true,
+          "all_sources_found": true,
+          "recall": 1.0,
+          "reciprocal_rank": 0.5
+        },
+        {
+          "id": "ex002",
+          "question": "How can I fix an expired authentication token?",
+          "expected_sources": [
+            "auth-help.md"
+          ],
+          "retrieved_sources": [
+            "auth-help.md",
+            "api-help.html"
+          ],
+          "is_unanswerable": false,
+          "hit": true,
+          "all_sources_found": true,
+          "recall": 1.0,
+          "reciprocal_rank": 1.0
+        },
+        {
+          "id": "ex003",
+          "question": "What should I do after discovering that my API token is invalid?",
+          "expected_sources": [
+            "auth-help.md"
+          ],
+          "retrieved_sources": [
+            "auth-help.md",
+            "troubleshooting.md"
+          ],
+          "is_unanswerable": false,
+          "hit": true,
+          "all_sources_found": true,
+          "recall": 1.0,
+          "reciprocal_rank": 1.0
+        },
+        {
+          "id": "ex004",
+          "question": "Is it safe to include authentication secrets in a support ticket?",
+          "expected_sources": [
+            "auth-help.md"
+          ],
+          "retrieved_sources": [
+            "auth-help.md",
+            "troubleshooting.md"
+          ],
+          "is_unanswerable": false,
+          "hit": true,
+          "all_sources_found": true,
+          "recall": 1.0,
+          "reciprocal_rank": 1.0
+        },
+        {
+          "id": "ex005",
+          "question": "A database connection is failing. Which settings and services should I inspect?",
+          "expected_sources": [
+            "troubleshooting.md"
+          ],
+          "retrieved_sources": [
+            "troubleshooting.md",
+            "auth-help.md"
+          ],
+          "is_unanswerable": false,
+          "hit": true,
+          "all_sources_found": true,
+          "recall": 1.0,
+          "reciprocal_rank": 1.0
+        },
+        {
+          "id": "ex006",
+          "question": "What network and connection details are relevant to database troubleshooting?",
+          "expected_sources": [
+            "troubleshooting.md"
+          ],
+          "retrieved_sources": [
+            "troubleshooting.md",
+            "api-help.html"
+          ],
+          "is_unanswerable": false,
+          "hit": true,
+          "all_sources_found": true,
+          "recall": 1.0,
+          "reciprocal_rank": 1.0
+        },
+        {
+          "id": "ex007",
+          "question": "Where should database passwords be stored according to the troubleshooting guide?",
+          "expected_sources": [
+            "troubleshooting.md"
+          ],
+          "retrieved_sources": [
+            "troubleshooting.md",
+            "api-help.html"
+          ],
+          "is_unanswerable": false,
+          "hit": true,
+          "all_sources_found": true,
+          "recall": 1.0,
+          "reciprocal_rank": 1.0
+        },
+        {
+          "id": "ex008",
+          "question": "Which parts of an API request should I check when troubleshooting a failure?",
+          "expected_sources": [
+            "api-help.html"
+          ],
+          "retrieved_sources": [
+            "api-help.html",
+            "auth-help.md"
+          ],
+          "is_unanswerable": false,
+          "hit": true,
+          "all_sources_found": true,
+          "recall": 1.0,
+          "reciprocal_rank": 1.0
+        },
+        {
+          "id": "ex009",
+          "question": "Does API troubleshooting include checking the HTTP method?",
+          "expected_sources": [
+            "api-help.html"
+          ],
+          "retrieved_sources": [
+            "api-help.html",
+            "auth-help.md"
+          ],
+          "is_unanswerable": false,
+          "hit": true,
+          "all_sources_found": true,
+          "recall": 1.0,
+          "reciprocal_rank": 1.0
+        },
+        {
+          "id": "ex010",
+          "question": "What should I verify if both login and database connectivity are failing?",
+          "expected_sources": [
+            "auth-help.md",
+            "troubleshooting.md"
+          ],
+          "retrieved_sources": [
+            "troubleshooting.md",
+            "auth-help.md"
+          ],
+          "is_unanswerable": false,
+          "hit": true,
+          "all_sources_found": true,
+          "recall": 1.0,
+          "reciprocal_rank": 1.0
+        },
+        {
+          "id": "ex011",
+          "question": "How do I reset a forgotten password using the account recovery page?",
+          "expected_sources": [],
+          "retrieved_sources": [
+            "auth-help.md",
+            "troubleshooting.md"
+          ],
+          "is_unanswerable": true,
+          "returned_results": true,
+          "empty_retrieval": false
+        },
+        {
+          "id": "ex012",
+          "question": "What are the support team's working hours and contact number?",
+          "expected_sources": [],
+          "retrieved_sources": [
+            "auth-help.md",
+            "api-help.html"
+          ],
+          "is_unanswerable": true,
+          "returned_results": true,
+          "empty_retrieval": false
+        },
+        {
+          "id": "ex013",
+          "question": "Which cloud provider hosts the database?",
+          "expected_sources": [],
+          "retrieved_sources": [
+            "troubleshooting.md",
+            "api-help.html"
+          ],
+          "is_unanswerable": true,
+          "returned_results": true,
+          "empty_retrieval": false
+        },
+        {
+          "id": "ex014",
+          "question": "What is the maximum number of API requests allowed per minute?",
+          "expected_sources": [],
+          "retrieved_sources": [
+            "troubleshooting.md",
+            "api-help.html"
+          ],
+          "is_unanswerable": true,
+          "returned_results": true,
+          "empty_retrieval": false
+        },
+        {
+          "id": "ex015",
+          "question": "What is the database server's hostname and port number?",
+          "expected_sources": [],
+          "retrieved_sources": [
+            "troubleshooting.md",
+            "api-help.html"
+          ],
+          "is_unanswerable": true,
+          "returned_results": true,
+          "empty_retrieval": false
+        }
+      ]
+    },
+    "hybrid": {
+      "top_k": 2,
+      "queries_evaluated": 15,
+      "answerable_queries": 10,
+      "unanswerable_queries": 5,
+      "hit_rate_at_k": 1.0,
+      "recall_at_k": 0.95,
+      "mrr": 1.0,
+      "all_sources_recall_at_k": 0.9,
+      "unanswerable_empty_retrieval_rate": 0.0,
+      "unanswerable_returned_results_rate": 1.0,
+      "details": [
+        {
+          "id": "ex001",
+          "question": "My login is failing. What should I investigate?",
+          "expected_sources": [
+            "auth-help.md"
+          ],
+          "retrieved_sources": [
+            "auth-help.md",
+            "troubleshooting.md"
+          ],
+          "is_unanswerable": false,
+          "hit": true,
+          "all_sources_found": true,
+          "recall": 1.0,
+          "reciprocal_rank": 1.0
+        },
+        {
+          "id": "ex002",
+          "question": "How can I fix an expired authentication token?",
+          "expected_sources": [
+            "auth-help.md"
+          ],
+          "retrieved_sources": [
+            "auth-help.md",
+            "api-help.html"
+          ],
+          "is_unanswerable": false,
+          "hit": true,
+          "all_sources_found": true,
+          "recall": 1.0,
+          "reciprocal_rank": 1.0
+        },
+        {
+          "id": "ex003",
+          "question": "What should I do after discovering that my API token is invalid?",
+          "expected_sources": [
+            "auth-help.md"
+          ],
+          "retrieved_sources": [
+            "auth-help.md",
+            "api-help.html"
+          ],
+          "is_unanswerable": false,
+          "hit": true,
+          "all_sources_found": true,
+          "recall": 1.0,
+          "reciprocal_rank": 1.0
+        },
+        {
+          "id": "ex004",
+          "question": "Is it safe to include authentication secrets in a support ticket?",
+          "expected_sources": [
+            "auth-help.md"
+          ],
+          "retrieved_sources": [
+            "auth-help.md",
+            "api-help.html"
+          ],
+          "is_unanswerable": false,
+          "hit": true,
+          "all_sources_found": true,
+          "recall": 1.0,
+          "reciprocal_rank": 1.0
+        },
+        {
+          "id": "ex005",
+          "question": "A database connection is failing. Which settings and services should I inspect?",
+          "expected_sources": [
+            "troubleshooting.md"
+          ],
+          "retrieved_sources": [
+            "troubleshooting.md",
+            "api-help.html"
+          ],
+          "is_unanswerable": false,
+          "hit": true,
+          "all_sources_found": true,
+          "recall": 1.0,
+          "reciprocal_rank": 1.0
+        },
+        {
+          "id": "ex006",
+          "question": "What network and connection details are relevant to database troubleshooting?",
+          "expected_sources": [
+            "troubleshooting.md"
+          ],
+          "retrieved_sources": [
+            "troubleshooting.md",
+            "api-help.html"
+          ],
+          "is_unanswerable": false,
+          "hit": true,
+          "all_sources_found": true,
+          "recall": 1.0,
+          "reciprocal_rank": 1.0
+        },
+        {
+          "id": "ex007",
+          "question": "Where should database passwords be stored according to the troubleshooting guide?",
+          "expected_sources": [
+            "troubleshooting.md"
+          ],
+          "retrieved_sources": [
+            "troubleshooting.md",
+            "auth-help.md"
+          ],
+          "is_unanswerable": false,
+          "hit": true,
+          "all_sources_found": true,
+          "recall": 1.0,
+          "reciprocal_rank": 1.0
+        },
+        {
+          "id": "ex008",
+          "question": "Which parts of an API request should I check when troubleshooting a failure?",
+          "expected_sources": [
+            "api-help.html"
+          ],
+          "retrieved_sources": [
+            "api-help.html",
+            "auth-help.md"
+          ],
+          "is_unanswerable": false,
+          "hit": true,
+          "all_sources_found": true,
+          "recall": 1.0,
+          "reciprocal_rank": 1.0
+        },
+        {
+          "id": "ex009",
+          "question": "Does API troubleshooting include checking the HTTP method?",
+          "expected_sources": [
+            "api-help.html"
+          ],
+          "retrieved_sources": [
+            "api-help.html",
+            "auth-help.md"
+          ],
+          "is_unanswerable": false,
+          "hit": true,
+          "all_sources_found": true,
+          "recall": 1.0,
+          "reciprocal_rank": 1.0
+        },
+        {
+          "id": "ex010",
+          "question": "What should I verify if both login and database connectivity are failing?",
+          "expected_sources": [
+            "auth-help.md",
+            "troubleshooting.md"
+          ],
+          "retrieved_sources": [
+            "troubleshooting.md",
+            "api-help.html"
+          ],
+          "is_unanswerable": false,
+          "hit": true,
+          "all_sources_found": false,
+          "recall": 0.5,
+          "reciprocal_rank": 1.0
+        },
+        {
+          "id": "ex011",
+          "question": "How do I reset a forgotten password using the account recovery page?",
+          "expected_sources": [],
+          "retrieved_sources": [
+            "auth-help.md",
+            "troubleshooting.md"
+          ],
+          "is_unanswerable": true,
+          "returned_results": true,
+          "empty_retrieval": false
+        },
+        {
+          "id": "ex012",
+          "question": "What are the support team's working hours and contact number?",
+          "expected_sources": [],
+          "retrieved_sources": [
+            "auth-help.md",
+            "api-help.html"
+          ],
+          "is_unanswerable": true,
+          "returned_results": true,
+          "empty_retrieval": false
+        },
+        {
+          "id": "ex013",
+          "question": "Which cloud provider hosts the database?",
+          "expected_sources": [],
+          "retrieved_sources": [
+            "troubleshooting.md",
+            "api-help.html"
+          ],
+          "is_unanswerable": true,
+          "returned_results": true,
+          "empty_retrieval": false
+        },
+        {
+          "id": "ex014",
+          "question": "What is the maximum number of API requests allowed per minute?",
+          "expected_sources": [],
+          "retrieved_sources": [
+            "api-help.html",
+            "troubleshooting.md"
+          ],
+          "is_unanswerable": true,
+          "returned_results": true,
+          "empty_retrieval": false
+        },
+        {
+          "id": "ex015",
+          "question": "What is the database server's hostname and port number?",
+          "expected_sources": [],
+          "retrieved_sources": [
+            "troubleshooting.md",
+            "api-help.html"
+          ],
+          "is_unanswerable": true,
+          "returned_results": true,
+          "empty_retrieval": false
+        }
+      ]
+    },
+    "reranked_hybrid": {
+      "top_k": 2,
+      "queries_evaluated": 15,
+      "answerable_queries": 10,
+      "unanswerable_queries": 5,
+      "hit_rate_at_k": 1.0,
+      "recall_at_k": 1.0,
+      "mrr": 1.0,
+      "all_sources_recall_at_k": 1.0,
+      "unanswerable_empty_retrieval_rate": 0.0,
+      "unanswerable_returned_results_rate": 1.0,
+      "details": [
+        {
+          "id": "ex001",
+          "question": "My login is failing. What should I investigate?",
+          "expected_sources": [
+            "auth-help.md"
+          ],
+          "retrieved_sources": [
+            "auth-help.md",
+            "troubleshooting.md"
+          ],
+          "is_unanswerable": false,
+          "hit": true,
+          "all_sources_found": true,
+          "recall": 1.0,
+          "reciprocal_rank": 1.0
+        },
+        {
+          "id": "ex002",
+          "question": "How can I fix an expired authentication token?",
+          "expected_sources": [
+            "auth-help.md"
+          ],
+          "retrieved_sources": [
+            "auth-help.md",
+            "api-help.html"
+          ],
+          "is_unanswerable": false,
+          "hit": true,
+          "all_sources_found": true,
+          "recall": 1.0,
+          "reciprocal_rank": 1.0
+        },
+        {
+          "id": "ex003",
+          "question": "What should I do after discovering that my API token is invalid?",
+          "expected_sources": [
+            "auth-help.md"
+          ],
+          "retrieved_sources": [
+            "auth-help.md",
+            "api-help.html"
+          ],
+          "is_unanswerable": false,
+          "hit": true,
+          "all_sources_found": true,
+          "recall": 1.0,
+          "reciprocal_rank": 1.0
+        },
+        {
+          "id": "ex004",
+          "question": "Is it safe to include authentication secrets in a support ticket?",
+          "expected_sources": [
+            "auth-help.md"
+          ],
+          "retrieved_sources": [
+            "auth-help.md",
+            "api-help.html"
+          ],
+          "is_unanswerable": false,
+          "hit": true,
+          "all_sources_found": true,
+          "recall": 1.0,
+          "reciprocal_rank": 1.0
+        },
+        {
+          "id": "ex005",
+          "question": "A database connection is failing. Which settings and services should I inspect?",
+          "expected_sources": [
+            "troubleshooting.md"
+          ],
+          "retrieved_sources": [
+            "troubleshooting.md",
+            "api-help.html"
+          ],
+          "is_unanswerable": false,
+          "hit": true,
+          "all_sources_found": true,
+          "recall": 1.0,
+          "reciprocal_rank": 1.0
+        },
+        {
+          "id": "ex006",
+          "question": "What network and connection details are relevant to database troubleshooting?",
+          "expected_sources": [
+            "troubleshooting.md"
+          ],
+          "retrieved_sources": [
+            "troubleshooting.md",
+            "api-help.html"
+          ],
+          "is_unanswerable": false,
+          "hit": true,
+          "all_sources_found": true,
+          "recall": 1.0,
+          "reciprocal_rank": 1.0
+        },
+        {
+          "id": "ex007",
+          "question": "Where should database passwords be stored according to the troubleshooting guide?",
+          "expected_sources": [
+            "troubleshooting.md"
+          ],
+          "retrieved_sources": [
+            "troubleshooting.md",
+            "api-help.html"
+          ],
+          "is_unanswerable": false,
+          "hit": true,
+          "all_sources_found": true,
+          "recall": 1.0,
+          "reciprocal_rank": 1.0
+        },
+        {
+          "id": "ex008",
+          "question": "Which parts of an API request should I check when troubleshooting a failure?",
+          "expected_sources": [
+            "api-help.html"
+          ],
+          "retrieved_sources": [
+            "api-help.html",
+            "auth-help.md"
+          ],
+          "is_unanswerable": false,
+          "hit": true,
+          "all_sources_found": true,
+          "recall": 1.0,
+          "reciprocal_rank": 1.0
+        },
+        {
+          "id": "ex009",
+          "question": "Does API troubleshooting include checking the HTTP method?",
+          "expected_sources": [
+            "api-help.html"
+          ],
+          "retrieved_sources": [
+            "api-help.html",
+            "auth-help.md"
+          ],
+          "is_unanswerable": false,
+          "hit": true,
+          "all_sources_found": true,
+          "recall": 1.0,
+          "reciprocal_rank": 1.0
+        },
+        {
+          "id": "ex010",
+          "question": "What should I verify if both login and database connectivity are failing?",
+          "expected_sources": [
+            "auth-help.md",
+            "troubleshooting.md"
+          ],
+          "retrieved_sources": [
+            "troubleshooting.md",
+            "auth-help.md"
+          ],
+          "is_unanswerable": false,
+          "hit": true,
+          "all_sources_found": true,
+          "recall": 1.0,
+          "reciprocal_rank": 1.0
+        },
+        {
+          "id": "ex011",
+          "question": "How do I reset a forgotten password using the account recovery page?",
+          "expected_sources": [],
+          "retrieved_sources": [
+            "auth-help.md",
+            "troubleshooting.md"
+          ],
+          "is_unanswerable": true,
+          "returned_results": true,
+          "empty_retrieval": false
+        },
+        {
+          "id": "ex012",
+          "question": "What are the support team's working hours and contact number?",
+          "expected_sources": [],
+          "retrieved_sources": [
+            "auth-help.md",
+            "api-help.html"
+          ],
+          "is_unanswerable": true,
+          "returned_results": true,
+          "empty_retrieval": false
+        },
+        {
+          "id": "ex013",
+          "question": "Which cloud provider hosts the database?",
+          "expected_sources": [],
+          "retrieved_sources": [
+            "troubleshooting.md",
+            "api-help.html"
+          ],
+          "is_unanswerable": true,
+          "returned_results": true,
+          "empty_retrieval": false
+        },
+        {
+          "id": "ex014",
+          "question": "What is the maximum number of API requests allowed per minute?",
+          "expected_sources": [],
+          "retrieved_sources": [
+            "api-help.html",
+            "auth-help.md"
+          ],
+          "is_unanswerable": true,
+          "returned_results": true,
+          "empty_retrieval": false
+        },
+        {
+          "id": "ex015",
+          "question": "What is the database server's hostname and port number?",
+          "expected_sources": [],
+          "retrieved_sources": [
+            "troubleshooting.md",
+            "api-help.html"
+          ],
+          "is_unanswerable": true,
+          "returned_results": true,
+          "empty_retrieval": false
+        }
+      ]
+    }
+  }
+}

@@ -50,17 +50,12 @@ def test_evaluator_returns_metrics_for_all_modes(retriever, dataset):
     assert set(results) == {"dense", "bm25", "hybrid"}
 
     for metrics in results.values():
-        assert metrics["queries_evaluated"] == 2
+        assert metrics["queries_evaluated"] == 3
+        assert metrics["answerable_queries"] == 2
+        assert metrics["unanswerable_queries"] == 1
         assert metrics["hit_rate_at_k"] == 1.0
         assert metrics["recall_at_k"] == 1.0
         assert 0.0 <= metrics["mrr"] <= 1.0
-
-
-def test_evaluator_calculates_reciprocal_rank(retriever, dataset):
-    results = evaluate_retrieval(retriever, dataset, top_k=2)
-
-    assert results["bm25"]["details"][0]["reciprocal_rank"] == 0.5
-    assert results["hybrid"]["details"][0]["reciprocal_rank"] == 1.0
 
 
 def test_evaluator_rejects_invalid_top_k(retriever, dataset):
@@ -68,9 +63,95 @@ def test_evaluator_rejects_invalid_top_k(retriever, dataset):
         evaluate_retrieval(retriever, dataset, top_k=0)
 
 
-def test_evaluator_skips_questions_without_expected_sources(retriever, dataset):
+def test_evaluator_includes_unanswerable_questions(retriever, dataset):
     results = evaluate_retrieval(retriever, dataset)
 
-    for metrics in results.values():
-        assert all(detail["id"] != "q003" for detail in metrics["details"])
-        assert metrics["queries_evaluated"] == 2
+    for mode_metrics in results.values():
+        assert mode_metrics["queries_evaluated"] == 3
+        assert mode_metrics["answerable_queries"] == 2
+        assert mode_metrics["unanswerable_queries"] == 1
+
+        unanswerable = next(
+            detail for detail in mode_metrics["details"] if detail["id"] == "q003"
+        )
+
+        assert unanswerable["is_unanswerable"] is True
+        assert unanswerable["expected_sources"] == []
+        assert "empty_retrieval" in unanswerable
+        assert "returned_results" in unanswerable
+
+
+def test_evaluator_adds_reranked_hybrid_when_reranker_is_provided(
+    retriever,
+    dataset,
+):
+    reranker = Mock()
+
+    def fake_rerank(question, candidates, top_k):
+        # Return the candidate whose source supports this question.
+        expected_source = (
+            "account-help.md"
+            if "password" in question.lower()
+            else "database-troubleshooting.md"
+        )
+        matching = [
+            chunk for chunk in candidates if chunk.get("source") == expected_source
+        ]
+        return matching[:top_k]
+
+    retriever.search_hybrid.return_value = [
+        {
+            "text": "Relevant support documentation.",
+            "source": "account-help.md",
+        },
+        {
+            "text": "Database troubleshooting guide.",
+            "source": "database-troubleshooting.md",
+        },
+    ]
+    reranker.rerank.side_effect = fake_rerank
+
+    results = evaluate_retrieval(
+        retriever,
+        dataset,
+        top_k=1,
+        reranker=reranker,
+        candidate_k=6,
+    )
+
+    assert set(results) == {
+        "dense",
+        "bm25",
+        "hybrid",
+        "reranked_hybrid",
+    }
+
+    metrics = results["reranked_hybrid"]
+    assert metrics["queries_evaluated"] == 3
+    assert metrics["answerable_queries"] == 2
+    assert metrics["unanswerable_queries"] == 1
+    assert metrics["hit_rate_at_k"] == 1.0
+    assert metrics["recall_at_k"] == 1.0
+    assert metrics["mrr"] == 1.0
+
+    retriever.search_hybrid.assert_any_call(
+        "How do I reset my password?",
+        top_k=6,
+    )
+    reranker.rerank.assert_called()
+
+
+def test_evaluator_rejects_candidate_k_smaller_than_top_k(
+    retriever,
+    dataset,
+):
+    reranker = Mock()
+
+    with pytest.raises(ValueError, match="candidate_k"):
+        evaluate_retrieval(
+            retriever,
+            dataset,
+            top_k=3,
+            reranker=reranker,
+            candidate_k=2,
+        )

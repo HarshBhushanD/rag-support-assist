@@ -100,3 +100,90 @@ def test_retrieve_rejects_empty_question(retriever):
 def test_pipeline_rejects_invalid_configuration(retriever, kwargs, message):
     with pytest.raises(ValueError, match=message):
         RAGPipeline(retriever, **kwargs)
+
+
+def test_pipeline_reranks_candidates_before_generation(retriever):
+    from unittest.mock import Mock, patch
+
+    candidates = [
+        {"text": "Password reset instructions.", "source": "account.md"},
+        {"text": "Database hostname configuration.", "source": "database.md"},
+        {"text": "API token authentication.", "source": "api.md"},
+        {"text": "Other technical documentation.", "source": "other.md"},
+        {"text": "Network troubleshooting.", "source": "network.md"},
+        {"text": "Deployment instructions.", "source": "deploy.md"},
+    ]
+
+    reranked_chunks = [
+        {**candidates[1], "reranker_score": 0.95},
+        {**candidates[4], "reranker_score": 0.85},
+    ]
+
+    retriever.search_hybrid.return_value = candidates
+    reranker = Mock()
+    reranker.rerank.return_value = reranked_chunks
+
+    with patch(
+        "src.pipeline.rag_pipeline.generate_answer",
+        return_value={
+            "answer": "Check the database hostname.",
+            "sources": ["database.md"],
+        },
+    ) as mock_generate:
+        pipeline = RAGPipeline(
+            retriever,
+            retrieval_mode="hybrid",
+            top_k=2,
+            reranker=reranker,
+            candidate_k=6,
+        )
+
+        result = pipeline.ask("How do I connect to the database?")
+
+    retriever.search_hybrid.assert_called_once_with(
+        "How do I connect to the database?",
+        top_k=6,
+    )
+    reranker.rerank.assert_called_once_with(
+        "How do I connect to the database?",
+        candidates,
+        top_k=2,
+    )
+    mock_generate.assert_called_once_with(
+        question="How do I connect to the database?",
+        context_chunks=reranked_chunks,
+        max_new_tokens=160,
+    )
+    assert result["retrieved_chunks"] == reranked_chunks
+
+
+def test_pipeline_rejects_candidate_k_smaller_than_top_k(retriever):
+    with pytest.raises(ValueError, match="candidate_k"):
+        RAGPipeline(
+            retriever,
+            top_k=3,
+            candidate_k=2,
+        )
+
+
+def test_pipeline_without_reranker_keeps_existing_retrieval(retriever):
+    chunks = [
+        {"text": "First chunk.", "source": "first.md"},
+        {"text": "Second chunk.", "source": "second.md"},
+        {"text": "Third chunk.", "source": "third.md"},
+    ]
+    retriever.search_hybrid.return_value = chunks
+
+    pipeline = RAGPipeline(
+        retriever,
+        top_k=2,
+        reranker=None,
+    )
+
+    result = pipeline.retrieve("Example question?")
+
+    retriever.search_hybrid.assert_called_once_with(
+        "Example question?",
+        top_k=2,
+    )
+    assert result == chunks[:2]

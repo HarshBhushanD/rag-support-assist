@@ -1,0 +1,33 @@
+
+[
+  {
+    "id": "cs001",
+    "question": "What should I verify if login fails?",
+    "expected_sources": ["auth-help.md"]
+  },
+  {
+    "id": "cs002",
+    "question": "What should I do if an API token is invalid?",
+    "expected_sources": ["auth-help.md"]
+  },
+  {
+    "id": "cs003",
+    "question": "What should I check when a database connection fails?",
+    "expected_sources": ["troubleshooting.md"]
+  },
+  {
+    "id": "cs004",
+    "question": "Why should database passwords not be stored in source code?",
+    "expected_sources": ["troubleshooting.md"]
+  },
+  {
+    "id": "cs005",
+    "question": "What should I check when an API request fails?",
+    "expected_sources": ["api-help.html"]
+  },
+  {
+    "id": "cs006",
+    "question": "Which request details should I verify when troubleshooting an API?",
+    "expected_sources": ["api-help.html"]
+  }
+]

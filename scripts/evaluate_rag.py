@@ -4,6 +4,7 @@ from pathlib import Path
 from src.evaluation.evaluator import evaluate_retrieval
 from src.evaluation.mlflow_tracker import log_retrieval_experiment
 from src.pipeline.rag_pipeline import RAGPipeline
+from src.retrieval.reranker import CrossEncoderReranker
 from src.retrieval.retriever import RetrievalEngine
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -24,13 +25,23 @@ def main() -> None:
         chunks=chunks,
         collection_name="day7_evaluation",
     )
+    print("\nLoading CrossEncoder reranker...")
+    reranker = CrossEncoderReranker()
 
     print("\nEvaluating retrieval modes...")
     retrieval_results = evaluate_retrieval(
         retriever=retriever,
         dataset=dataset,
         top_k=2,
+        reranker=reranker,
+        candidate_k=6,
     )
+    # print("\nEvaluating retrieval modes...")
+    # retrieval_results = evaluate_retrieval(
+    #     retriever=retriever,
+    #     dataset=dataset,
+    #     top_k=2,
+    # )
 
     print("\n--- Retrieval Metrics ---")
     for mode, metrics in retrieval_results.items():
@@ -47,43 +58,60 @@ def main() -> None:
     )
     print(f"\nMLflow run ID: {run_id}")
 
-    pipeline = RAGPipeline(
+    answer_results = []
+
+    print("\nGenerating hybrid and reranked hybrid RAG answers...")
+
+    fallback = (
+        "i don't have enough information in the provided documents "
+        "to answer that question."
+    )
+
+    hybrid_pipeline = RAGPipeline(
         retriever=retriever,
         retrieval_mode="hybrid",
         top_k=2,
-        max_new_tokens=100,
+        max_new_tokens=160,
     )
 
-    answer_results = []
+    reranked_pipeline = RAGPipeline(
+        retriever=retriever,
+        retrieval_mode="hybrid",
+        top_k=2,
+        max_new_tokens=160,
+        reranker=reranker,
+        candidate_k=6,
+    )
 
-    print("\nGenerating hybrid RAG answers...")
     for item in dataset:
         print(f"\nEvaluating {item['id']}: {item['question']}")
-        result = pipeline.ask(item["question"])
 
-        fallback = (
-            "i don't have enough information in the provided documents "
-            "to answer that question."
-        )
-        abstained = fallback in result["answer"].lower()
+        for mode, active_pipeline in [
+            ("hybrid", hybrid_pipeline),
+            ("reranked_hybrid", reranked_pipeline),
+        ]:
+            result = active_pipeline.ask(item["question"])
+            abstained = fallback in result["answer"].lower()
 
-        answer_results.append(
-            {
-                "id": item["id"],
-                "question": item["question"],
-                "expected_answer": item["expected_answer"],
-                "answerable": item["answerable"],
-                "answer": result["answer"],
-                "expected_sources": item["expected_sources"],
-                "retrieved_sources": result["sources"],
-                "abstained": abstained,
-                "abstention_correct": (abstained == (not item["answerable"])),
-                "manual_review_required": True,
-            }
-        )
+            answer_results.append(
+                {
+                    "id": item["id"],
+                    "question": item["question"],
+                    "mode": mode,
+                    "expected_answer": item["expected_answer"],
+                    "answerable": item["answerable"],
+                    "answer": result["answer"],
+                    "expected_sources": item["expected_sources"],
+                    "retrieved_sources": result["sources"],
+                    "abstained": abstained,
+                    "abstention_correct": (abstained == (not item["answerable"])),
+                    "manual_review_required": True,
+                }
+            )
 
-        print(f"Answer: {result['answer']}")
-        print(f"Sources: {result['sources']}")
+            print(f"\nMode: {mode}")
+            print(f"Answer: {result['answer']}")
+            print(f"Sources: {result['sources']}")
 
     output = {
         "dataset": "golden_dataset.json",
@@ -94,6 +122,8 @@ def main() -> None:
             "This is a small controlled evaluation corpus.",
             "Answer correctness and groundedness require manual review.",
             "Abstention correctness uses the exact configured fallback phrase.",
+            "Answers are generated separately using hybrid and "
+            "reranked hybrid retrieval.",
         ],
     }
 

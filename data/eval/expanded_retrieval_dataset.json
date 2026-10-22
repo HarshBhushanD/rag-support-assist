@@ -1,0 +1,78 @@
+
+[
+  {
+    "id": "ex001",
+    "question": "My login is failing. What should I investigate?",
+    "expected_sources": ["auth-help.md"]
+  },
+  {
+    "id": "ex002",
+    "question": "How can I fix an expired authentication token?",
+    "expected_sources": ["auth-help.md"]
+  },
+  {
+    "id": "ex003",
+    "question": "What should I do after discovering that my API token is invalid?",
+    "expected_sources": ["auth-help.md"]
+  },
+  {
+    "id": "ex004",
+    "question": "Is it safe to include authentication secrets in a support ticket?",
+    "expected_sources": ["auth-help.md"]
+  },
+  {
+    "id": "ex005",
+    "question": "A database connection is failing. Which settings and services should I inspect?",
+    "expected_sources": ["troubleshooting.md"]
+  },
+  {
+    "id": "ex006",
+    "question": "What network and connection details are relevant to database troubleshooting?",
+    "expected_sources": ["troubleshooting.md"]
+  },
+  {
+    "id": "ex007",
+    "question": "Where should database passwords be stored according to the troubleshooting guide?",
+    "expected_sources": ["troubleshooting.md"]
+  },
+  {
+    "id": "ex008",
+    "question": "Which parts of an API request should I check when troubleshooting a failure?",
+    "expected_sources": ["api-help.html"]
+  },
+  {
+    "id": "ex009",
+    "question": "Does API troubleshooting include checking the HTTP method?",
+    "expected_sources": ["api-help.html"]
+  },
+  {
+    "id": "ex010",
+    "question": "What should I verify if both login and database connectivity are failing?",
+    "expected_sources": ["auth-help.md", "troubleshooting.md"]
+  },
+  {
+    "id": "ex011",
+    "question": "How do I reset a forgotten password using the account recovery page?",
+    "expected_sources": []
+  },
+  {
+    "id": "ex012",
+    "question": "What are the support team's working hours and contact number?",
+    "expected_sources": []
+  },
+  {
+    "id": "ex013",
+    "question": "Which cloud provider hosts the database?",
+    "expected_sources": []
+  },
+  {
+    "id": "ex014",
+    "question": "What is the maximum number of API requests allowed per minute?",
+    "expected_sources": []
+  },
+  {
+    "id": "ex015",
+    "question": "What is the database server's hostname and port number?",
+    "expected_sources": []
+  }
+]
