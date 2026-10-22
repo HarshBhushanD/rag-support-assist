@@ -14,3 +14,6 @@ data/processed/
 .DS_Store
 .vscode/
 src/*.egg-info/
+# MLflow local tracking data
+mlflow.db
+mlruns/

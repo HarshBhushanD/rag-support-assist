@@ -2,6 +2,7 @@ import json
 from pathlib import Path
 
 from src.evaluation.evaluator import evaluate_retrieval
+from src.evaluation.mlflow_tracker import log_retrieval_experiment
 from src.pipeline.rag_pipeline import RAGPipeline
 from src.retrieval.retriever import RetrievalEngine
 
@@ -38,6 +39,13 @@ def main() -> None:
         print(f"Hit Rate@{metrics['top_k']}: {metrics['hit_rate_at_k']:.3f}")
         print(f"Recall@{metrics['top_k']}: {metrics['recall_at_k']:.3f}")
         print(f"MRR: {metrics['mrr']:.3f}")
+
+    run_id = log_retrieval_experiment(
+        results=retrieval_results,
+        dataset_name="golden_dataset.json",
+        corpus_name="evaluation_corpus.json",
+    )
+    print(f"\nMLflow run ID: {run_id}")
 
     pipeline = RAGPipeline(
         retriever=retriever,
