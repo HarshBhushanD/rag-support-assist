@@ -21,7 +21,10 @@ def chunks():
     ]
 
 
-def test_ask_uses_hybrid_retrieval_and_generates_answer(retriever, chunks):
+def test_ask_uses_hybrid_retrieval_and_generates_answer(
+    retriever,
+    chunks,
+):
     retriever.search_hybrid.return_value = chunks
 
     with patch(
@@ -57,11 +60,18 @@ def test_ask_uses_hybrid_retrieval_and_generates_answer(retriever, chunks):
         ("hybrid", "search_hybrid"),
     ],
 )
-def test_retrieve_uses_selected_mode(retriever, mode, method_name):
+def test_retrieve_uses_selected_mode(
+    retriever,
+    mode,
+    method_name,
+):
     expected_chunks = [{"text": "Example context.", "source": "guide.md"}]
     getattr(retriever, method_name).return_value = expected_chunks
 
-    pipeline = RAGPipeline(retriever, retrieval_mode=mode)
+    pipeline = RAGPipeline(
+        retriever,
+        retrieval_mode=mode,
+    )
 
     assert pipeline.retrieve("Example question?") == expected_chunks
     getattr(retriever, method_name).assert_called_once_with(
@@ -97,14 +107,16 @@ def test_retrieve_rejects_empty_question(retriever):
         ({"max_new_tokens": 0}, "max_new_tokens"),
     ],
 )
-def test_pipeline_rejects_invalid_configuration(retriever, kwargs, message):
+def test_pipeline_rejects_invalid_configuration(
+    retriever,
+    kwargs,
+    message,
+):
     with pytest.raises(ValueError, match=message):
         RAGPipeline(retriever, **kwargs)
 
 
 def test_pipeline_reranks_candidates_before_generation(retriever):
-    from unittest.mock import Mock, patch
-
     candidates = [
         {"text": "Password reset instructions.", "source": "account.md"},
         {"text": "Database hostname configuration.", "source": "database.md"},
@@ -123,6 +135,8 @@ def test_pipeline_reranks_candidates_before_generation(retriever):
     reranker = Mock()
     reranker.rerank.return_value = reranked_chunks
 
+    question = "How do I connect to the database?"
+
     with patch(
         "src.pipeline.rag_pipeline.generate_answer",
         return_value={
@@ -136,21 +150,22 @@ def test_pipeline_reranks_candidates_before_generation(retriever):
             top_k=2,
             reranker=reranker,
             candidate_k=6,
+            min_reranker_score=0.0,
         )
 
-        result = pipeline.ask("How do I connect to the database?")
+        result = pipeline.ask(question)
 
     retriever.search_hybrid.assert_called_once_with(
-        "How do I connect to the database?",
+        question,
         top_k=6,
     )
     reranker.rerank.assert_called_once_with(
-        "How do I connect to the database?",
+        question,
         candidates,
         top_k=2,
     )
     mock_generate.assert_called_once_with(
-        question="How do I connect to the database?",
+        question=question,
         context_chunks=reranked_chunks,
         max_new_tokens=160,
     )
@@ -172,6 +187,7 @@ def test_pipeline_without_reranker_keeps_existing_retrieval(retriever):
         {"text": "Second chunk.", "source": "second.md"},
         {"text": "Third chunk.", "source": "third.md"},
     ]
+
     retriever.search_hybrid.return_value = chunks
 
     pipeline = RAGPipeline(
@@ -182,8 +198,79 @@ def test_pipeline_without_reranker_keeps_existing_retrieval(retriever):
 
     result = pipeline.retrieve("Example question?")
 
+    assert result == chunks[:2]
     retriever.search_hybrid.assert_called_once_with(
         "Example question?",
         top_k=2,
     )
-    assert result == chunks[:2]
+
+
+def test_pipeline_abstains_when_all_reranked_chunks_have_weak_scores(
+    retriever,
+):
+    candidates = [
+        {"text": "API request troubleshooting.", "source": "api-help.html"},
+        {"text": "Database connection settings.", "source": "troubleshooting.md"},
+    ]
+
+    weak_chunks = [
+        {**candidates[0], "reranker_score": -2.0},
+        {**candidates[1], "reranker_score": -1.5},
+    ]
+
+    retriever.search_hybrid.return_value = candidates
+    reranker = Mock()
+    reranker.rerank.return_value = weak_chunks
+
+    with patch("src.pipeline.rag_pipeline.generate_answer") as mock_generate:
+        pipeline = RAGPipeline(
+            retriever,
+            reranker=reranker,
+            top_k=2,
+            candidate_k=6,
+            min_reranker_score=0.0,
+        )
+        result = pipeline.ask("What is the support team's phone number?")
+
+    assert "don't have enough information" in result["answer"]
+    assert result["sources"] == []
+    assert result["retrieved_chunks"] == weak_chunks
+    mock_generate.assert_not_called()
+
+
+def test_pipeline_generates_answer_when_best_score_meets_threshold(
+    retriever,
+):
+    candidates = [
+        {"text": "Relevant support instructions.", "source": "support.md"},
+        {"text": "Other information.", "source": "other.md"},
+    ]
+
+    reranked_chunks = [
+        {**candidates[0], "reranker_score": 0.8},
+        {**candidates[1], "reranker_score": -0.5},
+    ]
+
+    retriever.search_hybrid.return_value = candidates
+    reranker = Mock()
+    reranker.rerank.return_value = reranked_chunks
+
+    with patch(
+        "src.pipeline.rag_pipeline.generate_answer",
+        return_value={
+            "answer": "See the support instructions.",
+            "sources": ["support.md"],
+        },
+    ) as mock_generate:
+        pipeline = RAGPipeline(
+            retriever,
+            reranker=reranker,
+            top_k=2,
+            candidate_k=2,
+            min_reranker_score=0.0,
+        )
+
+        result = pipeline.ask("Where are the support instructions?")
+
+    assert result["answer"] == "See the support instructions."
+    mock_generate.assert_called_once()

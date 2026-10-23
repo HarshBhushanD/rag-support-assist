@@ -6,6 +6,10 @@ from src.retrieval.retriever import RetrievalEngine
 
 RetrievalMode = Literal["dense", "bm25", "hybrid"]
 
+FALLBACK_ANSWER = (
+    "I don't have enough information in the provided documents to answer that question."
+)
+
 
 class RAGPipeline:
     """Connect retrieval, optional reranking, and answer generation."""
@@ -18,6 +22,7 @@ class RAGPipeline:
         max_new_tokens: int = 160,
         reranker: CrossEncoderReranker | None = None,
         candidate_k: int = 6,
+        min_reranker_score: float | None = None,
     ) -> None:
         if retrieval_mode not in ("dense", "bm25", "hybrid"):
             raise ValueError("retrieval_mode must be 'dense', 'bm25', or 'hybrid'")
@@ -27,6 +32,8 @@ class RAGPipeline:
             raise ValueError("max_new_tokens must be positive")
         if candidate_k < top_k:
             raise ValueError("candidate_k must be at least top_k")
+        if min_reranker_score is not None and reranker is None:
+            raise ValueError("min_reranker_score requires a reranker")
 
         self.retriever = retriever
         self.retrieval_mode = retrieval_mode
@@ -34,6 +41,7 @@ class RAGPipeline:
         self.max_new_tokens = max_new_tokens
         self.reranker = reranker
         self.candidate_k = candidate_k
+        self.min_reranker_score = min_reranker_score
 
     def retrieve(self, question: str) -> list[dict[str, Any]]:
         """Retrieve candidates and optionally rerank them."""
@@ -74,14 +82,31 @@ class RAGPipeline:
         if not retrieved_chunks:
             return {
                 "question": question,
-                "answer": (
-                    "I don't have enough information in the provided "
-                    "documents to answer that question."
-                ),
+                "answer": FALLBACK_ANSWER,
                 "sources": [],
                 "retrieved_chunks": [],
                 "retrieval_mode": self.retrieval_mode,
             }
+
+        if self.min_reranker_score is not None:
+            scores = [chunk.get("reranker_score") for chunk in retrieved_chunks]
+
+            invalid_scores = not scores or any(
+                not isinstance(score, (int, float)) for score in scores
+            )
+
+            should_abstain = invalid_scores or (
+                not invalid_scores and max(scores) < self.min_reranker_score
+            )
+
+            if should_abstain:
+                return {
+                    "question": question,
+                    "answer": FALLBACK_ANSWER,
+                    "sources": [],
+                    "retrieved_chunks": retrieved_chunks,
+                    "retrieval_mode": self.retrieval_mode,
+                }
 
         generation_result = generate_answer(
             question=question,
@@ -96,3 +121,4 @@ class RAGPipeline:
             "retrieved_chunks": retrieved_chunks,
             "retrieval_mode": self.retrieval_mode,
         }
+        print(f"[DEBUG] threshold={self.min_reranker_score}, scores={scores}")

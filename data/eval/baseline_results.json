@@ -4,10 +4,15 @@
   "retrieval_metrics": {
     "dense": {
       "top_k": 2,
-      "queries_evaluated": 7,
+      "queries_evaluated": 8,
+      "answerable_queries": 6,
+      "unanswerable_queries": 2,
       "hit_rate_at_k": 1.0,
       "recall_at_k": 1.0,
       "mrr": 1.0,
+      "all_sources_recall_at_k": 1.0,
+      "unanswerable_empty_retrieval_rate": 0.0,
+      "unanswerable_returned_results_rate": 1.0,
       "details": [
         {
           "id": "q001",
@@ -19,7 +24,9 @@
             "account-help.md",
             "database-troubleshooting.md"
           ],
+          "is_unanswerable": false,
           "hit": true,
+          "all_sources_found": true,
           "recall": 1.0,
           "reciprocal_rank": 1.0
         },
@@ -33,7 +40,9 @@
             "database-troubleshooting.md",
             "support-hours.md"
           ],
+          "is_unanswerable": false,
           "hit": true,
+          "all_sources_found": true,
           "recall": 1.0,
           "reciprocal_rank": 1.0
         },
@@ -47,7 +56,9 @@
             "support-hours.md",
             "database-troubleshooting.md"
           ],
+          "is_unanswerable": false,
           "hit": true,
+          "all_sources_found": true,
           "recall": 1.0,
           "reciprocal_rank": 1.0
         },
@@ -61,7 +72,9 @@
             "account-help.md",
             "database-troubleshooting.md"
           ],
+          "is_unanswerable": false,
           "hit": true,
+          "all_sources_found": true,
           "recall": 1.0,
           "reciprocal_rank": 1.0
         },
@@ -75,7 +88,9 @@
             "database-troubleshooting.md",
             "account-help.md"
           ],
+          "is_unanswerable": false,
           "hit": true,
+          "all_sources_found": true,
           "recall": 1.0,
           "reciprocal_rank": 1.0
         },
@@ -89,9 +104,21 @@
             "support-hours.md",
             "database-troubleshooting.md"
           ],
-          "hit": true,
-          "recall": 1.0,
-          "reciprocal_rank": 1.0
+          "is_unanswerable": true,
+          "returned_results": true,
+          "empty_retrieval": false
+        },
+        {
+          "id": "q007",
+          "question": "What is the support team's phone number?",
+          "expected_sources": [],
+          "retrieved_sources": [
+            "support-hours.md",
+            "account-help.md"
+          ],
+          "is_unanswerable": true,
+          "returned_results": true,
+          "empty_retrieval": false
         },
         {
           "id": "q008",
@@ -103,7 +130,9 @@
             "account-help.md",
             "database-troubleshooting.md"
           ],
+          "is_unanswerable": false,
           "hit": true,
+          "all_sources_found": true,
           "recall": 1.0,
           "reciprocal_rank": 1.0
         }
@@ -111,10 +140,15 @@
     },
     "bm25": {
       "top_k": 2,
-      "queries_evaluated": 7,
+      "queries_evaluated": 8,
+      "answerable_queries": 6,
+      "unanswerable_queries": 2,
       "hit_rate_at_k": 1.0,
       "recall_at_k": 1.0,
       "mrr": 1.0,
+      "all_sources_recall_at_k": 1.0,
+      "unanswerable_empty_retrieval_rate": 0.0,
+      "unanswerable_returned_results_rate": 1.0,
       "details": [
         {
           "id": "q001",
@@ -126,7 +160,9 @@
             "account-help.md",
             "database-troubleshooting.md"
           ],
+          "is_unanswerable": false,
           "hit": true,
+          "all_sources_found": true,
           "recall": 1.0,
           "reciprocal_rank": 1.0
         },
@@ -140,7 +176,9 @@
             "database-troubleshooting.md",
             "account-help.md"
           ],
+          "is_unanswerable": false,
           "hit": true,
+          "all_sources_found": true,
           "recall": 1.0,
           "reciprocal_rank": 1.0
         },
@@ -154,7 +192,9 @@
             "support-hours.md",
             "database-troubleshooting.md"
           ],
+          "is_unanswerable": false,
           "hit": true,
+          "all_sources_found": true,
           "recall": 1.0,
           "reciprocal_rank": 1.0
         },
@@ -168,7 +208,9 @@
             "account-help.md",
             "database-troubleshooting.md"
           ],
+          "is_unanswerable": false,
           "hit": true,
+          "all_sources_found": true,
           "recall": 1.0,
           "reciprocal_rank": 1.0
         },
@@ -182,7 +224,9 @@
             "database-troubleshooting.md",
             "account-help.md"
           ],
+          "is_unanswerable": false,
           "hit": true,
+          "all_sources_found": true,
           "recall": 1.0,
           "reciprocal_rank": 1.0
         },
@@ -196,9 +240,21 @@
             "support-hours.md",
             "account-help.md"
           ],
-          "hit": true,
-          "recall": 1.0,
-          "reciprocal_rank": 1.0
+          "is_unanswerable": true,
+          "returned_results": true,
+          "empty_retrieval": false
+        },
+        {
+          "id": "q007",
+          "question": "What is the support team's phone number?",
+          "expected_sources": [],
+          "retrieved_sources": [
+            "support-hours.md",
+            "database-troubleshooting.md"
+          ],
+          "is_unanswerable": true,
+          "returned_results": true,
+          "empty_retrieval": false
         },
         {
           "id": "q008",
@@ -210,7 +266,9 @@
             "account-help.md",
             "database-troubleshooting.md"
           ],
+          "is_unanswerable": false,
           "hit": true,
+          "all_sources_found": true,
           "recall": 1.0,
           "reciprocal_rank": 1.0
         }
@@ -218,10 +276,15 @@
     },
     "hybrid": {
       "top_k": 2,
-      "queries_evaluated": 7,
+      "queries_evaluated": 8,
+      "answerable_queries": 6,
+      "unanswerable_queries": 2,
       "hit_rate_at_k": 1.0,
       "recall_at_k": 1.0,
       "mrr": 1.0,
+      "all_sources_recall_at_k": 1.0,
+      "unanswerable_empty_retrieval_rate": 0.0,
+      "unanswerable_returned_results_rate": 1.0,
       "details": [
         {
           "id": "q001",
@@ -233,7 +296,9 @@
             "account-help.md",
             "database-troubleshooting.md"
           ],
+          "is_unanswerable": false,
           "hit": true,
+          "all_sources_found": true,
           "recall": 1.0,
           "reciprocal_rank": 1.0
         },
@@ -247,7 +312,9 @@
             "database-troubleshooting.md",
             "support-hours.md"
           ],
+          "is_unanswerable": false,
           "hit": true,
+          "all_sources_found": true,
           "recall": 1.0,
           "reciprocal_rank": 1.0
         },
@@ -261,7 +328,9 @@
             "support-hours.md",
             "database-troubleshooting.md"
           ],
+          "is_unanswerable": false,
           "hit": true,
+          "all_sources_found": true,
           "recall": 1.0,
           "reciprocal_rank": 1.0
         },
@@ -275,7 +344,9 @@
             "account-help.md",
             "database-troubleshooting.md"
           ],
+          "is_unanswerable": false,
           "hit": true,
+          "all_sources_found": true,
           "recall": 1.0,
           "reciprocal_rank": 1.0
         },
@@ -289,7 +360,9 @@
             "database-troubleshooting.md",
             "account-help.md"
           ],
+          "is_unanswerable": false,
           "hit": true,
+          "all_sources_found": true,
           "recall": 1.0,
           "reciprocal_rank": 1.0
         },
@@ -303,9 +376,21 @@
             "support-hours.md",
             "database-troubleshooting.md"
           ],
-          "hit": true,
-          "recall": 1.0,
-          "reciprocal_rank": 1.0
+          "is_unanswerable": true,
+          "returned_results": true,
+          "empty_retrieval": false
+        },
+        {
+          "id": "q007",
+          "question": "What is the support team's phone number?",
+          "expected_sources": [],
+          "retrieved_sources": [
+            "support-hours.md",
+            "account-help.md"
+          ],
+          "is_unanswerable": true,
+          "returned_results": true,
+          "empty_retrieval": false
         },
         {
           "id": "q008",
@@ -317,7 +402,9 @@
             "account-help.md",
             "database-troubleshooting.md"
           ],
+          "is_unanswerable": false,
           "hit": true,
+          "all_sources_found": true,
           "recall": 1.0,
           "reciprocal_rank": 1.0
         }
@@ -325,10 +412,15 @@
     },
     "reranked_hybrid": {
       "top_k": 2,
-      "queries_evaluated": 7,
+      "queries_evaluated": 8,
+      "answerable_queries": 6,
+      "unanswerable_queries": 2,
       "hit_rate_at_k": 1.0,
       "recall_at_k": 1.0,
       "mrr": 1.0,
+      "all_sources_recall_at_k": 1.0,
+      "unanswerable_empty_retrieval_rate": 0.0,
+      "unanswerable_returned_results_rate": 1.0,
       "details": [
         {
           "id": "q001",
@@ -340,7 +432,9 @@
             "account-help.md",
             "database-troubleshooting.md"
           ],
+          "is_unanswerable": false,
           "hit": true,
+          "all_sources_found": true,
           "recall": 1.0,
           "reciprocal_rank": 1.0
         },
@@ -354,7 +448,9 @@
             "database-troubleshooting.md",
             "account-help.md"
           ],
+          "is_unanswerable": false,
           "hit": true,
+          "all_sources_found": true,
           "recall": 1.0,
           "reciprocal_rank": 1.0
         },
@@ -368,7 +464,9 @@
             "support-hours.md",
             "database-troubleshooting.md"
           ],
+          "is_unanswerable": false,
           "hit": true,
+          "all_sources_found": true,
           "recall": 1.0,
           "reciprocal_rank": 1.0
         },
@@ -382,7 +480,9 @@
             "account-help.md",
             "database-troubleshooting.md"
           ],
+          "is_unanswerable": false,
           "hit": true,
+          "all_sources_found": true,
           "recall": 1.0,
           "reciprocal_rank": 1.0
         },
@@ -396,7 +496,9 @@
             "database-troubleshooting.md",
             "account-help.md"
           ],
+          "is_unanswerable": false,
           "hit": true,
+          "all_sources_found": true,
           "recall": 1.0,
           "reciprocal_rank": 1.0
         },
@@ -410,9 +512,21 @@
             "support-hours.md",
             "account-help.md"
           ],
-          "hit": true,
-          "recall": 1.0,
-          "reciprocal_rank": 1.0
+          "is_unanswerable": true,
+          "returned_results": true,
+          "empty_retrieval": false
+        },
+        {
+          "id": "q007",
+          "question": "What is the support team's phone number?",
+          "expected_sources": [],
+          "retrieved_sources": [
+            "support-hours.md",
+            "database-troubleshooting.md"
+          ],
+          "is_unanswerable": true,
+          "returned_results": true,
+          "empty_retrieval": false
         },
         {
           "id": "q008",
@@ -424,7 +538,9 @@
             "account-help.md",
             "database-troubleshooting.md"
           ],
+          "is_unanswerable": false,
           "hit": true,
+          "all_sources_found": true,
           "recall": 1.0,
           "reciprocal_rank": 1.0
         }
@@ -672,10 +788,7 @@
       "answerable": false,
       "answer": "I don't have enough information in the provided documents to answer that question.",
       "expected_sources": [],
-      "retrieved_sources": [
-        "support-hours.md",
-        "database-troubleshooting.md"
-      ],
+      "retrieved_sources": [],
       "abstained": true,
       "abstention_correct": true,
       "manual_review_required": true
@@ -721,6 +834,7 @@
     "This is a small controlled evaluation corpus.",
     "Answer correctness and groundedness require manual review.",
     "Abstention correctness uses the exact configured fallback phrase.",
-    "Answers are generated separately using hybrid and reranked hybrid retrieval."
+    "Answers are generated separately using hybrid and reranked hybrid retrieval.",
+    "The reranked pipeline uses min_reranker_score=1.5."
   ]
 }

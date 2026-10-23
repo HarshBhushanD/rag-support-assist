@@ -1,5 +1,6 @@
 import json
 from pathlib import Path
+from typing import Any
 
 from src.evaluation.evaluator import evaluate_retrieval
 from src.evaluation.mlflow_tracker import log_retrieval_experiment
@@ -11,7 +12,7 @@ ROOT = Path(__file__).resolve().parents[1]
 EVAL_DIR = ROOT / "data" / "eval"
 
 
-def load_json(path: Path):
+def load_json(path: Path) -> Any:
     with path.open(encoding="utf-8") as file:
         return json.load(file)
 
@@ -25,6 +26,7 @@ def main() -> None:
         chunks=chunks,
         collection_name="day7_evaluation",
     )
+
     print("\nLoading CrossEncoder reranker...")
     reranker = CrossEncoderReranker()
 
@@ -36,12 +38,6 @@ def main() -> None:
         reranker=reranker,
         candidate_k=6,
     )
-    # print("\nEvaluating retrieval modes...")
-    # retrieval_results = evaluate_retrieval(
-    #     retriever=retriever,
-    #     dataset=dataset,
-    #     top_k=2,
-    # )
 
     print("\n--- Retrieval Metrics ---")
     for mode, metrics in retrieval_results.items():
@@ -81,6 +77,7 @@ def main() -> None:
         max_new_tokens=160,
         reranker=reranker,
         candidate_k=6,
+        min_reranker_score=1.5,
     )
 
     for item in dataset:
@@ -112,6 +109,7 @@ def main() -> None:
             print(f"\nMode: {mode}")
             print(f"Answer: {result['answer']}")
             print(f"Sources: {result['sources']}")
+            print(f"Abstained: {abstained}")
 
     output = {
         "dataset": "golden_dataset.json",
@@ -124,6 +122,7 @@ def main() -> None:
             "Abstention correctness uses the exact configured fallback phrase.",
             "Answers are generated separately using hybrid and "
             "reranked hybrid retrieval.",
+            "The reranked pipeline uses min_reranker_score=1.5.",
         ],
     }
 

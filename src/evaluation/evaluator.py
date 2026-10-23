@@ -47,7 +47,7 @@ def evaluate_retrieval(
     results: dict[str, Any] = {}
 
     for mode, search in search_methods.items():
-        query_results = []
+        query_results: list[dict[str, Any]] = []
 
         for item in dataset:
             expected_sources = set(item.get("expected_sources", []))
@@ -55,12 +55,15 @@ def evaluate_retrieval(
             retrieved_sources = [chunk.get("source", "unknown") for chunk in retrieved]
             retrieved_source_set = set(retrieved_sources)
 
-            if not expected_sources:
+            # Respect explicit answerability labels in the evaluation dataset.
+            is_answerable = item.get("answerable", bool(expected_sources))
+
+            if not is_answerable:
                 query_results.append(
                     {
                         "id": item["id"],
                         "question": item["question"],
-                        "expected_sources": [],
+                        "expected_sources": sorted(expected_sources),
                         "retrieved_sources": retrieved_sources,
                         "is_unanswerable": True,
                         "returned_results": bool(retrieved),
@@ -68,6 +71,11 @@ def evaluate_retrieval(
                     }
                 )
                 continue
+
+            if not expected_sources:
+                raise ValueError(
+                    f"Answerable query {item['id']} must have expected_sources"
+                )
 
             relevant_ranks = [
                 rank
