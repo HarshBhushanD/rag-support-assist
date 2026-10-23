@@ -274,3 +274,88 @@ def test_pipeline_generates_answer_when_best_score_meets_threshold(
 
     assert result["answer"] == "See the support instructions."
     mock_generate.assert_called_once()
+
+
+def test_pipeline_abstains_when_generator_cannot_answer(retriever, chunks):
+    retriever.search_hybrid.return_value = chunks
+
+    with patch(
+        "src.pipeline.rag_pipeline.generate_answer",
+        return_value={
+            "answer": (
+                "The context does not provide this information. "
+                "I cannot determine the answer."
+            ),
+            "sources": ["account-help.md"],
+        },
+    ):
+        result = RAGPipeline(retriever).ask("What is the support team's phone number?")
+
+    assert result["answer"] == (
+        "I don't have enough information in the provided documents "
+        "to answer that question."
+    )
+    assert result["sources"] == []
+
+
+def test_pipeline_normalizes_malformed_fallback(retriever, chunks):
+    retriever.search_hybrid.return_value = chunks
+
+    with patch(
+        "src.pipeline.rag_pipeline.generate_answer",
+        return_value={
+            "answer": (
+                "I don't have enough information in the provided "
+                "documentsto answer that question."
+            ),
+            "sources": ["account-help.md"],
+        },
+    ):
+        result = RAGPipeline(retriever).ask("What is the support team's phone number?")
+
+    assert result["answer"] == (
+        "I don't have enough information in the provided documents "
+        "to answer that question."
+    )
+    assert result["sources"] == []
+
+
+@pytest.mark.parametrize(
+    "question,unsupported_answer",
+    [
+        (
+            "What are the support team's working hours?",
+            "The support team works on weekdays from 8:00 AM to 5:00 PM.",
+        ),
+        (
+            "Is support available on Saturday?",
+            "Support is not available on Saturdays.",
+        ),
+        (
+            "What is the support team's phone number?",
+            "The support team's phone number is 1234567890.",
+        ),
+    ],
+)
+def test_pipeline_does_not_accept_unsupported_claims(
+    retriever,
+    chunks,
+    question,
+    unsupported_answer,
+):
+    retriever.search_hybrid.return_value = chunks
+
+    with patch(
+        "src.pipeline.rag_pipeline.generate_answer",
+        return_value={
+            "answer": unsupported_answer,
+            "sources": ["auth-help.md"],
+        },
+    ):
+        result = RAGPipeline(retriever).ask(question)
+
+    assert result["answer"] == (
+        "I don't have enough information in the provided documents "
+        "to answer that question."
+    )
+    assert result["sources"] == []

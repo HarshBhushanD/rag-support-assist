@@ -42,7 +42,6 @@ def generate_answer(
         answer = generated_text[-1]["content"].strip()
     else:
         answer = generated_text.strip()
-
     sources = list(
         dict.fromkeys(
             chunk.get("source", "unknown")
@@ -50,6 +49,13 @@ def generate_answer(
             if chunk.get("text", "").strip()
         )
     )
+
+    # Remove fallback commentary appended after an otherwise usable answer.
+    fallback_marker = "\nFallback:"
+    marker_index = answer.casefold().find(fallback_marker.casefold())
+
+    if marker_index >= 0:
+        answer = answer[:marker_index].strip()
 
     return {
         "answer": answer,
