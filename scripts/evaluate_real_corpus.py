@@ -1,6 +1,7 @@
 import json
 from pathlib import Path
 
+from src.evaluation.source_evaluator import source_was_retrieved
 from src.ingest.chunker import chunk_document_recursive
 from src.ingest.loaders import load_documents
 from src.pipeline.rag_pipeline import FALLBACK_ANSWER, RAGPipeline
@@ -97,13 +98,10 @@ def main() -> None:
         answer = result["answer"]
         abstained = is_abstained(answer)
         retrieved_sources = result["sources"]
-
-        expected_source_found = (
-            item["expected_source"] in retrieved_sources
-            if item["expected_source"]
-            else None
+        expected_source_found = source_was_retrieved(
+            item["expected_source"],
+            retrieved_sources,
         )
-
         entry = {
             **item,
             "answer": answer,
