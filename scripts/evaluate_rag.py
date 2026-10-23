@@ -11,10 +11,50 @@ from src.retrieval.retriever import RetrievalEngine
 ROOT = Path(__file__).resolve().parents[1]
 EVAL_DIR = ROOT / "data" / "eval"
 
+RERANKER_THRESHOLDS = [1.5, 2.0, 2.5]
+
+FALLBACK = (
+    "i don't have enough information in the provided documents to answer that question."
+)
+
 
 def load_json(path: Path) -> Any:
     with path.open(encoding="utf-8") as file:
         return json.load(file)
+
+
+def is_abstained(answer: str) -> bool:
+    return FALLBACK in answer.lower()
+
+
+def summarize_abstention(results: list[dict[str, Any]]) -> dict[str, Any]:
+    answerable = [item for item in results if item["answerable"]]
+    unanswerable = [item for item in results if not item["answerable"]]
+
+    answerable_answered = sum(not item["abstained"] for item in answerable)
+    answerable_false_abstentions = sum(item["abstained"] for item in answerable)
+    unanswerable_correctly_abstained = sum(item["abstained"] for item in unanswerable)
+    unanswerable_false_acceptances = sum(not item["abstained"] for item in unanswerable)
+    correct_decisions = answerable_answered + unanswerable_correctly_abstained
+
+    total = len(results)
+
+    return {
+        "queries_evaluated": total,
+        "answerable_questions": len(answerable),
+        "unanswerable_questions": len(unanswerable),
+        "answerable_questions_answered": answerable_answered,
+        "answerable_false_abstentions": answerable_false_abstentions,
+        "unanswerable_questions_correctly_abstained": (
+            unanswerable_correctly_abstained
+        ),
+        "unanswerable_false_acceptances": unanswerable_false_acceptances,
+        "correct_abstention_decisions": correct_decisions,
+        "decision_accuracy": (correct_decisions / total if total else 0.0),
+        "answerable_coverage": (
+            answerable_answered / len(answerable) if answerable else 0.0
+        ),
+    }
 
 
 def main() -> None:
@@ -54,15 +94,10 @@ def main() -> None:
     )
     print(f"\nMLflow run ID: {run_id}")
 
-    answer_results = []
+    answer_results: list[dict[str, Any]] = []
+    threshold_summaries: dict[str, dict[str, Any]] = {}
 
-    print("\nGenerating hybrid and reranked hybrid RAG answers...")
-
-    fallback = (
-        "i don't have enough information in the provided documents "
-        "to answer that question."
-    )
-
+    print("\nCreating hybrid baseline pipeline...")
     hybrid_pipeline = RAGPipeline(
         retriever=retriever,
         retrieval_mode="hybrid",
@@ -70,59 +105,115 @@ def main() -> None:
         max_new_tokens=160,
     )
 
-    reranked_pipeline = RAGPipeline(
-        retriever=retriever,
-        retrieval_mode="hybrid",
-        top_k=2,
-        max_new_tokens=160,
-        reranker=reranker,
-        candidate_k=6,
-        min_reranker_score=1.5,
-    )
+    print("\nEvaluating hybrid baseline...")
+    hybrid_results = []
 
     for item in dataset:
-        print(f"\nEvaluating {item['id']}: {item['question']}")
+        result = hybrid_pipeline.ask(item["question"])
+        abstained = is_abstained(result["answer"])
 
-        for mode, active_pipeline in [
-            ("hybrid", hybrid_pipeline),
-            ("reranked_hybrid", reranked_pipeline),
-        ]:
-            result = active_pipeline.ask(item["question"])
-            abstained = fallback in result["answer"].lower()
+        entry = {
+            "id": item["id"],
+            "question": item["question"],
+            "mode": "hybrid",
+            "expected_answer": item["expected_answer"],
+            "answerable": item["answerable"],
+            "answer": result["answer"],
+            "expected_sources": item["expected_sources"],
+            "retrieved_sources": result["sources"],
+            "abstained": abstained,
+            "abstention_correct": (abstained == (not item["answerable"])),
+            "manual_review_required": True,
+        }
 
-            answer_results.append(
-                {
-                    "id": item["id"],
-                    "question": item["question"],
-                    "mode": mode,
-                    "expected_answer": item["expected_answer"],
-                    "answerable": item["answerable"],
-                    "answer": result["answer"],
-                    "expected_sources": item["expected_sources"],
-                    "retrieved_sources": result["sources"],
-                    "abstained": abstained,
-                    "abstention_correct": (abstained == (not item["answerable"])),
-                    "manual_review_required": True,
-                }
-            )
+        hybrid_results.append(entry)
+        answer_results.append(entry)
 
-            print(f"\nMode: {mode}")
-            print(f"Answer: {result['answer']}")
-            print(f"Sources: {result['sources']}")
-            print(f"Abstained: {abstained}")
+        print(f"\nQuestion: {item['id']}")
+        print(f"Answer: {result['answer']}")
+        print(f"Abstained: {abstained}")
+
+    threshold_summaries["hybrid"] = summarize_abstention(hybrid_results)
+
+    print("\n--- Reranker Threshold Calibration ---")
+
+    for threshold in RERANKER_THRESHOLDS:
+        mode = f"reranked_hybrid_threshold_{threshold:.1f}"
+        print(f"\nEvaluating threshold: {threshold:.1f}")
+
+        pipeline = RAGPipeline(
+            retriever=retriever,
+            retrieval_mode="hybrid",
+            top_k=2,
+            max_new_tokens=160,
+            reranker=reranker,
+            candidate_k=6,
+            min_reranker_score=threshold,
+        )
+
+        threshold_results = []
+
+        for item in dataset:
+            result = pipeline.ask(item["question"])
+            abstained = is_abstained(result["answer"])
+
+            entry = {
+                "id": item["id"],
+                "question": item["question"],
+                "mode": mode,
+                "threshold": threshold,
+                "expected_answer": item["expected_answer"],
+                "answerable": item["answerable"],
+                "answer": result["answer"],
+                "expected_sources": item["expected_sources"],
+                "retrieved_sources": result["sources"],
+                "abstained": abstained,
+                "abstention_correct": (abstained == (not item["answerable"])),
+                "manual_review_required": True,
+            }
+
+            threshold_results.append(entry)
+            answer_results.append(entry)
+
+            print(f"{item['id']}: abstained={abstained}, sources={result['sources']}")
+
+        summary = summarize_abstention(threshold_results)
+        threshold_summaries[mode] = summary
+
+        print(f"\nSummary for threshold {threshold:.1f}:")
+        print(
+            "Answerable questions incorrectly rejected: "
+            f"{summary['answerable_false_abstentions']}"
+        )
+        print(
+            "Unanswerable questions incorrectly answered: "
+            f"{summary['unanswerable_false_acceptances']}"
+        )
+        print(
+            "Correct answer/abstain decisions: "
+            f"{summary['correct_abstention_decisions']}/"
+            f"{summary['queries_evaluated']}"
+        )
+        print(f"Answerable coverage: {summary['answerable_coverage']:.1%}")
+        print(f"Decision accuracy: {summary['decision_accuracy']:.1%}")
 
     output = {
         "dataset": "golden_dataset.json",
         "corpus": "evaluation_corpus.json",
         "retrieval_metrics": retrieval_results,
+        "abstention_summaries": threshold_summaries,
         "answers": answer_results,
+        "thresholds_tested": RERANKER_THRESHOLDS,
         "notes": [
             "This is a small controlled evaluation corpus.",
             "Answer correctness and groundedness require manual review.",
-            "Abstention correctness uses the exact configured fallback phrase.",
-            "Answers are generated separately using hybrid and "
-            "reranked hybrid retrieval.",
-            "The reranked pipeline uses min_reranker_score=1.5.",
+            "Abstention detection checks for the configured fallback phrase.",
+            "Decision metrics measure answering versus abstaining, "
+            "not factual correctness or groundedness.",
+            "Threshold results include both score-based rejection "
+            "and any abstention performed by the generation pipeline.",
+            "Reranker scores are relevance signals, not calibrated "
+            "probabilities of answer correctness.",
         ],
     }
 
