@@ -82,10 +82,15 @@ def evaluate_retrieval(
                 for rank, source in enumerate(retrieved_sources, start=1)
                 if source in expected_sources
             ]
-
             matched_sources = retrieved_source_set & expected_sources
             hit = bool(matched_sources)
             recall = len(matched_sources) / len(expected_sources)
+            precision = (
+                sum(source in expected_sources for source in retrieved_sources)
+                / len(retrieved_sources)
+                if retrieved_sources
+                else 0.0
+            )
             reciprocal_rank = 1.0 / relevant_ranks[0] if relevant_ranks else 0.0
 
             query_results.append(
@@ -99,6 +104,7 @@ def evaluate_retrieval(
                     "all_sources_found": expected_sources.issubset(
                         retrieved_source_set
                     ),
+                    "precision": precision,
                     "recall": recall,
                     "reciprocal_rank": reciprocal_rank,
                 }
@@ -121,6 +127,12 @@ def evaluate_retrieval(
             "unanswerable_queries": unanswerable_count,
             "hit_rate_at_k": (
                 sum(result["hit"] for result in answerable_results) / answerable_count
+                if answerable_count
+                else 0.0
+            ),
+            "precision_at_k": (
+                sum(result["precision"] for result in answerable_results)
+                / answerable_count
                 if answerable_count
                 else 0.0
             ),

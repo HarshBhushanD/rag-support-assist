@@ -192,3 +192,57 @@ def test_evaluator_handles_dataset_without_unanswerable_queries(retriever):
         assert metrics["unanswerable_queries"] == 0
         assert metrics["unanswerable_empty_retrieval_rate"] == 0.0
         assert metrics["unanswerable_returned_results_rate"] == 0.0
+
+
+def test_evaluator_calculates_precision_at_k(retriever, dataset):
+    retriever.search_dense.return_value = [
+        {"source": "account-help.md"},
+        {"source": "unrelated.md"},
+    ]
+
+    results = evaluate_retrieval(retriever, dataset, top_k=2)
+    metrics = results["dense"]
+
+    # q001 retrieves one relevant and one irrelevant chunk: precision = 1/2.
+    q001 = next(detail for detail in metrics["details"] if detail["id"] == "q001")
+    assert q001["precision"] == 0.5
+
+    # q002 retrieves no matching source: precision = 0.
+    q002 = next(detail for detail in metrics["details"] if detail["id"] == "q002")
+    assert q002["precision"] == 0.0
+
+    # Mean precision over the two answerable questions: (0.5 + 0.0) / 2.
+    assert metrics["precision_at_k"] == 0.25
+
+
+def test_precision_at_k_is_zero_when_no_results_are_retrieved(
+    retriever,
+    dataset,
+):
+    retriever.search_dense.return_value = []
+
+    results = evaluate_retrieval(retriever, dataset, top_k=2)
+    metrics = results["dense"]
+
+    assert metrics["precision_at_k"] == 0.0
+
+    for detail in metrics["details"]:
+        if not detail["is_unanswerable"]:
+            assert detail["precision"] == 0.0
+
+
+def test_precision_at_k_is_zero_when_no_queries_are_answerable(retriever):
+    dataset = [
+        {
+            "id": "q003",
+            "question": "What is the phone number?",
+            "expected_sources": [],
+            "answerable": False,
+        }
+    ]
+
+    results = evaluate_retrieval(retriever, dataset, top_k=2)
+
+    for metrics in results.values():
+        assert metrics["answerable_queries"] == 0
+        assert metrics["precision_at_k"] == 0.0
