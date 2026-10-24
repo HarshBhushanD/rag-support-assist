@@ -94,3 +94,42 @@ def test_preserves_retrieval_metrics_and_review_flag():
     assert report["retrieval_metrics"] == metrics
     assert report["summary"]["total_answers"] == 1
     assert report["answers"][0]["manual_review_required"] is True
+
+
+def test_summarizes_issue_counts_and_answers_requiring_review():
+    results = {
+        "answers": [
+            {
+                "id": "q001",
+                "answerable": True,
+                "abstained": True,
+                "expected_sources": ["account-help.md"],
+                "retrieved_sources": ["account-help.md"],
+            },
+            {
+                "id": "q002",
+                "answerable": False,
+                "abstained": False,
+                "expected_sources": [],
+                "retrieved_sources": [],
+            },
+            {
+                "id": "q003",
+                "answerable": True,
+                "abstained": False,
+                "expected_sources": ["database-help.md"],
+                "retrieved_sources": ["database-help.md"],
+            },
+        ]
+    }
+
+    report = analyze_failures(results)
+
+    assert report["summary"]["total_answers"] == 3
+    assert report["summary"]["answers_requiring_review"] == 2
+    assert report["summary"]["issue_counts"] == {
+        "possible_false_abstention": 1,
+        "possible_unsupported_answer": 1,
+    }
+    assert report["answers"][2]["issues"] == []
+    assert report["answers"][2]["manual_review_required"] is False
