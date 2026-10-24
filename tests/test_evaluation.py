@@ -155,3 +155,40 @@ def test_evaluator_rejects_candidate_k_smaller_than_top_k(
             reranker=reranker,
             candidate_k=2,
         )
+
+
+def test_unanswerable_retrieval_rates_are_calculated_correctly(
+    retriever,
+    dataset,
+):
+    # q003 is unanswerable, and the mock retriever returns results.
+    results = evaluate_retrieval(retriever, dataset, top_k=2)
+
+    for metrics in results.values():
+        assert metrics["unanswerable_returned_results_rate"] == 1.0
+        assert metrics["unanswerable_empty_retrieval_rate"] == 0.0
+
+        unanswerable = next(
+            detail for detail in metrics["details"] if detail["id"] == "q003"
+        )
+        assert unanswerable["returned_results"] is True
+        assert unanswerable["empty_retrieval"] is False
+
+
+def test_evaluator_handles_dataset_without_unanswerable_queries(retriever):
+    dataset = [
+        {
+            "id": "q001",
+            "question": "How do I reset my password?",
+            "expected_sources": ["account-help.md"],
+            "answerable": True,
+        }
+    ]
+
+    results = evaluate_retrieval(retriever, dataset, top_k=2)
+
+    for metrics in results.values():
+        assert metrics["answerable_queries"] == 1
+        assert metrics["unanswerable_queries"] == 0
+        assert metrics["unanswerable_empty_retrieval_rate"] == 0.0
+        assert metrics["unanswerable_returned_results_rate"] == 0.0
