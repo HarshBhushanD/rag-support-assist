@@ -43,6 +43,23 @@ report = {
         "Results are exploratory and do not establish real-world performance.",
         "Timing measurements are from a CPU-only local environment.",
     ],
+    "api_comparison": {
+        "status": "not_run",
+        "reason": "OPENAI_API_KEY is not configured",
+        "accuracy": None,
+        "macro_f1": None,
+        "latency_ms_per_ticket": None,
+        "cost": None,
+        "cost_currency": "USD",
+    },
+    "cost_analysis": {
+        "api_cost_measured": False,
+        "local_compute_cost_measured": False,
+        "note": (
+            "API and local compute costs were not measured. "
+            "No cost figures are estimated or invented."
+        ),
+    },
 }
 
 output = ROOT / "comparison_results.json"

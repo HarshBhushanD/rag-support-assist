@@ -28,5 +28,19 @@
     "The held-out test set contains only 10 examples.",
     "Results are exploratory and do not establish real-world performance.",
     "Timing measurements are from a CPU-only local environment."
-  ]
+  ],
+  "api_comparison": {
+    "status": "not_run",
+    "reason": "OPENAI_API_KEY is not configured",
+    "accuracy": null,
+    "macro_f1": null,
+    "latency_ms_per_ticket": null,
+    "cost": null,
+    "cost_currency": "USD"
+  },
+  "cost_analysis": {
+    "api_cost_measured": false,
+    "local_compute_cost_measured": false,
+    "note": "API and local compute costs were not measured. No cost figures are estimated or invented."
+  }
 }
