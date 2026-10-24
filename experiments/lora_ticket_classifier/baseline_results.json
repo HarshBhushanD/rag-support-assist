@@ -1,0 +1,58 @@
+{
+  "dataset": "synthetic_support_tickets",
+  "dataset_size": 40,
+  "train_size": 30,
+  "test_size": 10,
+  "random_seed": 42,
+  "model": "TF-IDF + Logistic Regression",
+  "accuracy": 0.8,
+  "macro_f1": 0.7833333333333333,
+  "training_seconds": 0.01545099999930244,
+  "total_test_inference_seconds": 0.0009209999989252537,
+  "mean_inference_ms_per_ticket": 0.09209999989252537,
+  "class_counts": {
+    "authentication": 10,
+    "billing": 10,
+    "technical_issue": 10,
+    "account_management": 10
+  },
+  "classification_report": {
+    "account_management": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 3.0
+    },
+    "authentication": {
+      "precision": 1.0,
+      "recall": 0.5,
+      "f1-score": 0.6666666666666666,
+      "support": 2.0
+    },
+    "billing": {
+      "precision": 1.0,
+      "recall": 0.6666666666666666,
+      "f1-score": 0.8,
+      "support": 3.0
+    },
+    "technical_issue": {
+      "precision": 0.5,
+      "recall": 1.0,
+      "f1-score": 0.6666666666666666,
+      "support": 2.0
+    },
+    "accuracy": 0.8,
+    "macro avg": {
+      "precision": 0.875,
+      "recall": 0.7916666666666666,
+      "f1-score": 0.7833333333333333,
+      "support": 10.0
+    },
+    "weighted avg": {
+      "precision": 0.9,
+      "recall": 0.8,
+      "f1-score": 0.8066666666666666,
+      "support": 10.0
+    }
+  }
+}

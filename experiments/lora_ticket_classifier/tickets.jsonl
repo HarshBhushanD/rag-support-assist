@@ -1,0 +1,40 @@
+{"text":"I cannot log in even though my password is correct","label":"authentication"}
+{"text":"The password reset link has expired","label":"authentication"}
+{"text":"I am not receiving the one-time password","label":"authentication"}
+{"text":"My account login keeps failing","label":"authentication"}
+{"text":"The sign-in page rejects my credentials","label":"authentication"}
+{"text":"I forgot my password and need to recover access","label":"authentication"}
+{"text":"Two-factor authentication is not working","label":"authentication"}
+{"text":"I get an unauthorized error when logging in","label":"authentication"}
+{"text":"The login button does nothing after I enter my details","label":"authentication"}
+{"text":"My session expires immediately after signing in","label":"authentication"}
+{"text":"I was charged twice for the same subscription","label":"billing"}
+{"text":"Please explain the extra charge on my invoice","label":"billing"}
+{"text":"My payment was declined but money was deducted","label":"billing"}
+{"text":"I need a copy of my monthly invoice","label":"billing"}
+{"text":"The subscription renewal amount looks incorrect","label":"billing"}
+{"text":"How can I update my payment method","label":"billing"}
+{"text":"I want a refund for my recent payment","label":"billing"}
+{"text":"My invoice contains an unexpected fee","label":"billing"}
+{"text":"The payment page keeps failing when I check out","label":"billing"}
+{"text":"My subscription payment is still marked pending","label":"billing"}
+{"text":"The application crashes whenever I open settings","label":"technical_issue"}
+{"text":"The dashboard is loading very slowly","label":"technical_issue"}
+{"text":"I receive a server error when uploading a file","label":"technical_issue"}
+{"text":"The API returns a 500 internal server error","label":"technical_issue"}
+{"text":"Search results are not appearing on the page","label":"technical_issue"}
+{"text":"The website freezes when I submit the form","label":"technical_issue"}
+{"text":"My report download produces a corrupted file","label":"technical_issue"}
+{"text":"The application is unavailable after the latest update","label":"technical_issue"}
+{"text":"The page displays a blank screen after clicking save","label":"technical_issue"}
+{"text":"I keep getting a network timeout error","label":"technical_issue"}
+{"text":"I want to change the email address on my account","label":"account_management"}
+{"text":"How can I delete my profile permanently","label":"account_management"}
+{"text":"Please update my account name","label":"account_management"}
+{"text":"I need to change my notification preferences","label":"account_management"}
+{"text":"How do I export my account information","label":"account_management"}
+{"text":"I want to deactivate my account temporarily","label":"account_management"}
+{"text":"My profile information is outdated","label":"account_management"}
+{"text":"Please help me update my organization details","label":"account_management"}
+{"text":"I need to change the phone number linked to my profile","label":"account_management"}
+{"text":"How can I manage the users in my workspace","label":"account_management"}

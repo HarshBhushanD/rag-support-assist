@@ -1,0 +1,32 @@
+{
+  "dataset": "synthetic_support_tickets",
+  "test_size": 10,
+  "baseline": {
+    "model": "TF-IDF + Logistic Regression",
+    "accuracy": 0.8,
+    "macro_f1": 0.7833333333333333,
+    "training_seconds": 0.01545099999930244,
+    "mean_inference_ms_per_ticket": 0.09209999989252537
+  },
+  "lora": {
+    "model": "LoRA sequence classification",
+    "accuracy": 0.6,
+    "macro_f1": 0.6011904761904762,
+    "training_seconds": 1.8994469000026584,
+    "mean_inference_ms_per_ticket": 7.457810000050813,
+    "trainable_parameters": 667396,
+    "total_parameters": 67623944
+  },
+  "difference_lora_minus_baseline": {
+    "accuracy": -0.20000000000000007,
+    "macro_f1": -0.18214285714285716,
+    "training_seconds": 1.883995900003356,
+    "mean_inference_ms_per_ticket": 7.365710000158288
+  },
+  "limitations": [
+    "Only 40 synthetic examples were used.",
+    "The held-out test set contains only 10 examples.",
+    "Results are exploratory and do not establish real-world performance.",
+    "Timing measurements are from a CPU-only local environment."
+  ]
+}

@@ -1,0 +1,57 @@
+{
+  "dataset": "synthetic_support_tickets",
+  "dataset_size": 40,
+  "train_size": 30,
+  "test_size": 10,
+  "random_seed": 42,
+  "base_model": "distilbert/distilbert-base-uncased",
+  "method": "LoRA sequence classification",
+  "epochs": 3,
+  "batch_size": 4,
+  "trainable_parameters": 667396,
+  "total_parameters": 67623944,
+  "accuracy": 0.6,
+  "macro_f1": 0.6011904761904762,
+  "training_seconds": 1.8994469000026584,
+  "total_test_inference_seconds": 0.07457810000050813,
+  "mean_inference_ms_per_ticket": 7.457810000050813,
+  "classification_report": {
+    "account_management": {
+      "precision": 0.6666666666666666,
+      "recall": 0.6666666666666666,
+      "f1-score": 0.6666666666666666,
+      "support": 3.0
+    },
+    "authentication": {
+      "precision": 0.4,
+      "recall": 1.0,
+      "f1-score": 0.5714285714285714,
+      "support": 2.0
+    },
+    "billing": {
+      "precision": 1.0,
+      "recall": 0.3333333333333333,
+      "f1-score": 0.5,
+      "support": 3.0
+    },
+    "technical_issue": {
+      "precision": 1.0,
+      "recall": 0.5,
+      "f1-score": 0.6666666666666666,
+      "support": 2.0
+    },
+    "accuracy": 0.6,
+    "macro avg": {
+      "precision": 0.7666666666666666,
+      "recall": 0.625,
+      "f1-score": 0.6011904761904762,
+      "support": 10.0
+    },
+    "weighted avg": {
+      "precision": 0.78,
+      "recall": 0.6,
+      "f1-score": 0.5976190476190475,
+      "support": 10.0
+    }
+  }
+}
