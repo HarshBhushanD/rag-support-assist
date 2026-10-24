@@ -7,6 +7,7 @@ from typing import Any, Literal
 
 from src.generation.generator import generate_answer
 from src.ingest.embedder import embed_texts
+from src.pipeline.observability import get_langfuse_client
 from src.pipeline.retry import run_with_retries
 from src.retrieval.reranker import CrossEncoderReranker
 from src.retrieval.retriever import RetrievalEngine
@@ -352,47 +353,117 @@ class RAGPipeline:
         return response
 
     def ask(self, question: str) -> dict[str, Any]:
-        """Return a validated answer, using exact and optional semantic caches."""
+        """Return a validated answer and trace the RAG request with Langfuse."""
         if not question or not question.strip():
             raise ValueError("question must not be empty")
-        # Exact-match cache has priority.
-        cached_response = self._get_cached_response(question)
-        if cached_response is not None:
-            return cached_response
-        # Semantic matching is opt-in and only reuses grounded cached answers.
-        cached_response = self._get_semantic_cached_response(question)
-        if cached_response is not None:
-            return cached_response
-        retrieved_chunks = self.retrieve(question)
-        if not retrieved_chunks:
-            return self._fallback_result(question, [])
-        if self.min_reranker_score is not None:
-            scores = [chunk.get("reranker_score") for chunk in retrieved_chunks]
-            valid_scores = all(
-                isinstance(score, (int, float))
-                and not isinstance(score, bool)
-                and isfinite(score)
-                for score in scores
+
+        langfuse = get_langfuse_client()
+
+        with langfuse.start_as_current_observation(
+            as_type="span",
+            name="rag-ask",
+            input={
+                "retrieval_mode": self.retrieval_mode,
+                "question_length": len(question),
+            },
+        ) as trace:
+            # Exact-match cache has priority.
+            with langfuse.start_as_current_observation(
+                as_type="span",
+                name="exact-cache-lookup",
+            ) as cache_span:
+                cached_response = self._get_cached_response(question)
+                cache_span.update(output={"hit": cached_response is not None})
+
+            if cached_response is not None:
+                trace.update(output={"status": "exact_cache_hit"})
+                return cached_response
+
+            # Semantic matching is optional.
+            with langfuse.start_as_current_observation(
+                as_type="span",
+                name="semantic-cache-lookup",
+            ) as cache_span:
+                cached_response = self._get_semantic_cached_response(question)
+                cache_span.update(output={"hit": cached_response is not None})
+
+            if cached_response is not None:
+                trace.update(output={"status": "semantic_cache_hit"})
+                return cached_response
+
+            # Retrieval.
+            with langfuse.start_as_current_observation(
+                as_type="span",
+                name="retrieval",
+                input={"top_k": self.top_k},
+            ) as retrieval_span:
+                retrieved_chunks = self.retrieve(question)
+                retrieval_span.update(output={"retrieved_count": len(retrieved_chunks)})
+
+            if not retrieved_chunks:
+                response = self._fallback_result(question, [])
+                trace.update(output={"status": "no_chunks_fallback"})
+                return response
+
+            # Optional reranker score threshold.
+            if self.min_reranker_score is not None:
+                scores = [chunk.get("reranker_score") for chunk in retrieved_chunks]
+                valid_scores = all(
+                    isinstance(score, (int, float))
+                    and not isinstance(score, bool)
+                    and isfinite(score)
+                    for score in scores
+                )
+
+                if not valid_scores or max(scores) < self.min_reranker_score:
+                    response = self._fallback_result(question, retrieved_chunks)
+                    trace.update(output={"status": "reranker_threshold_fallback"})
+                    return response
+
+            # Answer generation.
+            with langfuse.start_as_current_observation(
+                as_type="generation",
+                name="answer-generation",
+                model="Qwen/Qwen2.5-0.5B-Instruct",
+                input={
+                    "context_chunk_count": len(retrieved_chunks),
+                    "max_new_tokens": self.max_new_tokens,
+                },
+            ) as generation_span:
+                generation_result = generate_answer(
+                    question=question,
+                    context_chunks=retrieved_chunks,
+                    max_new_tokens=self.max_new_tokens,
+                )
+                answer = generation_result.get("answer", "")
+                generation_span.update(output={"answer_length": len(answer)})
+
+            if is_abstention_response(answer):
+                response = self._fallback_result(question, retrieved_chunks)
+                trace.update(output={"status": "model_abstained"})
+                return response
+
+            if not answer_is_lexically_supported(answer, retrieved_chunks):
+                response = self._fallback_result(question, retrieved_chunks)
+                trace.update(output={"status": "grounding_fallback"})
+                return response
+
+            response = {
+                "question": question,
+                "answer": answer,
+                "sources": generation_result.get("sources", []),
+                "retrieved_chunks": retrieved_chunks,
+                "retrieval_mode": self.retrieval_mode,
+            }
+
+            self._cache_response(question, response)
+            self._cache_semantic_response(question, response)
+
+            trace.update(
+                output={
+                    "status": "success",
+                    "source_count": len(response["sources"]),
+                    "retrieved_count": len(retrieved_chunks),
+                }
             )
-            if not valid_scores or max(scores) < self.min_reranker_score:
-                return self._fallback_result(question, retrieved_chunks)
-        generation_result = generate_answer(
-            question=question,
-            context_chunks=retrieved_chunks,
-            max_new_tokens=self.max_new_tokens,
-        )
-        answer = generation_result.get("answer", "")
-        if is_abstention_response(answer):
-            return self._fallback_result(question, retrieved_chunks)
-        if not answer_is_lexically_supported(answer, retrieved_chunks):
-            return self._fallback_result(question, retrieved_chunks)
-        response = {
-            "question": question,
-            "answer": answer,
-            "sources": generation_result.get("sources", []),
-            "retrieved_chunks": retrieved_chunks,
-            "retrieval_mode": self.retrieval_mode,
-        }
-        self._cache_response(question, response)
-        self._cache_semantic_response(question, response)
-        return response
+            return response
