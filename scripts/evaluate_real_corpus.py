@@ -1,6 +1,8 @@
 import json
 from pathlib import Path
+from typing import Any
 
+from src.evaluation.groundedness_evaluator import evaluate_groundedness
 from src.evaluation.source_evaluator import source_was_retrieved
 from src.ingest.chunker import chunk_document_recursive
 from src.ingest.loaders import load_documents
@@ -91,17 +93,35 @@ def main() -> None:
         max_new_tokens=160,
     )
 
-    results = []
+    results: list[dict[str, Any]] = []
 
     for item in QUESTIONS:
         result = pipeline.ask(item["question"])
         answer = result["answer"]
         abstained = is_abstained(answer)
         retrieved_sources = result["sources"]
+        retrieved_chunks = result.get("retrieved_chunks", [])
+
+        retrieved_context = " ".join(
+            str(chunk.get("text", ""))
+            for chunk in retrieved_chunks
+            if str(chunk.get("text", "")).strip()
+        )
+
+        if abstained:
+            groundedness: dict[str, bool | str | float | None] = {
+                "grounded": None,
+                "reason": "abstained",
+                "token_coverage": None,
+            }
+        else:
+            groundedness = evaluate_groundedness(answer, retrieved_context)
+
         expected_source_found = source_was_retrieved(
             item["expected_source"],
             retrieved_sources,
         )
+
         entry = {
             **item,
             "answer": answer,
@@ -109,6 +129,9 @@ def main() -> None:
             "abstention_correct": abstained == (not item["answerable"]),
             "retrieved_sources": retrieved_sources,
             "expected_source_found": expected_source_found,
+            "grounded": groundedness["grounded"],
+            "groundedness_reason": groundedness["reason"],
+            "groundedness_token_coverage": groundedness["token_coverage"],
             "manual_review_required": True,
         }
         results.append(entry)
@@ -118,14 +141,25 @@ def main() -> None:
         print(f"Answer: {answer}")
         print(f"Abstained: {abstained}")
         print(f"Sources: {retrieved_sources}")
+
         if expected_source_found is not None:
             print(f"Expected source found: {expected_source_found}")
+
+        print(f"Grounded: {groundedness['grounded']}")
+        print(f"Groundedness reason: {groundedness['reason']}")
         print(f"Abstention decision correct: {entry['abstention_correct']}")
 
     total = len(results)
     correct_decisions = sum(result["abstention_correct"] for result in results)
-    answerable = [r for r in results if r["answerable"]]
-    unanswerable = [r for r in results if not r["answerable"]]
+    answerable = [result for result in results if result["answerable"]]
+    unanswerable = [result for result in results if not result["answerable"]]
+
+    grounded_answers = [result for result in results if result["grounded"] is not None]
+    grounded_count = sum(result["grounded"] is True for result in grounded_answers)
+
+    groundedness_rate = (
+        grounded_count / len(grounded_answers) if grounded_answers else 0.0
+    )
 
     summary = {
         "documents_loaded": len(documents),
@@ -133,13 +167,22 @@ def main() -> None:
         "queries_evaluated": total,
         "correct_abstention_decisions": correct_decisions,
         "decision_accuracy": correct_decisions / total if total else 0.0,
-        "answerable_questions_answered": sum(not r["abstained"] for r in answerable),
+        "answerable_questions_answered": sum(
+            not result["abstained"] for result in answerable
+        ),
         "unanswerable_questions_correctly_abstained": sum(
-            r["abstained"] for r in unanswerable
+            result["abstained"] for result in unanswerable
+        ),
+        "answers_evaluated_for_groundedness": len(grounded_answers),
+        "grounded_answers": grounded_count,
+        "groundedness_rate": groundedness_rate,
+        "groundedness_method": (
+            "Content-token coverage (threshold 0.8); not semantic entailment."
         ),
         "warning": (
             "Decision accuracy measures abstention behavior, not factual "
-            "correctness. Review answers and sources manually."
+            "correctness. Groundedness is a lexical baseline, not proof of "
+            "factual correctness. Review answers and sources manually."
         ),
     }
 
