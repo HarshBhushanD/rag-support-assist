@@ -1,0 +1,10 @@
+﻿services:
+  rag-support-assistant:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: rag-support-assistant:local
+    env_file:
+      - path: .env
+        required: false
+    restart: "no"
