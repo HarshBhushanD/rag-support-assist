@@ -37,3 +37,5 @@ jobs:
 
       - name: Run test suite
         run: pytest -q
+      - name: Show Ruff version
+        run: ruff --version
