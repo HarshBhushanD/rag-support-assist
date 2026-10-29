@@ -33,6 +33,9 @@ jobs:
       - name: Show Ruff version
         run: ruff --version
 
+      - name: Fix import ordering
+        run: ruff check src tests --select I --fix
+
       - name: Run Ruff lint checks
         run: ruff check src tests
 
