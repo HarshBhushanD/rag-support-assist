@@ -33,8 +33,14 @@ jobs:
       - name: Show Ruff version
         run: ruff --version
 
-      - name: Fix import ordering
-        run: ruff check src tests --select I --fix
+      - name: Run Ruff lint checks
+        run: ruff check src tests scripts
+
+      - name: Check formatting
+        run: ruff format --check src tests scripts
+
+      - name: Run test suite
+        run: pytest -q
 
       - name: Run Ruff lint checks
         run: ruff check src tests
