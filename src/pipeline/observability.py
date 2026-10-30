@@ -6,12 +6,29 @@ from langfuse import get_client
 load_dotenv()
 
 
-def get_langfuse_client():
-    """Return the configured Langfuse client."""
-    if not os.getenv("LANGFUSE_PUBLIC_KEY"):
-        raise RuntimeError("LANGFUSE_PUBLIC_KEY is not configured")
+class NoOpObservation:
+    """Stand-in observation that does nothing when tracing is disabled."""
 
-    if not os.getenv("LANGFUSE_SECRET_KEY"):
-        raise RuntimeError("LANGFUSE_SECRET_KEY is not configured")
+    def __enter__(self):
+        return self
+
+    def __exit__(self, exc_type, exc_value, traceback):
+        return False
+
+    def update(self, **kwargs):
+        pass
+
+
+class NoOpLangfuse:
+    """Compatible no-op interface for disabled Langfuse tracing."""
+
+    def start_as_current_observation(self, **kwargs):
+        return NoOpObservation()
+
+
+def get_langfuse_client():
+    """Return a Langfuse client when credentials are configured."""
+    if not os.getenv("LANGFUSE_PUBLIC_KEY") or not os.getenv("LANGFUSE_SECRET_KEY"):
+        return NoOpLangfuse()
 
     return get_client()
