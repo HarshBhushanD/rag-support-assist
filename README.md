@@ -24,7 +24,3 @@ retrieval evaluation, and classical machine learning for support tickets.
 - scikit-learn
 - MLflow
 - Docker
-
-## Project Status
-
-Day 1: Repository setup and dataset selection in progress.
