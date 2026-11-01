@@ -4,10 +4,11 @@
   "retrieval_metrics": {
     "dense": {
       "top_k": 2,
-      "queries_evaluated": 8,
-      "answerable_queries": 6,
-      "unanswerable_queries": 2,
+      "queries_evaluated": 30,
+      "answerable_queries": 16,
+      "unanswerable_queries": 14,
       "hit_rate_at_k": 1.0,
+      "precision_at_k": 0.5,
       "recall_at_k": 1.0,
       "mrr": 1.0,
       "all_sources_recall_at_k": 1.0,
@@ -27,6 +28,7 @@
           "is_unanswerable": false,
           "hit": true,
           "all_sources_found": true,
+          "precision": 0.5,
           "recall": 1.0,
           "reciprocal_rank": 1.0
         },
@@ -43,6 +45,7 @@
           "is_unanswerable": false,
           "hit": true,
           "all_sources_found": true,
+          "precision": 0.5,
           "recall": 1.0,
           "reciprocal_rank": 1.0
         },
@@ -59,6 +62,7 @@
           "is_unanswerable": false,
           "hit": true,
           "all_sources_found": true,
+          "precision": 0.5,
           "recall": 1.0,
           "reciprocal_rank": 1.0
         },
@@ -75,6 +79,7 @@
           "is_unanswerable": false,
           "hit": true,
           "all_sources_found": true,
+          "precision": 0.5,
           "recall": 1.0,
           "reciprocal_rank": 1.0
         },
@@ -91,6 +96,7 @@
           "is_unanswerable": false,
           "hit": true,
           "all_sources_found": true,
+          "precision": 0.5,
           "recall": 1.0,
           "reciprocal_rank": 1.0
         },
@@ -133,17 +139,353 @@
           "is_unanswerable": false,
           "hit": true,
           "all_sources_found": true,
+          "precision": 0.5,
           "recall": 1.0,
           "reciprocal_rank": 1.0
+        },
+        {
+          "id": "q009",
+          "question": "Which settings should I open to reset my password?",
+          "expected_sources": [
+            "account-help.md"
+          ],
+          "retrieved_sources": [
+            "account-help.md",
+            "database-troubleshooting.md"
+          ],
+          "is_unanswerable": false,
+          "hit": true,
+          "all_sources_found": true,
+          "precision": 0.5,
+          "recall": 1.0,
+          "reciprocal_rank": 1.0
+        },
+        {
+          "id": "q010",
+          "question": "What is the final action in the password reset process?",
+          "expected_sources": [
+            "account-help.md"
+          ],
+          "retrieved_sources": [
+            "account-help.md",
+            "database-troubleshooting.md"
+          ],
+          "is_unanswerable": false,
+          "hit": true,
+          "all_sources_found": true,
+          "precision": 0.5,
+          "recall": 1.0,
+          "reciprocal_rank": 1.0
+        },
+        {
+          "id": "q011",
+          "question": "Where does the password reset process begin?",
+          "expected_sources": [
+            "account-help.md"
+          ],
+          "retrieved_sources": [
+            "account-help.md",
+            "database-troubleshooting.md"
+          ],
+          "is_unanswerable": false,
+          "hit": true,
+          "all_sources_found": true,
+          "precision": 0.5,
+          "recall": 1.0,
+          "reciprocal_rank": 1.0
+        },
+        {
+          "id": "q012",
+          "question": "Where is the Reset Password option located?",
+          "expected_sources": [
+            "account-help.md"
+          ],
+          "retrieved_sources": [
+            "account-help.md",
+            "database-troubleshooting.md"
+          ],
+          "is_unanswerable": false,
+          "hit": true,
+          "all_sources_found": true,
+          "precision": 0.5,
+          "recall": 1.0,
+          "reciprocal_rank": 1.0
+        },
+        {
+          "id": "q013",
+          "question": "What network-related factor should I verify when the database cannot connect?",
+          "expected_sources": [
+            "database-troubleshooting.md"
+          ],
+          "retrieved_sources": [
+            "database-troubleshooting.md",
+            "support-hours.md"
+          ],
+          "is_unanswerable": false,
+          "hit": true,
+          "all_sources_found": true,
+          "precision": 0.5,
+          "recall": 1.0,
+          "reciprocal_rank": 1.0
+        },
+        {
+          "id": "q014",
+          "question": "List all the details that should be checked for a database connection failure.",
+          "expected_sources": [
+            "database-troubleshooting.md"
+          ],
+          "retrieved_sources": [
+            "database-troubleshooting.md",
+            "account-help.md"
+          ],
+          "is_unanswerable": false,
+          "hit": true,
+          "all_sources_found": true,
+          "precision": 0.5,
+          "recall": 1.0,
+          "reciprocal_rank": 1.0
+        },
+        {
+          "id": "q015",
+          "question": "Should I verify database credentials when troubleshooting a connection failure?",
+          "expected_sources": [
+            "database-troubleshooting.md"
+          ],
+          "retrieved_sources": [
+            "database-troubleshooting.md",
+            "account-help.md"
+          ],
+          "is_unanswerable": false,
+          "hit": true,
+          "all_sources_found": true,
+          "precision": 0.5,
+          "recall": 1.0,
+          "reciprocal_rank": 1.0
+        },
+        {
+          "id": "q016",
+          "question": "What are the support hours on Friday?",
+          "expected_sources": [
+            "support-hours.md"
+          ],
+          "retrieved_sources": [
+            "support-hours.md",
+            "database-troubleshooting.md"
+          ],
+          "is_unanswerable": false,
+          "hit": true,
+          "all_sources_found": true,
+          "precision": 0.5,
+          "recall": 1.0,
+          "reciprocal_rank": 1.0
+        },
+        {
+          "id": "q017",
+          "question": "During which hours is customer support available on weekdays?",
+          "expected_sources": [
+            "support-hours.md"
+          ],
+          "retrieved_sources": [
+            "support-hours.md",
+            "database-troubleshooting.md"
+          ],
+          "is_unanswerable": false,
+          "hit": true,
+          "all_sources_found": true,
+          "precision": 0.5,
+          "recall": 1.0,
+          "reciprocal_rank": 1.0
+        },
+        {
+          "id": "q018",
+          "question": "Give me the official support schedule.",
+          "expected_sources": [
+            "support-hours.md"
+          ],
+          "retrieved_sources": [
+            "support-hours.md",
+            "database-troubleshooting.md"
+          ],
+          "is_unanswerable": false,
+          "hit": true,
+          "all_sources_found": true,
+          "precision": 0.5,
+          "recall": 1.0,
+          "reciprocal_rank": 1.0
+        },
+        {
+          "id": "q019",
+          "question": "Does the support team offer live chat?",
+          "expected_sources": [],
+          "retrieved_sources": [
+            "support-hours.md",
+            "database-troubleshooting.md"
+          ],
+          "is_unanswerable": true,
+          "returned_results": true,
+          "empty_retrieval": false
+        },
+        {
+          "id": "q020",
+          "question": "What is the support team's phone number?",
+          "expected_sources": [],
+          "retrieved_sources": [
+            "support-hours.md",
+            "account-help.md"
+          ],
+          "is_unanswerable": true,
+          "returned_results": true,
+          "empty_retrieval": false
+        },
+        {
+          "id": "q021",
+          "question": "Can you provide the direct URL for the password reset page?",
+          "expected_sources": [
+            "account-help.md"
+          ],
+          "retrieved_sources": [
+            "account-help.md",
+            "database-troubleshooting.md"
+          ],
+          "is_unanswerable": true,
+          "returned_results": true,
+          "empty_retrieval": false
+        },
+        {
+          "id": "q022",
+          "question": "What is the minimum password length required?",
+          "expected_sources": [
+            "account-help.md"
+          ],
+          "retrieved_sources": [
+            "account-help.md",
+            "database-troubleshooting.md"
+          ],
+          "is_unanswerable": true,
+          "returned_results": true,
+          "empty_retrieval": false
+        },
+        {
+          "id": "q023",
+          "question": "What is the name of the database server?",
+          "expected_sources": [
+            "database-troubleshooting.md"
+          ],
+          "retrieved_sources": [
+            "database-troubleshooting.md",
+            "account-help.md"
+          ],
+          "is_unanswerable": true,
+          "returned_results": true,
+          "empty_retrieval": false
+        },
+        {
+          "id": "q024",
+          "question": "Which database port number should I use?",
+          "expected_sources": [
+            "database-troubleshooting.md"
+          ],
+          "retrieved_sources": [
+            "database-troubleshooting.md",
+            "account-help.md"
+          ],
+          "is_unanswerable": true,
+          "returned_results": true,
+          "empty_retrieval": false
+        },
+        {
+          "id": "q025",
+          "question": "Does the support team work on Sundays?",
+          "expected_sources": [
+            "support-hours.md"
+          ],
+          "retrieved_sources": [
+            "support-hours.md",
+            "database-troubleshooting.md"
+          ],
+          "is_unanswerable": true,
+          "returned_results": true,
+          "empty_retrieval": false
+        },
+        {
+          "id": "q026",
+          "question": "Is support available on public holidays?",
+          "expected_sources": [
+            "support-hours.md"
+          ],
+          "retrieved_sources": [
+            "support-hours.md",
+            "database-troubleshooting.md"
+          ],
+          "is_unanswerable": true,
+          "returned_results": true,
+          "empty_retrieval": false
+        },
+        {
+          "id": "q027",
+          "question": "Which time zone is used for the support schedule?",
+          "expected_sources": [
+            "support-hours.md"
+          ],
+          "retrieved_sources": [
+            "support-hours.md",
+            "database-troubleshooting.md"
+          ],
+          "is_unanswerable": true,
+          "returned_results": true,
+          "empty_retrieval": false
+        },
+        {
+          "id": "q028",
+          "question": "What is the database username?",
+          "expected_sources": [
+            "database-troubleshooting.md"
+          ],
+          "retrieved_sources": [
+            "database-troubleshooting.md",
+            "account-help.md"
+          ],
+          "is_unanswerable": true,
+          "returned_results": true,
+          "empty_retrieval": false
+        },
+        {
+          "id": "q029",
+          "question": "Does the password reset process require email verification?",
+          "expected_sources": [
+            "account-help.md"
+          ],
+          "retrieved_sources": [
+            "account-help.md",
+            "database-troubleshooting.md"
+          ],
+          "is_unanswerable": true,
+          "returned_results": true,
+          "empty_retrieval": false
+        },
+        {
+          "id": "q030",
+          "question": "How long does a password reset take to complete?",
+          "expected_sources": [
+            "account-help.md"
+          ],
+          "retrieved_sources": [
+            "account-help.md",
+            "support-hours.md"
+          ],
+          "is_unanswerable": true,
+          "returned_results": true,
+          "empty_retrieval": false
         }
       ]
     },
     "bm25": {
       "top_k": 2,
-      "queries_evaluated": 8,
-      "answerable_queries": 6,
-      "unanswerable_queries": 2,
+      "queries_evaluated": 30,
+      "answerable_queries": 16,
+      "unanswerable_queries": 14,
       "hit_rate_at_k": 1.0,
+      "precision_at_k": 0.5,
       "recall_at_k": 1.0,
       "mrr": 1.0,
       "all_sources_recall_at_k": 1.0,
@@ -163,6 +505,7 @@
           "is_unanswerable": false,
           "hit": true,
           "all_sources_found": true,
+          "precision": 0.5,
           "recall": 1.0,
           "reciprocal_rank": 1.0
         },
@@ -179,6 +522,7 @@
           "is_unanswerable": false,
           "hit": true,
           "all_sources_found": true,
+          "precision": 0.5,
           "recall": 1.0,
           "reciprocal_rank": 1.0
         },
@@ -195,6 +539,7 @@
           "is_unanswerable": false,
           "hit": true,
           "all_sources_found": true,
+          "precision": 0.5,
           "recall": 1.0,
           "reciprocal_rank": 1.0
         },
@@ -211,6 +556,7 @@
           "is_unanswerable": false,
           "hit": true,
           "all_sources_found": true,
+          "precision": 0.5,
           "recall": 1.0,
           "reciprocal_rank": 1.0
         },
@@ -227,6 +573,7 @@
           "is_unanswerable": false,
           "hit": true,
           "all_sources_found": true,
+          "precision": 0.5,
           "recall": 1.0,
           "reciprocal_rank": 1.0
         },
@@ -269,17 +616,353 @@
           "is_unanswerable": false,
           "hit": true,
           "all_sources_found": true,
+          "precision": 0.5,
           "recall": 1.0,
           "reciprocal_rank": 1.0
+        },
+        {
+          "id": "q009",
+          "question": "Which settings should I open to reset my password?",
+          "expected_sources": [
+            "account-help.md"
+          ],
+          "retrieved_sources": [
+            "account-help.md",
+            "support-hours.md"
+          ],
+          "is_unanswerable": false,
+          "hit": true,
+          "all_sources_found": true,
+          "precision": 0.5,
+          "recall": 1.0,
+          "reciprocal_rank": 1.0
+        },
+        {
+          "id": "q010",
+          "question": "What is the final action in the password reset process?",
+          "expected_sources": [
+            "account-help.md"
+          ],
+          "retrieved_sources": [
+            "account-help.md",
+            "database-troubleshooting.md"
+          ],
+          "is_unanswerable": false,
+          "hit": true,
+          "all_sources_found": true,
+          "precision": 0.5,
+          "recall": 1.0,
+          "reciprocal_rank": 1.0
+        },
+        {
+          "id": "q011",
+          "question": "Where does the password reset process begin?",
+          "expected_sources": [
+            "account-help.md"
+          ],
+          "retrieved_sources": [
+            "account-help.md",
+            "database-troubleshooting.md"
+          ],
+          "is_unanswerable": false,
+          "hit": true,
+          "all_sources_found": true,
+          "precision": 0.5,
+          "recall": 1.0,
+          "reciprocal_rank": 1.0
+        },
+        {
+          "id": "q012",
+          "question": "Where is the Reset Password option located?",
+          "expected_sources": [
+            "account-help.md"
+          ],
+          "retrieved_sources": [
+            "account-help.md",
+            "database-troubleshooting.md"
+          ],
+          "is_unanswerable": false,
+          "hit": true,
+          "all_sources_found": true,
+          "precision": 0.5,
+          "recall": 1.0,
+          "reciprocal_rank": 1.0
+        },
+        {
+          "id": "q013",
+          "question": "What network-related factor should I verify when the database cannot connect?",
+          "expected_sources": [
+            "database-troubleshooting.md"
+          ],
+          "retrieved_sources": [
+            "database-troubleshooting.md",
+            "account-help.md"
+          ],
+          "is_unanswerable": false,
+          "hit": true,
+          "all_sources_found": true,
+          "precision": 0.5,
+          "recall": 1.0,
+          "reciprocal_rank": 1.0
+        },
+        {
+          "id": "q014",
+          "question": "List all the details that should be checked for a database connection failure.",
+          "expected_sources": [
+            "database-troubleshooting.md"
+          ],
+          "retrieved_sources": [
+            "database-troubleshooting.md",
+            "account-help.md"
+          ],
+          "is_unanswerable": false,
+          "hit": true,
+          "all_sources_found": true,
+          "precision": 0.5,
+          "recall": 1.0,
+          "reciprocal_rank": 1.0
+        },
+        {
+          "id": "q015",
+          "question": "Should I verify database credentials when troubleshooting a connection failure?",
+          "expected_sources": [
+            "database-troubleshooting.md"
+          ],
+          "retrieved_sources": [
+            "database-troubleshooting.md",
+            "account-help.md"
+          ],
+          "is_unanswerable": false,
+          "hit": true,
+          "all_sources_found": true,
+          "precision": 0.5,
+          "recall": 1.0,
+          "reciprocal_rank": 1.0
+        },
+        {
+          "id": "q016",
+          "question": "What are the support hours on Friday?",
+          "expected_sources": [
+            "support-hours.md"
+          ],
+          "retrieved_sources": [
+            "support-hours.md",
+            "database-troubleshooting.md"
+          ],
+          "is_unanswerable": false,
+          "hit": true,
+          "all_sources_found": true,
+          "precision": 0.5,
+          "recall": 1.0,
+          "reciprocal_rank": 1.0
+        },
+        {
+          "id": "q017",
+          "question": "During which hours is customer support available on weekdays?",
+          "expected_sources": [
+            "support-hours.md"
+          ],
+          "retrieved_sources": [
+            "support-hours.md",
+            "account-help.md"
+          ],
+          "is_unanswerable": false,
+          "hit": true,
+          "all_sources_found": true,
+          "precision": 0.5,
+          "recall": 1.0,
+          "reciprocal_rank": 1.0
+        },
+        {
+          "id": "q018",
+          "question": "Give me the official support schedule.",
+          "expected_sources": [
+            "support-hours.md"
+          ],
+          "retrieved_sources": [
+            "support-hours.md",
+            "database-troubleshooting.md"
+          ],
+          "is_unanswerable": false,
+          "hit": true,
+          "all_sources_found": true,
+          "precision": 0.5,
+          "recall": 1.0,
+          "reciprocal_rank": 1.0
+        },
+        {
+          "id": "q019",
+          "question": "Does the support team offer live chat?",
+          "expected_sources": [],
+          "retrieved_sources": [
+            "support-hours.md",
+            "database-troubleshooting.md"
+          ],
+          "is_unanswerable": true,
+          "returned_results": true,
+          "empty_retrieval": false
+        },
+        {
+          "id": "q020",
+          "question": "What is the support team's phone number?",
+          "expected_sources": [],
+          "retrieved_sources": [
+            "support-hours.md",
+            "database-troubleshooting.md"
+          ],
+          "is_unanswerable": true,
+          "returned_results": true,
+          "empty_retrieval": false
+        },
+        {
+          "id": "q021",
+          "question": "Can you provide the direct URL for the password reset page?",
+          "expected_sources": [
+            "account-help.md"
+          ],
+          "retrieved_sources": [
+            "database-troubleshooting.md",
+            "account-help.md"
+          ],
+          "is_unanswerable": true,
+          "returned_results": true,
+          "empty_retrieval": false
+        },
+        {
+          "id": "q022",
+          "question": "What is the minimum password length required?",
+          "expected_sources": [
+            "account-help.md"
+          ],
+          "retrieved_sources": [
+            "account-help.md",
+            "database-troubleshooting.md"
+          ],
+          "is_unanswerable": true,
+          "returned_results": true,
+          "empty_retrieval": false
+        },
+        {
+          "id": "q023",
+          "question": "What is the name of the database server?",
+          "expected_sources": [
+            "database-troubleshooting.md"
+          ],
+          "retrieved_sources": [
+            "database-troubleshooting.md",
+            "account-help.md"
+          ],
+          "is_unanswerable": true,
+          "returned_results": true,
+          "empty_retrieval": false
+        },
+        {
+          "id": "q024",
+          "question": "Which database port number should I use?",
+          "expected_sources": [
+            "database-troubleshooting.md"
+          ],
+          "retrieved_sources": [
+            "database-troubleshooting.md",
+            "account-help.md"
+          ],
+          "is_unanswerable": true,
+          "returned_results": true,
+          "empty_retrieval": false
+        },
+        {
+          "id": "q025",
+          "question": "Does the support team work on Sundays?",
+          "expected_sources": [
+            "support-hours.md"
+          ],
+          "retrieved_sources": [
+            "support-hours.md",
+            "database-troubleshooting.md"
+          ],
+          "is_unanswerable": true,
+          "returned_results": true,
+          "empty_retrieval": false
+        },
+        {
+          "id": "q026",
+          "question": "Is support available on public holidays?",
+          "expected_sources": [
+            "support-hours.md"
+          ],
+          "retrieved_sources": [
+            "support-hours.md",
+            "account-help.md"
+          ],
+          "is_unanswerable": true,
+          "returned_results": true,
+          "empty_retrieval": false
+        },
+        {
+          "id": "q027",
+          "question": "Which time zone is used for the support schedule?",
+          "expected_sources": [
+            "support-hours.md"
+          ],
+          "retrieved_sources": [
+            "database-troubleshooting.md",
+            "support-hours.md"
+          ],
+          "is_unanswerable": true,
+          "returned_results": true,
+          "empty_retrieval": false
+        },
+        {
+          "id": "q028",
+          "question": "What is the database username?",
+          "expected_sources": [
+            "database-troubleshooting.md"
+          ],
+          "retrieved_sources": [
+            "database-troubleshooting.md",
+            "account-help.md"
+          ],
+          "is_unanswerable": true,
+          "returned_results": true,
+          "empty_retrieval": false
+        },
+        {
+          "id": "q029",
+          "question": "Does the password reset process require email verification?",
+          "expected_sources": [
+            "account-help.md"
+          ],
+          "retrieved_sources": [
+            "account-help.md",
+            "database-troubleshooting.md"
+          ],
+          "is_unanswerable": true,
+          "returned_results": true,
+          "empty_retrieval": false
+        },
+        {
+          "id": "q030",
+          "question": "How long does a password reset take to complete?",
+          "expected_sources": [
+            "account-help.md"
+          ],
+          "retrieved_sources": [
+            "account-help.md",
+            "support-hours.md"
+          ],
+          "is_unanswerable": true,
+          "returned_results": true,
+          "empty_retrieval": false
         }
       ]
     },
     "hybrid": {
       "top_k": 2,
-      "queries_evaluated": 8,
-      "answerable_queries": 6,
-      "unanswerable_queries": 2,
+      "queries_evaluated": 30,
+      "answerable_queries": 16,
+      "unanswerable_queries": 14,
       "hit_rate_at_k": 1.0,
+      "precision_at_k": 0.5,
       "recall_at_k": 1.0,
       "mrr": 1.0,
       "all_sources_recall_at_k": 1.0,
@@ -299,6 +982,7 @@
           "is_unanswerable": false,
           "hit": true,
           "all_sources_found": true,
+          "precision": 0.5,
           "recall": 1.0,
           "reciprocal_rank": 1.0
         },
@@ -315,6 +999,7 @@
           "is_unanswerable": false,
           "hit": true,
           "all_sources_found": true,
+          "precision": 0.5,
           "recall": 1.0,
           "reciprocal_rank": 1.0
         },
@@ -331,6 +1016,7 @@
           "is_unanswerable": false,
           "hit": true,
           "all_sources_found": true,
+          "precision": 0.5,
           "recall": 1.0,
           "reciprocal_rank": 1.0
         },
@@ -347,6 +1033,7 @@
           "is_unanswerable": false,
           "hit": true,
           "all_sources_found": true,
+          "precision": 0.5,
           "recall": 1.0,
           "reciprocal_rank": 1.0
         },
@@ -363,6 +1050,7 @@
           "is_unanswerable": false,
           "hit": true,
           "all_sources_found": true,
+          "precision": 0.5,
           "recall": 1.0,
           "reciprocal_rank": 1.0
         },
@@ -405,17 +1093,353 @@
           "is_unanswerable": false,
           "hit": true,
           "all_sources_found": true,
+          "precision": 0.5,
           "recall": 1.0,
           "reciprocal_rank": 1.0
+        },
+        {
+          "id": "q009",
+          "question": "Which settings should I open to reset my password?",
+          "expected_sources": [
+            "account-help.md"
+          ],
+          "retrieved_sources": [
+            "account-help.md",
+            "database-troubleshooting.md"
+          ],
+          "is_unanswerable": false,
+          "hit": true,
+          "all_sources_found": true,
+          "precision": 0.5,
+          "recall": 1.0,
+          "reciprocal_rank": 1.0
+        },
+        {
+          "id": "q010",
+          "question": "What is the final action in the password reset process?",
+          "expected_sources": [
+            "account-help.md"
+          ],
+          "retrieved_sources": [
+            "account-help.md",
+            "database-troubleshooting.md"
+          ],
+          "is_unanswerable": false,
+          "hit": true,
+          "all_sources_found": true,
+          "precision": 0.5,
+          "recall": 1.0,
+          "reciprocal_rank": 1.0
+        },
+        {
+          "id": "q011",
+          "question": "Where does the password reset process begin?",
+          "expected_sources": [
+            "account-help.md"
+          ],
+          "retrieved_sources": [
+            "account-help.md",
+            "database-troubleshooting.md"
+          ],
+          "is_unanswerable": false,
+          "hit": true,
+          "all_sources_found": true,
+          "precision": 0.5,
+          "recall": 1.0,
+          "reciprocal_rank": 1.0
+        },
+        {
+          "id": "q012",
+          "question": "Where is the Reset Password option located?",
+          "expected_sources": [
+            "account-help.md"
+          ],
+          "retrieved_sources": [
+            "account-help.md",
+            "database-troubleshooting.md"
+          ],
+          "is_unanswerable": false,
+          "hit": true,
+          "all_sources_found": true,
+          "precision": 0.5,
+          "recall": 1.0,
+          "reciprocal_rank": 1.0
+        },
+        {
+          "id": "q013",
+          "question": "What network-related factor should I verify when the database cannot connect?",
+          "expected_sources": [
+            "database-troubleshooting.md"
+          ],
+          "retrieved_sources": [
+            "database-troubleshooting.md",
+            "support-hours.md"
+          ],
+          "is_unanswerable": false,
+          "hit": true,
+          "all_sources_found": true,
+          "precision": 0.5,
+          "recall": 1.0,
+          "reciprocal_rank": 1.0
+        },
+        {
+          "id": "q014",
+          "question": "List all the details that should be checked for a database connection failure.",
+          "expected_sources": [
+            "database-troubleshooting.md"
+          ],
+          "retrieved_sources": [
+            "database-troubleshooting.md",
+            "account-help.md"
+          ],
+          "is_unanswerable": false,
+          "hit": true,
+          "all_sources_found": true,
+          "precision": 0.5,
+          "recall": 1.0,
+          "reciprocal_rank": 1.0
+        },
+        {
+          "id": "q015",
+          "question": "Should I verify database credentials when troubleshooting a connection failure?",
+          "expected_sources": [
+            "database-troubleshooting.md"
+          ],
+          "retrieved_sources": [
+            "database-troubleshooting.md",
+            "account-help.md"
+          ],
+          "is_unanswerable": false,
+          "hit": true,
+          "all_sources_found": true,
+          "precision": 0.5,
+          "recall": 1.0,
+          "reciprocal_rank": 1.0
+        },
+        {
+          "id": "q016",
+          "question": "What are the support hours on Friday?",
+          "expected_sources": [
+            "support-hours.md"
+          ],
+          "retrieved_sources": [
+            "support-hours.md",
+            "database-troubleshooting.md"
+          ],
+          "is_unanswerable": false,
+          "hit": true,
+          "all_sources_found": true,
+          "precision": 0.5,
+          "recall": 1.0,
+          "reciprocal_rank": 1.0
+        },
+        {
+          "id": "q017",
+          "question": "During which hours is customer support available on weekdays?",
+          "expected_sources": [
+            "support-hours.md"
+          ],
+          "retrieved_sources": [
+            "support-hours.md",
+            "database-troubleshooting.md"
+          ],
+          "is_unanswerable": false,
+          "hit": true,
+          "all_sources_found": true,
+          "precision": 0.5,
+          "recall": 1.0,
+          "reciprocal_rank": 1.0
+        },
+        {
+          "id": "q018",
+          "question": "Give me the official support schedule.",
+          "expected_sources": [
+            "support-hours.md"
+          ],
+          "retrieved_sources": [
+            "support-hours.md",
+            "database-troubleshooting.md"
+          ],
+          "is_unanswerable": false,
+          "hit": true,
+          "all_sources_found": true,
+          "precision": 0.5,
+          "recall": 1.0,
+          "reciprocal_rank": 1.0
+        },
+        {
+          "id": "q019",
+          "question": "Does the support team offer live chat?",
+          "expected_sources": [],
+          "retrieved_sources": [
+            "support-hours.md",
+            "database-troubleshooting.md"
+          ],
+          "is_unanswerable": true,
+          "returned_results": true,
+          "empty_retrieval": false
+        },
+        {
+          "id": "q020",
+          "question": "What is the support team's phone number?",
+          "expected_sources": [],
+          "retrieved_sources": [
+            "support-hours.md",
+            "account-help.md"
+          ],
+          "is_unanswerable": true,
+          "returned_results": true,
+          "empty_retrieval": false
+        },
+        {
+          "id": "q021",
+          "question": "Can you provide the direct URL for the password reset page?",
+          "expected_sources": [
+            "account-help.md"
+          ],
+          "retrieved_sources": [
+            "account-help.md",
+            "database-troubleshooting.md"
+          ],
+          "is_unanswerable": true,
+          "returned_results": true,
+          "empty_retrieval": false
+        },
+        {
+          "id": "q022",
+          "question": "What is the minimum password length required?",
+          "expected_sources": [
+            "account-help.md"
+          ],
+          "retrieved_sources": [
+            "account-help.md",
+            "database-troubleshooting.md"
+          ],
+          "is_unanswerable": true,
+          "returned_results": true,
+          "empty_retrieval": false
+        },
+        {
+          "id": "q023",
+          "question": "What is the name of the database server?",
+          "expected_sources": [
+            "database-troubleshooting.md"
+          ],
+          "retrieved_sources": [
+            "database-troubleshooting.md",
+            "account-help.md"
+          ],
+          "is_unanswerable": true,
+          "returned_results": true,
+          "empty_retrieval": false
+        },
+        {
+          "id": "q024",
+          "question": "Which database port number should I use?",
+          "expected_sources": [
+            "database-troubleshooting.md"
+          ],
+          "retrieved_sources": [
+            "database-troubleshooting.md",
+            "account-help.md"
+          ],
+          "is_unanswerable": true,
+          "returned_results": true,
+          "empty_retrieval": false
+        },
+        {
+          "id": "q025",
+          "question": "Does the support team work on Sundays?",
+          "expected_sources": [
+            "support-hours.md"
+          ],
+          "retrieved_sources": [
+            "support-hours.md",
+            "database-troubleshooting.md"
+          ],
+          "is_unanswerable": true,
+          "returned_results": true,
+          "empty_retrieval": false
+        },
+        {
+          "id": "q026",
+          "question": "Is support available on public holidays?",
+          "expected_sources": [
+            "support-hours.md"
+          ],
+          "retrieved_sources": [
+            "support-hours.md",
+            "database-troubleshooting.md"
+          ],
+          "is_unanswerable": true,
+          "returned_results": true,
+          "empty_retrieval": false
+        },
+        {
+          "id": "q027",
+          "question": "Which time zone is used for the support schedule?",
+          "expected_sources": [
+            "support-hours.md"
+          ],
+          "retrieved_sources": [
+            "support-hours.md",
+            "database-troubleshooting.md"
+          ],
+          "is_unanswerable": true,
+          "returned_results": true,
+          "empty_retrieval": false
+        },
+        {
+          "id": "q028",
+          "question": "What is the database username?",
+          "expected_sources": [
+            "database-troubleshooting.md"
+          ],
+          "retrieved_sources": [
+            "database-troubleshooting.md",
+            "account-help.md"
+          ],
+          "is_unanswerable": true,
+          "returned_results": true,
+          "empty_retrieval": false
+        },
+        {
+          "id": "q029",
+          "question": "Does the password reset process require email verification?",
+          "expected_sources": [
+            "account-help.md"
+          ],
+          "retrieved_sources": [
+            "account-help.md",
+            "database-troubleshooting.md"
+          ],
+          "is_unanswerable": true,
+          "returned_results": true,
+          "empty_retrieval": false
+        },
+        {
+          "id": "q030",
+          "question": "How long does a password reset take to complete?",
+          "expected_sources": [
+            "account-help.md"
+          ],
+          "retrieved_sources": [
+            "account-help.md",
+            "support-hours.md"
+          ],
+          "is_unanswerable": true,
+          "returned_results": true,
+          "empty_retrieval": false
         }
       ]
     },
     "reranked_hybrid": {
       "top_k": 2,
-      "queries_evaluated": 8,
-      "answerable_queries": 6,
-      "unanswerable_queries": 2,
+      "queries_evaluated": 30,
+      "answerable_queries": 16,
+      "unanswerable_queries": 14,
       "hit_rate_at_k": 1.0,
+      "precision_at_k": 0.5,
       "recall_at_k": 1.0,
       "mrr": 1.0,
       "all_sources_recall_at_k": 1.0,
@@ -435,6 +1459,7 @@
           "is_unanswerable": false,
           "hit": true,
           "all_sources_found": true,
+          "precision": 0.5,
           "recall": 1.0,
           "reciprocal_rank": 1.0
         },
@@ -451,6 +1476,7 @@
           "is_unanswerable": false,
           "hit": true,
           "all_sources_found": true,
+          "precision": 0.5,
           "recall": 1.0,
           "reciprocal_rank": 1.0
         },
@@ -467,6 +1493,7 @@
           "is_unanswerable": false,
           "hit": true,
           "all_sources_found": true,
+          "precision": 0.5,
           "recall": 1.0,
           "reciprocal_rank": 1.0
         },
@@ -483,6 +1510,7 @@
           "is_unanswerable": false,
           "hit": true,
           "all_sources_found": true,
+          "precision": 0.5,
           "recall": 1.0,
           "reciprocal_rank": 1.0
         },
@@ -499,6 +1527,7 @@
           "is_unanswerable": false,
           "hit": true,
           "all_sources_found": true,
+          "precision": 0.5,
           "recall": 1.0,
           "reciprocal_rank": 1.0
         },
@@ -541,638 +1570,1684 @@
           "is_unanswerable": false,
           "hit": true,
           "all_sources_found": true,
+          "precision": 0.5,
           "recall": 1.0,
           "reciprocal_rank": 1.0
+        },
+        {
+          "id": "q009",
+          "question": "Which settings should I open to reset my password?",
+          "expected_sources": [
+            "account-help.md"
+          ],
+          "retrieved_sources": [
+            "account-help.md",
+            "database-troubleshooting.md"
+          ],
+          "is_unanswerable": false,
+          "hit": true,
+          "all_sources_found": true,
+          "precision": 0.5,
+          "recall": 1.0,
+          "reciprocal_rank": 1.0
+        },
+        {
+          "id": "q010",
+          "question": "What is the final action in the password reset process?",
+          "expected_sources": [
+            "account-help.md"
+          ],
+          "retrieved_sources": [
+            "account-help.md",
+            "database-troubleshooting.md"
+          ],
+          "is_unanswerable": false,
+          "hit": true,
+          "all_sources_found": true,
+          "precision": 0.5,
+          "recall": 1.0,
+          "reciprocal_rank": 1.0
+        },
+        {
+          "id": "q011",
+          "question": "Where does the password reset process begin?",
+          "expected_sources": [
+            "account-help.md"
+          ],
+          "retrieved_sources": [
+            "account-help.md",
+            "database-troubleshooting.md"
+          ],
+          "is_unanswerable": false,
+          "hit": true,
+          "all_sources_found": true,
+          "precision": 0.5,
+          "recall": 1.0,
+          "reciprocal_rank": 1.0
+        },
+        {
+          "id": "q012",
+          "question": "Where is the Reset Password option located?",
+          "expected_sources": [
+            "account-help.md"
+          ],
+          "retrieved_sources": [
+            "account-help.md",
+            "database-troubleshooting.md"
+          ],
+          "is_unanswerable": false,
+          "hit": true,
+          "all_sources_found": true,
+          "precision": 0.5,
+          "recall": 1.0,
+          "reciprocal_rank": 1.0
+        },
+        {
+          "id": "q013",
+          "question": "What network-related factor should I verify when the database cannot connect?",
+          "expected_sources": [
+            "database-troubleshooting.md"
+          ],
+          "retrieved_sources": [
+            "database-troubleshooting.md",
+            "support-hours.md"
+          ],
+          "is_unanswerable": false,
+          "hit": true,
+          "all_sources_found": true,
+          "precision": 0.5,
+          "recall": 1.0,
+          "reciprocal_rank": 1.0
+        },
+        {
+          "id": "q014",
+          "question": "List all the details that should be checked for a database connection failure.",
+          "expected_sources": [
+            "database-troubleshooting.md"
+          ],
+          "retrieved_sources": [
+            "database-troubleshooting.md",
+            "support-hours.md"
+          ],
+          "is_unanswerable": false,
+          "hit": true,
+          "all_sources_found": true,
+          "precision": 0.5,
+          "recall": 1.0,
+          "reciprocal_rank": 1.0
+        },
+        {
+          "id": "q015",
+          "question": "Should I verify database credentials when troubleshooting a connection failure?",
+          "expected_sources": [
+            "database-troubleshooting.md"
+          ],
+          "retrieved_sources": [
+            "database-troubleshooting.md",
+            "account-help.md"
+          ],
+          "is_unanswerable": false,
+          "hit": true,
+          "all_sources_found": true,
+          "precision": 0.5,
+          "recall": 1.0,
+          "reciprocal_rank": 1.0
+        },
+        {
+          "id": "q016",
+          "question": "What are the support hours on Friday?",
+          "expected_sources": [
+            "support-hours.md"
+          ],
+          "retrieved_sources": [
+            "support-hours.md",
+            "database-troubleshooting.md"
+          ],
+          "is_unanswerable": false,
+          "hit": true,
+          "all_sources_found": true,
+          "precision": 0.5,
+          "recall": 1.0,
+          "reciprocal_rank": 1.0
+        },
+        {
+          "id": "q017",
+          "question": "During which hours is customer support available on weekdays?",
+          "expected_sources": [
+            "support-hours.md"
+          ],
+          "retrieved_sources": [
+            "support-hours.md",
+            "account-help.md"
+          ],
+          "is_unanswerable": false,
+          "hit": true,
+          "all_sources_found": true,
+          "precision": 0.5,
+          "recall": 1.0,
+          "reciprocal_rank": 1.0
+        },
+        {
+          "id": "q018",
+          "question": "Give me the official support schedule.",
+          "expected_sources": [
+            "support-hours.md"
+          ],
+          "retrieved_sources": [
+            "support-hours.md",
+            "database-troubleshooting.md"
+          ],
+          "is_unanswerable": false,
+          "hit": true,
+          "all_sources_found": true,
+          "precision": 0.5,
+          "recall": 1.0,
+          "reciprocal_rank": 1.0
+        },
+        {
+          "id": "q019",
+          "question": "Does the support team offer live chat?",
+          "expected_sources": [],
+          "retrieved_sources": [
+            "support-hours.md",
+            "account-help.md"
+          ],
+          "is_unanswerable": true,
+          "returned_results": true,
+          "empty_retrieval": false
+        },
+        {
+          "id": "q020",
+          "question": "What is the support team's phone number?",
+          "expected_sources": [],
+          "retrieved_sources": [
+            "support-hours.md",
+            "database-troubleshooting.md"
+          ],
+          "is_unanswerable": true,
+          "returned_results": true,
+          "empty_retrieval": false
+        },
+        {
+          "id": "q021",
+          "question": "Can you provide the direct URL for the password reset page?",
+          "expected_sources": [
+            "account-help.md"
+          ],
+          "retrieved_sources": [
+            "account-help.md",
+            "database-troubleshooting.md"
+          ],
+          "is_unanswerable": true,
+          "returned_results": true,
+          "empty_retrieval": false
+        },
+        {
+          "id": "q022",
+          "question": "What is the minimum password length required?",
+          "expected_sources": [
+            "account-help.md"
+          ],
+          "retrieved_sources": [
+            "account-help.md",
+            "support-hours.md"
+          ],
+          "is_unanswerable": true,
+          "returned_results": true,
+          "empty_retrieval": false
+        },
+        {
+          "id": "q023",
+          "question": "What is the name of the database server?",
+          "expected_sources": [
+            "database-troubleshooting.md"
+          ],
+          "retrieved_sources": [
+            "database-troubleshooting.md",
+            "support-hours.md"
+          ],
+          "is_unanswerable": true,
+          "returned_results": true,
+          "empty_retrieval": false
+        },
+        {
+          "id": "q024",
+          "question": "Which database port number should I use?",
+          "expected_sources": [
+            "database-troubleshooting.md"
+          ],
+          "retrieved_sources": [
+            "database-troubleshooting.md",
+            "account-help.md"
+          ],
+          "is_unanswerable": true,
+          "returned_results": true,
+          "empty_retrieval": false
+        },
+        {
+          "id": "q025",
+          "question": "Does the support team work on Sundays?",
+          "expected_sources": [
+            "support-hours.md"
+          ],
+          "retrieved_sources": [
+            "support-hours.md",
+            "database-troubleshooting.md"
+          ],
+          "is_unanswerable": true,
+          "returned_results": true,
+          "empty_retrieval": false
+        },
+        {
+          "id": "q026",
+          "question": "Is support available on public holidays?",
+          "expected_sources": [
+            "support-hours.md"
+          ],
+          "retrieved_sources": [
+            "support-hours.md",
+            "account-help.md"
+          ],
+          "is_unanswerable": true,
+          "returned_results": true,
+          "empty_retrieval": false
+        },
+        {
+          "id": "q027",
+          "question": "Which time zone is used for the support schedule?",
+          "expected_sources": [
+            "support-hours.md"
+          ],
+          "retrieved_sources": [
+            "support-hours.md",
+            "account-help.md"
+          ],
+          "is_unanswerable": true,
+          "returned_results": true,
+          "empty_retrieval": false
+        },
+        {
+          "id": "q028",
+          "question": "What is the database username?",
+          "expected_sources": [
+            "database-troubleshooting.md"
+          ],
+          "retrieved_sources": [
+            "database-troubleshooting.md",
+            "account-help.md"
+          ],
+          "is_unanswerable": true,
+          "returned_results": true,
+          "empty_retrieval": false
+        },
+        {
+          "id": "q029",
+          "question": "Does the password reset process require email verification?",
+          "expected_sources": [
+            "account-help.md"
+          ],
+          "retrieved_sources": [
+            "account-help.md",
+            "database-troubleshooting.md"
+          ],
+          "is_unanswerable": true,
+          "returned_results": true,
+          "empty_retrieval": false
+        },
+        {
+          "id": "q030",
+          "question": "How long does a password reset take to complete?",
+          "expected_sources": [
+            "account-help.md"
+          ],
+          "retrieved_sources": [
+            "account-help.md",
+            "support-hours.md"
+          ],
+          "is_unanswerable": true,
+          "returned_results": true,
+          "empty_retrieval": false
         }
       ]
     }
   },
-  "abstention_summaries": {
-    "hybrid": {
-      "queries_evaluated": 8,
-      "answerable_questions": 6,
-      "unanswerable_questions": 2,
-      "answerable_questions_answered": 6,
-      "answerable_false_abstentions": 0,
-      "unanswerable_questions_correctly_abstained": 2,
-      "unanswerable_false_acceptances": 0,
-      "correct_abstention_decisions": 8,
-      "decision_accuracy": 1.0,
-      "answerable_coverage": 1.0
+  "evidence_metrics": {
+    "retrieval_mode": "hybrid",
+    "top_k": 2,
+    "queries_evaluated": 30,
+    "answerable_questions": 16,
+    "unanswerable_questions": 14,
+    "answerable_evidence_sufficiency": 1.0,
+    "unanswerable_evidence_absence_rate": 1.0,
+    "results": [
+      {
+        "id": "q001",
+        "question": "How do I reset my password?",
+        "answerable": true,
+        "evidence_coverage": 1.0,
+        "supported_evidence": [
+          "Account Settings",
+          "select Security",
+          "click Reset Password"
+        ],
+        "missing_evidence": [],
+        "status": "evidence_sufficient",
+        "correct": true
+      },
+      {
+        "id": "q002",
+        "question": "What should I check when a database connection fails?",
+        "answerable": true,
+        "evidence_coverage": 1.0,
+        "supported_evidence": [
+          "database hostname",
+          "port",
+          "credentials",
+          "network connectivity"
+        ],
+        "missing_evidence": [],
+        "status": "evidence_sufficient",
+        "correct": true
+      },
+      {
+        "id": "q003",
+        "question": "What are the support hours?",
+        "answerable": true,
+        "evidence_coverage": 1.0,
+        "supported_evidence": [
+          "Monday to Friday",
+          "9 AM to 5 PM"
+        ],
+        "missing_evidence": [],
+        "status": "evidence_sufficient",
+        "correct": true
+      },
+      {
+        "id": "q004",
+        "question": "Where can I change my account security settings?",
+        "answerable": true,
+        "evidence_coverage": 1.0,
+        "supported_evidence": [
+          "Account Settings",
+          "select Security"
+        ],
+        "missing_evidence": [],
+        "status": "evidence_sufficient",
+        "correct": true
+      },
+      {
+        "id": "q005",
+        "question": "Which database connection details should I verify?",
+        "answerable": true,
+        "evidence_coverage": 1.0,
+        "supported_evidence": [
+          "database hostname",
+          "port",
+          "credentials",
+          "network connectivity"
+        ],
+        "missing_evidence": [],
+        "status": "evidence_sufficient",
+        "correct": true
+      },
+      {
+        "id": "q006",
+        "question": "Is support available on Saturday?",
+        "answerable": false,
+        "evidence_coverage": 0.0,
+        "supported_evidence": [],
+        "missing_evidence": [
+          "Saturday support availability"
+        ],
+        "status": "requested_evidence_absent",
+        "correct": true
+      },
+      {
+        "id": "q007",
+        "question": "What is the support team's phone number?",
+        "answerable": false,
+        "evidence_coverage": 0.0,
+        "supported_evidence": [],
+        "missing_evidence": [
+          "support phone number"
+        ],
+        "status": "requested_evidence_absent",
+        "correct": true
+      },
+      {
+        "id": "q008",
+        "question": "How do I change my account password?",
+        "answerable": true,
+        "evidence_coverage": 1.0,
+        "supported_evidence": [
+          "Account Settings",
+          "select Security",
+          "click Reset Password"
+        ],
+        "missing_evidence": [],
+        "status": "evidence_sufficient",
+        "correct": true
+      },
+      {
+        "id": "q009",
+        "question": "Which settings should I open to reset my password?",
+        "answerable": true,
+        "evidence_coverage": 1.0,
+        "supported_evidence": [
+          "Account Settings",
+          "select Security",
+          "click Reset Password"
+        ],
+        "missing_evidence": [],
+        "status": "evidence_sufficient",
+        "correct": true
+      },
+      {
+        "id": "q010",
+        "question": "What is the final action in the password reset process?",
+        "answerable": true,
+        "evidence_coverage": 1.0,
+        "supported_evidence": [
+          "click Reset Password"
+        ],
+        "missing_evidence": [],
+        "status": "evidence_sufficient",
+        "correct": true
+      },
+      {
+        "id": "q011",
+        "question": "Where does the password reset process begin?",
+        "answerable": true,
+        "evidence_coverage": 1.0,
+        "supported_evidence": [
+          "Account Settings"
+        ],
+        "missing_evidence": [],
+        "status": "evidence_sufficient",
+        "correct": true
+      },
+      {
+        "id": "q012",
+        "question": "Where is the Reset Password option located?",
+        "answerable": true,
+        "evidence_coverage": 1.0,
+        "supported_evidence": [
+          "Account Settings",
+          "select Security",
+          "Reset Password"
+        ],
+        "missing_evidence": [],
+        "status": "evidence_sufficient",
+        "correct": true
+      },
+      {
+        "id": "q013",
+        "question": "What network-related factor should I verify when the database cannot connect?",
+        "answerable": true,
+        "evidence_coverage": 1.0,
+        "supported_evidence": [
+          "network connectivity"
+        ],
+        "missing_evidence": [],
+        "status": "evidence_sufficient",
+        "correct": true
+      },
+      {
+        "id": "q014",
+        "question": "List all the details that should be checked for a database connection failure.",
+        "answerable": true,
+        "evidence_coverage": 1.0,
+        "supported_evidence": [
+          "database hostname",
+          "port",
+          "credentials",
+          "network connectivity"
+        ],
+        "missing_evidence": [],
+        "status": "evidence_sufficient",
+        "correct": true
+      },
+      {
+        "id": "q015",
+        "question": "Should I verify database credentials when troubleshooting a connection failure?",
+        "answerable": true,
+        "evidence_coverage": 1.0,
+        "supported_evidence": [
+          "database credentials"
+        ],
+        "missing_evidence": [],
+        "status": "evidence_sufficient",
+        "correct": true
+      },
+      {
+        "id": "q016",
+        "question": "What are the support hours on Friday?",
+        "answerable": true,
+        "evidence_coverage": 1.0,
+        "supported_evidence": [
+          "Friday",
+          "9 AM to 5 PM"
+        ],
+        "missing_evidence": [],
+        "status": "evidence_sufficient",
+        "correct": true
+      },
+      {
+        "id": "q017",
+        "question": "During which hours is customer support available on weekdays?",
+        "answerable": true,
+        "evidence_coverage": 1.0,
+        "supported_evidence": [
+          "Monday to Friday",
+          "9 AM to 5 PM"
+        ],
+        "missing_evidence": [],
+        "status": "evidence_sufficient",
+        "correct": true
+      },
+      {
+        "id": "q018",
+        "question": "Give me the official support schedule.",
+        "answerable": true,
+        "evidence_coverage": 1.0,
+        "supported_evidence": [
+          "Monday to Friday",
+          "9 AM to 5 PM"
+        ],
+        "missing_evidence": [],
+        "status": "evidence_sufficient",
+        "correct": true
+      },
+      {
+        "id": "q019",
+        "question": "Does the support team offer live chat?",
+        "answerable": false,
+        "evidence_coverage": 0.0,
+        "supported_evidence": [],
+        "missing_evidence": [
+          "live chat availability"
+        ],
+        "status": "requested_evidence_absent",
+        "correct": true
+      },
+      {
+        "id": "q020",
+        "question": "What is the support team's phone number?",
+        "answerable": false,
+        "evidence_coverage": 0.0,
+        "supported_evidence": [],
+        "missing_evidence": [
+          "support phone number"
+        ],
+        "status": "requested_evidence_absent",
+        "correct": true
+      },
+      {
+        "id": "q021",
+        "question": "Can you provide the direct URL for the password reset page?",
+        "answerable": false,
+        "evidence_coverage": 0.0,
+        "supported_evidence": [],
+        "missing_evidence": [
+          "direct password reset URL"
+        ],
+        "status": "requested_evidence_absent",
+        "correct": true
+      },
+      {
+        "id": "q022",
+        "question": "What is the minimum password length required?",
+        "answerable": false,
+        "evidence_coverage": 0.0,
+        "supported_evidence": [],
+        "missing_evidence": [
+          "minimum password length"
+        ],
+        "status": "requested_evidence_absent",
+        "correct": true
+      },
+      {
+        "id": "q023",
+        "question": "What is the name of the database server?",
+        "answerable": false,
+        "evidence_coverage": 0.0,
+        "supported_evidence": [],
+        "missing_evidence": [
+          "database server name"
+        ],
+        "status": "requested_evidence_absent",
+        "correct": true
+      },
+      {
+        "id": "q024",
+        "question": "Which database port number should I use?",
+        "answerable": false,
+        "evidence_coverage": 0.0,
+        "supported_evidence": [],
+        "missing_evidence": [
+          "database port number"
+        ],
+        "status": "requested_evidence_absent",
+        "correct": true
+      },
+      {
+        "id": "q025",
+        "question": "Does the support team work on Sundays?",
+        "answerable": false,
+        "evidence_coverage": 0.0,
+        "supported_evidence": [],
+        "missing_evidence": [
+          "Sunday support availability"
+        ],
+        "status": "requested_evidence_absent",
+        "correct": true
+      },
+      {
+        "id": "q026",
+        "question": "Is support available on public holidays?",
+        "answerable": false,
+        "evidence_coverage": 0.0,
+        "supported_evidence": [],
+        "missing_evidence": [
+          "public holiday support availability"
+        ],
+        "status": "requested_evidence_absent",
+        "correct": true
+      },
+      {
+        "id": "q027",
+        "question": "Which time zone is used for the support schedule?",
+        "answerable": false,
+        "evidence_coverage": 0.0,
+        "supported_evidence": [],
+        "missing_evidence": [
+          "support schedule time zone"
+        ],
+        "status": "requested_evidence_absent",
+        "correct": true
+      },
+      {
+        "id": "q028",
+        "question": "What is the database username?",
+        "answerable": false,
+        "evidence_coverage": 0.0,
+        "supported_evidence": [],
+        "missing_evidence": [
+          "database username"
+        ],
+        "status": "requested_evidence_absent",
+        "correct": true
+      },
+      {
+        "id": "q029",
+        "question": "Does the password reset process require email verification?",
+        "answerable": false,
+        "evidence_coverage": 0.0,
+        "supported_evidence": [],
+        "missing_evidence": [
+          "email verification requirement"
+        ],
+        "status": "requested_evidence_absent",
+        "correct": true
+      },
+      {
+        "id": "q030",
+        "question": "How long does a password reset take to complete?",
+        "answerable": false,
+        "evidence_coverage": 0.0,
+        "supported_evidence": [],
+        "missing_evidence": [
+          "password reset duration"
+        ],
+        "status": "requested_evidence_absent",
+        "correct": true
+      }
+    ]
+  },
+  "threshold_calibration": {
+    "threshold_1.5": {
+      "queries_evaluated": 30,
+      "answerable_questions": 16,
+      "unanswerable_questions": 14,
+      "answerable_questions_answered": 13,
+      "answerable_false_abstentions": 3,
+      "unanswerable_questions_correctly_abstained": 12,
+      "unanswerable_false_acceptances": 2,
+      "correct_abstention_decisions": 25,
+      "decision_accuracy": 0.8333333333333334,
+      "answerable_coverage": 0.8125,
+      "results": [
+        {
+          "id": "q001",
+          "question": "How do I reset my password?",
+          "threshold": 1.5,
+          "best_reranker_score": 8.818293571472168,
+          "answerable": true,
+          "predicted_answerable": true,
+          "abstained": false,
+          "decision_correct": true
+        },
+        {
+          "id": "q002",
+          "question": "What should I check when a database connection fails?",
+          "threshold": 1.5,
+          "best_reranker_score": 7.899456977844238,
+          "answerable": true,
+          "predicted_answerable": true,
+          "abstained": false,
+          "decision_correct": true
+        },
+        {
+          "id": "q003",
+          "question": "What are the support hours?",
+          "threshold": 1.5,
+          "best_reranker_score": 9.620168685913086,
+          "answerable": true,
+          "predicted_answerable": true,
+          "abstained": false,
+          "decision_correct": true
+        },
+        {
+          "id": "q004",
+          "question": "Where can I change my account security settings?",
+          "threshold": 1.5,
+          "best_reranker_score": 1.6120109558105469,
+          "answerable": true,
+          "predicted_answerable": true,
+          "abstained": false,
+          "decision_correct": true
+        },
+        {
+          "id": "q005",
+          "question": "Which database connection details should I verify?",
+          "threshold": 1.5,
+          "best_reranker_score": 5.050529479980469,
+          "answerable": true,
+          "predicted_answerable": true,
+          "abstained": false,
+          "decision_correct": true
+        },
+        {
+          "id": "q006",
+          "question": "Is support available on Saturday?",
+          "threshold": 1.5,
+          "best_reranker_score": 2.494206666946411,
+          "answerable": false,
+          "predicted_answerable": true,
+          "abstained": false,
+          "decision_correct": false
+        },
+        {
+          "id": "q007",
+          "question": "What is the support team's phone number?",
+          "threshold": 1.5,
+          "best_reranker_score": -7.966253280639648,
+          "answerable": false,
+          "predicted_answerable": false,
+          "abstained": true,
+          "decision_correct": true
+        },
+        {
+          "id": "q008",
+          "question": "How do I change my account password?",
+          "threshold": 1.5,
+          "best_reranker_score": 7.172158241271973,
+          "answerable": true,
+          "predicted_answerable": true,
+          "abstained": false,
+          "decision_correct": true
+        },
+        {
+          "id": "q009",
+          "question": "Which settings should I open to reset my password?",
+          "threshold": 1.5,
+          "best_reranker_score": 7.388334274291992,
+          "answerable": true,
+          "predicted_answerable": true,
+          "abstained": false,
+          "decision_correct": true
+        },
+        {
+          "id": "q010",
+          "question": "What is the final action in the password reset process?",
+          "threshold": 1.5,
+          "best_reranker_score": -0.36436909437179565,
+          "answerable": true,
+          "predicted_answerable": false,
+          "abstained": true,
+          "decision_correct": false
+        },
+        {
+          "id": "q011",
+          "question": "Where does the password reset process begin?",
+          "threshold": 1.5,
+          "best_reranker_score": 0.15117999911308289,
+          "answerable": true,
+          "predicted_answerable": false,
+          "abstained": true,
+          "decision_correct": false
+        },
+        {
+          "id": "q012",
+          "question": "Where is the Reset Password option located?",
+          "threshold": 1.5,
+          "best_reranker_score": 1.128164291381836,
+          "answerable": true,
+          "predicted_answerable": false,
+          "abstained": true,
+          "decision_correct": false
+        },
+        {
+          "id": "q013",
+          "question": "What network-related factor should I verify when the database cannot connect?",
+          "threshold": 1.5,
+          "best_reranker_score": 3.3155555725097656,
+          "answerable": true,
+          "predicted_answerable": true,
+          "abstained": false,
+          "decision_correct": true
+        },
+        {
+          "id": "q014",
+          "question": "List all the details that should be checked for a database connection failure.",
+          "threshold": 1.5,
+          "best_reranker_score": 4.445339202880859,
+          "answerable": true,
+          "predicted_answerable": true,
+          "abstained": false,
+          "decision_correct": true
+        },
+        {
+          "id": "q015",
+          "question": "Should I verify database credentials when troubleshooting a connection failure?",
+          "threshold": 1.5,
+          "best_reranker_score": 7.028585433959961,
+          "answerable": true,
+          "predicted_answerable": true,
+          "abstained": false,
+          "decision_correct": true
+        },
+        {
+          "id": "q016",
+          "question": "What are the support hours on Friday?",
+          "threshold": 1.5,
+          "best_reranker_score": 9.685592651367188,
+          "answerable": true,
+          "predicted_answerable": true,
+          "abstained": false,
+          "decision_correct": true
+        },
+        {
+          "id": "q017",
+          "question": "During which hours is customer support available on weekdays?",
+          "threshold": 1.5,
+          "best_reranker_score": 6.658343315124512,
+          "answerable": true,
+          "predicted_answerable": true,
+          "abstained": false,
+          "decision_correct": true
+        },
+        {
+          "id": "q018",
+          "question": "Give me the official support schedule.",
+          "threshold": 1.5,
+          "best_reranker_score": 1.6657392978668213,
+          "answerable": true,
+          "predicted_answerable": true,
+          "abstained": false,
+          "decision_correct": true
+        },
+        {
+          "id": "q019",
+          "question": "Does the support team offer live chat?",
+          "threshold": 1.5,
+          "best_reranker_score": -7.878983020782471,
+          "answerable": false,
+          "predicted_answerable": false,
+          "abstained": true,
+          "decision_correct": true
+        },
+        {
+          "id": "q020",
+          "question": "What is the support team's phone number?",
+          "threshold": 1.5,
+          "best_reranker_score": -7.966253280639648,
+          "answerable": false,
+          "predicted_answerable": false,
+          "abstained": true,
+          "decision_correct": true
+        },
+        {
+          "id": "q021",
+          "question": "Can you provide the direct URL for the password reset page?",
+          "threshold": 1.5,
+          "best_reranker_score": -1.2554261684417725,
+          "answerable": false,
+          "predicted_answerable": false,
+          "abstained": true,
+          "decision_correct": true
+        },
+        {
+          "id": "q022",
+          "question": "What is the minimum password length required?",
+          "threshold": 1.5,
+          "best_reranker_score": -11.02932357788086,
+          "answerable": false,
+          "predicted_answerable": false,
+          "abstained": true,
+          "decision_correct": true
+        },
+        {
+          "id": "q023",
+          "question": "What is the name of the database server?",
+          "threshold": 1.5,
+          "best_reranker_score": -5.609027862548828,
+          "answerable": false,
+          "predicted_answerable": false,
+          "abstained": true,
+          "decision_correct": true
+        },
+        {
+          "id": "q024",
+          "question": "Which database port number should I use?",
+          "threshold": 1.5,
+          "best_reranker_score": -3.329469680786133,
+          "answerable": false,
+          "predicted_answerable": false,
+          "abstained": true,
+          "decision_correct": true
+        },
+        {
+          "id": "q025",
+          "question": "Does the support team work on Sundays?",
+          "threshold": 1.5,
+          "best_reranker_score": 1.1055858135223389,
+          "answerable": false,
+          "predicted_answerable": false,
+          "abstained": true,
+          "decision_correct": true
+        },
+        {
+          "id": "q026",
+          "question": "Is support available on public holidays?",
+          "threshold": 1.5,
+          "best_reranker_score": -7.144902229309082,
+          "answerable": false,
+          "predicted_answerable": false,
+          "abstained": true,
+          "decision_correct": true
+        },
+        {
+          "id": "q027",
+          "question": "Which time zone is used for the support schedule?",
+          "threshold": 1.5,
+          "best_reranker_score": 4.0375566482543945,
+          "answerable": false,
+          "predicted_answerable": true,
+          "abstained": false,
+          "decision_correct": false
+        },
+        {
+          "id": "q028",
+          "question": "What is the database username?",
+          "threshold": 1.5,
+          "best_reranker_score": -3.3100171089172363,
+          "answerable": false,
+          "predicted_answerable": false,
+          "abstained": true,
+          "decision_correct": true
+        },
+        {
+          "id": "q029",
+          "question": "Does the password reset process require email verification?",
+          "threshold": 1.5,
+          "best_reranker_score": -1.7101842164993286,
+          "answerable": false,
+          "predicted_answerable": false,
+          "abstained": true,
+          "decision_correct": true
+        },
+        {
+          "id": "q030",
+          "question": "How long does a password reset take to complete?",
+          "threshold": 1.5,
+          "best_reranker_score": -2.1447031497955322,
+          "answerable": false,
+          "predicted_answerable": false,
+          "abstained": true,
+          "decision_correct": true
+        }
+      ]
     },
-    "reranked_hybrid_threshold_1.5": {
-      "queries_evaluated": 8,
-      "answerable_questions": 6,
-      "unanswerable_questions": 2,
-      "answerable_questions_answered": 6,
-      "answerable_false_abstentions": 0,
-      "unanswerable_questions_correctly_abstained": 2,
-      "unanswerable_false_acceptances": 0,
-      "correct_abstention_decisions": 8,
-      "decision_accuracy": 1.0,
-      "answerable_coverage": 1.0
+    "threshold_2.0": {
+      "queries_evaluated": 30,
+      "answerable_questions": 16,
+      "unanswerable_questions": 14,
+      "answerable_questions_answered": 11,
+      "answerable_false_abstentions": 5,
+      "unanswerable_questions_correctly_abstained": 12,
+      "unanswerable_false_acceptances": 2,
+      "correct_abstention_decisions": 23,
+      "decision_accuracy": 0.7666666666666667,
+      "answerable_coverage": 0.6875,
+      "results": [
+        {
+          "id": "q001",
+          "question": "How do I reset my password?",
+          "threshold": 2.0,
+          "best_reranker_score": 8.818293571472168,
+          "answerable": true,
+          "predicted_answerable": true,
+          "abstained": false,
+          "decision_correct": true
+        },
+        {
+          "id": "q002",
+          "question": "What should I check when a database connection fails?",
+          "threshold": 2.0,
+          "best_reranker_score": 7.899456977844238,
+          "answerable": true,
+          "predicted_answerable": true,
+          "abstained": false,
+          "decision_correct": true
+        },
+        {
+          "id": "q003",
+          "question": "What are the support hours?",
+          "threshold": 2.0,
+          "best_reranker_score": 9.620168685913086,
+          "answerable": true,
+          "predicted_answerable": true,
+          "abstained": false,
+          "decision_correct": true
+        },
+        {
+          "id": "q004",
+          "question": "Where can I change my account security settings?",
+          "threshold": 2.0,
+          "best_reranker_score": 1.6120109558105469,
+          "answerable": true,
+          "predicted_answerable": false,
+          "abstained": true,
+          "decision_correct": false
+        },
+        {
+          "id": "q005",
+          "question": "Which database connection details should I verify?",
+          "threshold": 2.0,
+          "best_reranker_score": 5.050529479980469,
+          "answerable": true,
+          "predicted_answerable": true,
+          "abstained": false,
+          "decision_correct": true
+        },
+        {
+          "id": "q006",
+          "question": "Is support available on Saturday?",
+          "threshold": 2.0,
+          "best_reranker_score": 2.494206666946411,
+          "answerable": false,
+          "predicted_answerable": true,
+          "abstained": false,
+          "decision_correct": false
+        },
+        {
+          "id": "q007",
+          "question": "What is the support team's phone number?",
+          "threshold": 2.0,
+          "best_reranker_score": -7.966253280639648,
+          "answerable": false,
+          "predicted_answerable": false,
+          "abstained": true,
+          "decision_correct": true
+        },
+        {
+          "id": "q008",
+          "question": "How do I change my account password?",
+          "threshold": 2.0,
+          "best_reranker_score": 7.172158241271973,
+          "answerable": true,
+          "predicted_answerable": true,
+          "abstained": false,
+          "decision_correct": true
+        },
+        {
+          "id": "q009",
+          "question": "Which settings should I open to reset my password?",
+          "threshold": 2.0,
+          "best_reranker_score": 7.388334274291992,
+          "answerable": true,
+          "predicted_answerable": true,
+          "abstained": false,
+          "decision_correct": true
+        },
+        {
+          "id": "q010",
+          "question": "What is the final action in the password reset process?",
+          "threshold": 2.0,
+          "best_reranker_score": -0.36436909437179565,
+          "answerable": true,
+          "predicted_answerable": false,
+          "abstained": true,
+          "decision_correct": false
+        },
+        {
+          "id": "q011",
+          "question": "Where does the password reset process begin?",
+          "threshold": 2.0,
+          "best_reranker_score": 0.15117999911308289,
+          "answerable": true,
+          "predicted_answerable": false,
+          "abstained": true,
+          "decision_correct": false
+        },
+        {
+          "id": "q012",
+          "question": "Where is the Reset Password option located?",
+          "threshold": 2.0,
+          "best_reranker_score": 1.128164291381836,
+          "answerable": true,
+          "predicted_answerable": false,
+          "abstained": true,
+          "decision_correct": false
+        },
+        {
+          "id": "q013",
+          "question": "What network-related factor should I verify when the database cannot connect?",
+          "threshold": 2.0,
+          "best_reranker_score": 3.3155555725097656,
+          "answerable": true,
+          "predicted_answerable": true,
+          "abstained": false,
+          "decision_correct": true
+        },
+        {
+          "id": "q014",
+          "question": "List all the details that should be checked for a database connection failure.",
+          "threshold": 2.0,
+          "best_reranker_score": 4.445339202880859,
+          "answerable": true,
+          "predicted_answerable": true,
+          "abstained": false,
+          "decision_correct": true
+        },
+        {
+          "id": "q015",
+          "question": "Should I verify database credentials when troubleshooting a connection failure?",
+          "threshold": 2.0,
+          "best_reranker_score": 7.028585433959961,
+          "answerable": true,
+          "predicted_answerable": true,
+          "abstained": false,
+          "decision_correct": true
+        },
+        {
+          "id": "q016",
+          "question": "What are the support hours on Friday?",
+          "threshold": 2.0,
+          "best_reranker_score": 9.685592651367188,
+          "answerable": true,
+          "predicted_answerable": true,
+          "abstained": false,
+          "decision_correct": true
+        },
+        {
+          "id": "q017",
+          "question": "During which hours is customer support available on weekdays?",
+          "threshold": 2.0,
+          "best_reranker_score": 6.658343315124512,
+          "answerable": true,
+          "predicted_answerable": true,
+          "abstained": false,
+          "decision_correct": true
+        },
+        {
+          "id": "q018",
+          "question": "Give me the official support schedule.",
+          "threshold": 2.0,
+          "best_reranker_score": 1.6657392978668213,
+          "answerable": true,
+          "predicted_answerable": false,
+          "abstained": true,
+          "decision_correct": false
+        },
+        {
+          "id": "q019",
+          "question": "Does the support team offer live chat?",
+          "threshold": 2.0,
+          "best_reranker_score": -7.878983020782471,
+          "answerable": false,
+          "predicted_answerable": false,
+          "abstained": true,
+          "decision_correct": true
+        },
+        {
+          "id": "q020",
+          "question": "What is the support team's phone number?",
+          "threshold": 2.0,
+          "best_reranker_score": -7.966253280639648,
+          "answerable": false,
+          "predicted_answerable": false,
+          "abstained": true,
+          "decision_correct": true
+        },
+        {
+          "id": "q021",
+          "question": "Can you provide the direct URL for the password reset page?",
+          "threshold": 2.0,
+          "best_reranker_score": -1.2554261684417725,
+          "answerable": false,
+          "predicted_answerable": false,
+          "abstained": true,
+          "decision_correct": true
+        },
+        {
+          "id": "q022",
+          "question": "What is the minimum password length required?",
+          "threshold": 2.0,
+          "best_reranker_score": -11.02932357788086,
+          "answerable": false,
+          "predicted_answerable": false,
+          "abstained": true,
+          "decision_correct": true
+        },
+        {
+          "id": "q023",
+          "question": "What is the name of the database server?",
+          "threshold": 2.0,
+          "best_reranker_score": -5.609027862548828,
+          "answerable": false,
+          "predicted_answerable": false,
+          "abstained": true,
+          "decision_correct": true
+        },
+        {
+          "id": "q024",
+          "question": "Which database port number should I use?",
+          "threshold": 2.0,
+          "best_reranker_score": -3.329469680786133,
+          "answerable": false,
+          "predicted_answerable": false,
+          "abstained": true,
+          "decision_correct": true
+        },
+        {
+          "id": "q025",
+          "question": "Does the support team work on Sundays?",
+          "threshold": 2.0,
+          "best_reranker_score": 1.1055858135223389,
+          "answerable": false,
+          "predicted_answerable": false,
+          "abstained": true,
+          "decision_correct": true
+        },
+        {
+          "id": "q026",
+          "question": "Is support available on public holidays?",
+          "threshold": 2.0,
+          "best_reranker_score": -7.144902229309082,
+          "answerable": false,
+          "predicted_answerable": false,
+          "abstained": true,
+          "decision_correct": true
+        },
+        {
+          "id": "q027",
+          "question": "Which time zone is used for the support schedule?",
+          "threshold": 2.0,
+          "best_reranker_score": 4.0375566482543945,
+          "answerable": false,
+          "predicted_answerable": true,
+          "abstained": false,
+          "decision_correct": false
+        },
+        {
+          "id": "q028",
+          "question": "What is the database username?",
+          "threshold": 2.0,
+          "best_reranker_score": -3.3100171089172363,
+          "answerable": false,
+          "predicted_answerable": false,
+          "abstained": true,
+          "decision_correct": true
+        },
+        {
+          "id": "q029",
+          "question": "Does the password reset process require email verification?",
+          "threshold": 2.0,
+          "best_reranker_score": -1.7101842164993286,
+          "answerable": false,
+          "predicted_answerable": false,
+          "abstained": true,
+          "decision_correct": true
+        },
+        {
+          "id": "q030",
+          "question": "How long does a password reset take to complete?",
+          "threshold": 2.0,
+          "best_reranker_score": -2.1447031497955322,
+          "answerable": false,
+          "predicted_answerable": false,
+          "abstained": true,
+          "decision_correct": true
+        }
+      ]
     },
-    "reranked_hybrid_threshold_2.0": {
-      "queries_evaluated": 8,
-      "answerable_questions": 6,
-      "unanswerable_questions": 2,
-      "answerable_questions_answered": 5,
-      "answerable_false_abstentions": 1,
-      "unanswerable_questions_correctly_abstained": 2,
-      "unanswerable_false_acceptances": 0,
-      "correct_abstention_decisions": 7,
-      "decision_accuracy": 0.875,
-      "answerable_coverage": 0.8333333333333334
-    },
-    "reranked_hybrid_threshold_2.5": {
-      "queries_evaluated": 8,
-      "answerable_questions": 6,
-      "unanswerable_questions": 2,
-      "answerable_questions_answered": 5,
-      "answerable_false_abstentions": 1,
-      "unanswerable_questions_correctly_abstained": 2,
-      "unanswerable_false_acceptances": 0,
-      "correct_abstention_decisions": 7,
-      "decision_accuracy": 0.875,
-      "answerable_coverage": 0.8333333333333334
+    "threshold_2.5": {
+      "queries_evaluated": 30,
+      "answerable_questions": 16,
+      "unanswerable_questions": 14,
+      "answerable_questions_answered": 11,
+      "answerable_false_abstentions": 5,
+      "unanswerable_questions_correctly_abstained": 13,
+      "unanswerable_false_acceptances": 1,
+      "correct_abstention_decisions": 24,
+      "decision_accuracy": 0.8,
+      "answerable_coverage": 0.6875,
+      "results": [
+        {
+          "id": "q001",
+          "question": "How do I reset my password?",
+          "threshold": 2.5,
+          "best_reranker_score": 8.818293571472168,
+          "answerable": true,
+          "predicted_answerable": true,
+          "abstained": false,
+          "decision_correct": true
+        },
+        {
+          "id": "q002",
+          "question": "What should I check when a database connection fails?",
+          "threshold": 2.5,
+          "best_reranker_score": 7.899456977844238,
+          "answerable": true,
+          "predicted_answerable": true,
+          "abstained": false,
+          "decision_correct": true
+        },
+        {
+          "id": "q003",
+          "question": "What are the support hours?",
+          "threshold": 2.5,
+          "best_reranker_score": 9.620168685913086,
+          "answerable": true,
+          "predicted_answerable": true,
+          "abstained": false,
+          "decision_correct": true
+        },
+        {
+          "id": "q004",
+          "question": "Where can I change my account security settings?",
+          "threshold": 2.5,
+          "best_reranker_score": 1.6120109558105469,
+          "answerable": true,
+          "predicted_answerable": false,
+          "abstained": true,
+          "decision_correct": false
+        },
+        {
+          "id": "q005",
+          "question": "Which database connection details should I verify?",
+          "threshold": 2.5,
+          "best_reranker_score": 5.050529479980469,
+          "answerable": true,
+          "predicted_answerable": true,
+          "abstained": false,
+          "decision_correct": true
+        },
+        {
+          "id": "q006",
+          "question": "Is support available on Saturday?",
+          "threshold": 2.5,
+          "best_reranker_score": 2.494206666946411,
+          "answerable": false,
+          "predicted_answerable": false,
+          "abstained": true,
+          "decision_correct": true
+        },
+        {
+          "id": "q007",
+          "question": "What is the support team's phone number?",
+          "threshold": 2.5,
+          "best_reranker_score": -7.966253280639648,
+          "answerable": false,
+          "predicted_answerable": false,
+          "abstained": true,
+          "decision_correct": true
+        },
+        {
+          "id": "q008",
+          "question": "How do I change my account password?",
+          "threshold": 2.5,
+          "best_reranker_score": 7.172158241271973,
+          "answerable": true,
+          "predicted_answerable": true,
+          "abstained": false,
+          "decision_correct": true
+        },
+        {
+          "id": "q009",
+          "question": "Which settings should I open to reset my password?",
+          "threshold": 2.5,
+          "best_reranker_score": 7.388334274291992,
+          "answerable": true,
+          "predicted_answerable": true,
+          "abstained": false,
+          "decision_correct": true
+        },
+        {
+          "id": "q010",
+          "question": "What is the final action in the password reset process?",
+          "threshold": 2.5,
+          "best_reranker_score": -0.36436909437179565,
+          "answerable": true,
+          "predicted_answerable": false,
+          "abstained": true,
+          "decision_correct": false
+        },
+        {
+          "id": "q011",
+          "question": "Where does the password reset process begin?",
+          "threshold": 2.5,
+          "best_reranker_score": 0.15117999911308289,
+          "answerable": true,
+          "predicted_answerable": false,
+          "abstained": true,
+          "decision_correct": false
+        },
+        {
+          "id": "q012",
+          "question": "Where is the Reset Password option located?",
+          "threshold": 2.5,
+          "best_reranker_score": 1.128164291381836,
+          "answerable": true,
+          "predicted_answerable": false,
+          "abstained": true,
+          "decision_correct": false
+        },
+        {
+          "id": "q013",
+          "question": "What network-related factor should I verify when the database cannot connect?",
+          "threshold": 2.5,
+          "best_reranker_score": 3.3155555725097656,
+          "answerable": true,
+          "predicted_answerable": true,
+          "abstained": false,
+          "decision_correct": true
+        },
+        {
+          "id": "q014",
+          "question": "List all the details that should be checked for a database connection failure.",
+          "threshold": 2.5,
+          "best_reranker_score": 4.445339202880859,
+          "answerable": true,
+          "predicted_answerable": true,
+          "abstained": false,
+          "decision_correct": true
+        },
+        {
+          "id": "q015",
+          "question": "Should I verify database credentials when troubleshooting a connection failure?",
+          "threshold": 2.5,
+          "best_reranker_score": 7.028585433959961,
+          "answerable": true,
+          "predicted_answerable": true,
+          "abstained": false,
+          "decision_correct": true
+        },
+        {
+          "id": "q016",
+          "question": "What are the support hours on Friday?",
+          "threshold": 2.5,
+          "best_reranker_score": 9.685592651367188,
+          "answerable": true,
+          "predicted_answerable": true,
+          "abstained": false,
+          "decision_correct": true
+        },
+        {
+          "id": "q017",
+          "question": "During which hours is customer support available on weekdays?",
+          "threshold": 2.5,
+          "best_reranker_score": 6.658343315124512,
+          "answerable": true,
+          "predicted_answerable": true,
+          "abstained": false,
+          "decision_correct": true
+        },
+        {
+          "id": "q018",
+          "question": "Give me the official support schedule.",
+          "threshold": 2.5,
+          "best_reranker_score": 1.6657392978668213,
+          "answerable": true,
+          "predicted_answerable": false,
+          "abstained": true,
+          "decision_correct": false
+        },
+        {
+          "id": "q019",
+          "question": "Does the support team offer live chat?",
+          "threshold": 2.5,
+          "best_reranker_score": -7.878983020782471,
+          "answerable": false,
+          "predicted_answerable": false,
+          "abstained": true,
+          "decision_correct": true
+        },
+        {
+          "id": "q020",
+          "question": "What is the support team's phone number?",
+          "threshold": 2.5,
+          "best_reranker_score": -7.966253280639648,
+          "answerable": false,
+          "predicted_answerable": false,
+          "abstained": true,
+          "decision_correct": true
+        },
+        {
+          "id": "q021",
+          "question": "Can you provide the direct URL for the password reset page?",
+          "threshold": 2.5,
+          "best_reranker_score": -1.2554261684417725,
+          "answerable": false,
+          "predicted_answerable": false,
+          "abstained": true,
+          "decision_correct": true
+        },
+        {
+          "id": "q022",
+          "question": "What is the minimum password length required?",
+          "threshold": 2.5,
+          "best_reranker_score": -11.02932357788086,
+          "answerable": false,
+          "predicted_answerable": false,
+          "abstained": true,
+          "decision_correct": true
+        },
+        {
+          "id": "q023",
+          "question": "What is the name of the database server?",
+          "threshold": 2.5,
+          "best_reranker_score": -5.609027862548828,
+          "answerable": false,
+          "predicted_answerable": false,
+          "abstained": true,
+          "decision_correct": true
+        },
+        {
+          "id": "q024",
+          "question": "Which database port number should I use?",
+          "threshold": 2.5,
+          "best_reranker_score": -3.329469680786133,
+          "answerable": false,
+          "predicted_answerable": false,
+          "abstained": true,
+          "decision_correct": true
+        },
+        {
+          "id": "q025",
+          "question": "Does the support team work on Sundays?",
+          "threshold": 2.5,
+          "best_reranker_score": 1.1055858135223389,
+          "answerable": false,
+          "predicted_answerable": false,
+          "abstained": true,
+          "decision_correct": true
+        },
+        {
+          "id": "q026",
+          "question": "Is support available on public holidays?",
+          "threshold": 2.5,
+          "best_reranker_score": -7.144902229309082,
+          "answerable": false,
+          "predicted_answerable": false,
+          "abstained": true,
+          "decision_correct": true
+        },
+        {
+          "id": "q027",
+          "question": "Which time zone is used for the support schedule?",
+          "threshold": 2.5,
+          "best_reranker_score": 4.0375566482543945,
+          "answerable": false,
+          "predicted_answerable": true,
+          "abstained": false,
+          "decision_correct": false
+        },
+        {
+          "id": "q028",
+          "question": "What is the database username?",
+          "threshold": 2.5,
+          "best_reranker_score": -3.3100171089172363,
+          "answerable": false,
+          "predicted_answerable": false,
+          "abstained": true,
+          "decision_correct": true
+        },
+        {
+          "id": "q029",
+          "question": "Does the password reset process require email verification?",
+          "threshold": 2.5,
+          "best_reranker_score": -1.7101842164993286,
+          "answerable": false,
+          "predicted_answerable": false,
+          "abstained": true,
+          "decision_correct": true
+        },
+        {
+          "id": "q030",
+          "question": "How long does a password reset take to complete?",
+          "threshold": 2.5,
+          "best_reranker_score": -2.1447031497955322,
+          "answerable": false,
+          "predicted_answerable": false,
+          "abstained": true,
+          "decision_correct": true
+        }
+      ]
     }
   },
-  "answers": [
-    {
-      "id": "q001",
-      "question": "How do I reset my password?",
-      "mode": "hybrid",
-      "expected_answer": "Open Account Settings, select Security, and click Reset Password.",
-      "answerable": true,
-      "answer": "To reset your password, open Account Settings, select Security, and click Reset Password.",
-      "expected_sources": [
-        "account-help.md"
-      ],
-      "retrieved_sources": [
-        "account-help.md",
-        "database-troubleshooting.md"
-      ],
-      "abstained": false,
-      "abstention_correct": true,
-      "manual_review_required": true
-    },
-    {
-      "id": "q002",
-      "question": "What should I check when a database connection fails?",
-      "mode": "hybrid",
-      "expected_answer": "Check the database hostname, port, credentials, and network connectivity.",
-      "answerable": true,
-      "answer": "For database connection failures, verify the database hostname, port, credentials, and network connectivity.",
-      "expected_sources": [
-        "database-troubleshooting.md"
-      ],
-      "retrieved_sources": [
-        "database-troubleshooting.md",
-        "support-hours.md"
-      ],
-      "abstained": false,
-      "abstention_correct": true,
-      "manual_review_required": true
-    },
-    {
-      "id": "q003",
-      "question": "What are the support hours?",
-      "mode": "hybrid",
-      "expected_answer": "Monday to Friday, 9 AM to 5 PM.",
-      "answerable": true,
-      "answer": "Monday to Friday, 9 AM to 5 PM",
-      "expected_sources": [
-        "support-hours.md"
-      ],
-      "retrieved_sources": [
-        "support-hours.md",
-        "database-troubleshooting.md"
-      ],
-      "abstained": false,
-      "abstention_correct": true,
-      "manual_review_required": true
-    },
-    {
-      "id": "q004",
-      "question": "Where can I change my account security settings?",
-      "mode": "hybrid",
-      "expected_answer": "Open Account Settings and select Security.",
-      "answerable": true,
-      "answer": "Account Settings",
-      "expected_sources": [
-        "account-help.md"
-      ],
-      "retrieved_sources": [
-        "account-help.md",
-        "database-troubleshooting.md"
-      ],
-      "abstained": false,
-      "abstention_correct": true,
-      "manual_review_required": true
-    },
-    {
-      "id": "q005",
-      "question": "Which database connection details should I verify?",
-      "mode": "hybrid",
-      "expected_answer": "Verify the hostname, port, credentials, and network connectivity.",
-      "answerable": true,
-      "answer": "database hostname, port, credentials, network connectivity",
-      "expected_sources": [
-        "database-troubleshooting.md"
-      ],
-      "retrieved_sources": [
-        "database-troubleshooting.md",
-        "account-help.md"
-      ],
-      "abstained": false,
-      "abstention_correct": true,
-      "manual_review_required": true
-    },
-    {
-      "id": "q006",
-      "question": "Is support available on Saturday?",
-      "mode": "hybrid",
-      "expected_answer": "The provided document lists support hours as Monday to Friday, 9 AM to 5 PM, so Saturday availability is not established.",
-      "answerable": false,
-      "answer": "I don't have enough information in the provided documents to answer that question.",
-      "expected_sources": [
-        "support-hours.md"
-      ],
-      "retrieved_sources": [
-        "support-hours.md",
-        "database-troubleshooting.md"
-      ],
-      "abstained": true,
-      "abstention_correct": true,
-      "manual_review_required": true
-    },
-    {
-      "id": "q007",
-      "question": "What is the support team's phone number?",
-      "mode": "hybrid",
-      "expected_answer": "The provided documents do not specify a support phone number.",
-      "answerable": false,
-      "answer": "I don't have enough information in the provided documents to answer that question.",
-      "expected_sources": [],
-      "retrieved_sources": [
-        "support-hours.md",
-        "account-help.md"
-      ],
-      "abstained": true,
-      "abstention_correct": true,
-      "manual_review_required": true
-    },
-    {
-      "id": "q008",
-      "question": "How do I change my account password?",
-      "mode": "hybrid",
-      "expected_answer": "Open Account Settings, select Security, and click Reset Password.",
-      "answerable": true,
-      "answer": "To change your account password, open Account Settings, select Security, and click Reset Password.",
-      "expected_sources": [
-        "account-help.md"
-      ],
-      "retrieved_sources": [
-        "account-help.md",
-        "database-troubleshooting.md"
-      ],
-      "abstained": false,
-      "abstention_correct": true,
-      "manual_review_required": true
-    },
-    {
-      "id": "q001",
-      "question": "How do I reset my password?",
-      "mode": "reranked_hybrid_threshold_1.5",
-      "threshold": 1.5,
-      "expected_answer": "Open Account Settings, select Security, and click Reset Password.",
-      "answerable": true,
-      "answer": "To reset your password, open Account Settings, select Security, and click Reset Password.",
-      "expected_sources": [
-        "account-help.md"
-      ],
-      "retrieved_sources": [
-        "account-help.md",
-        "database-troubleshooting.md"
-      ],
-      "abstained": false,
-      "abstention_correct": true,
-      "manual_review_required": true
-    },
-    {
-      "id": "q002",
-      "question": "What should I check when a database connection fails?",
-      "mode": "reranked_hybrid_threshold_1.5",
-      "threshold": 1.5,
-      "expected_answer": "Check the database hostname, port, credentials, and network connectivity.",
-      "answerable": true,
-      "answer": "For database connection failures, verify the database hostname, port, credentials, and network connectivity.",
-      "expected_sources": [
-        "database-troubleshooting.md"
-      ],
-      "retrieved_sources": [
-        "database-troubleshooting.md",
-        "account-help.md"
-      ],
-      "abstained": false,
-      "abstention_correct": true,
-      "manual_review_required": true
-    },
-    {
-      "id": "q003",
-      "question": "What are the support hours?",
-      "mode": "reranked_hybrid_threshold_1.5",
-      "threshold": 1.5,
-      "expected_answer": "Monday to Friday, 9 AM to 5 PM.",
-      "answerable": true,
-      "answer": "Monday to Friday, 9 AM to 5 PM",
-      "expected_sources": [
-        "support-hours.md"
-      ],
-      "retrieved_sources": [
-        "support-hours.md",
-        "database-troubleshooting.md"
-      ],
-      "abstained": false,
-      "abstention_correct": true,
-      "manual_review_required": true
-    },
-    {
-      "id": "q004",
-      "question": "Where can I change my account security settings?",
-      "mode": "reranked_hybrid_threshold_1.5",
-      "threshold": 1.5,
-      "expected_answer": "Open Account Settings and select Security.",
-      "answerable": true,
-      "answer": "Account Settings",
-      "expected_sources": [
-        "account-help.md"
-      ],
-      "retrieved_sources": [
-        "account-help.md",
-        "database-troubleshooting.md"
-      ],
-      "abstained": false,
-      "abstention_correct": true,
-      "manual_review_required": true
-    },
-    {
-      "id": "q005",
-      "question": "Which database connection details should I verify?",
-      "mode": "reranked_hybrid_threshold_1.5",
-      "threshold": 1.5,
-      "expected_answer": "Verify the hostname, port, credentials, and network connectivity.",
-      "answerable": true,
-      "answer": "database hostname, port, credentials, network connectivity",
-      "expected_sources": [
-        "database-troubleshooting.md"
-      ],
-      "retrieved_sources": [
-        "database-troubleshooting.md",
-        "account-help.md"
-      ],
-      "abstained": false,
-      "abstention_correct": true,
-      "manual_review_required": true
-    },
-    {
-      "id": "q006",
-      "question": "Is support available on Saturday?",
-      "mode": "reranked_hybrid_threshold_1.5",
-      "threshold": 1.5,
-      "expected_answer": "The provided document lists support hours as Monday to Friday, 9 AM to 5 PM, so Saturday availability is not established.",
-      "answerable": false,
-      "answer": "I don't have enough information in the provided documents to answer that question.",
-      "expected_sources": [
-        "support-hours.md"
-      ],
-      "retrieved_sources": [
-        "support-hours.md",
-        "account-help.md"
-      ],
-      "abstained": true,
-      "abstention_correct": true,
-      "manual_review_required": true
-    },
-    {
-      "id": "q007",
-      "question": "What is the support team's phone number?",
-      "mode": "reranked_hybrid_threshold_1.5",
-      "threshold": 1.5,
-      "expected_answer": "The provided documents do not specify a support phone number.",
-      "answerable": false,
-      "answer": "I don't have enough information in the provided documents to answer that question.",
-      "expected_sources": [],
-      "retrieved_sources": [],
-      "abstained": true,
-      "abstention_correct": true,
-      "manual_review_required": true
-    },
-    {
-      "id": "q008",
-      "question": "How do I change my account password?",
-      "mode": "reranked_hybrid_threshold_1.5",
-      "threshold": 1.5,
-      "expected_answer": "Open Account Settings, select Security, and click Reset Password.",
-      "answerable": true,
-      "answer": "To change your account password, open Account Settings, select Security, and click Reset Password.",
-      "expected_sources": [
-        "account-help.md"
-      ],
-      "retrieved_sources": [
-        "account-help.md",
-        "database-troubleshooting.md"
-      ],
-      "abstained": false,
-      "abstention_correct": true,
-      "manual_review_required": true
-    },
-    {
-      "id": "q001",
-      "question": "How do I reset my password?",
-      "mode": "reranked_hybrid_threshold_2.0",
-      "threshold": 2.0,
-      "expected_answer": "Open Account Settings, select Security, and click Reset Password.",
-      "answerable": true,
-      "answer": "To reset your password, open Account Settings, select Security, and click Reset Password.",
-      "expected_sources": [
-        "account-help.md"
-      ],
-      "retrieved_sources": [
-        "account-help.md",
-        "database-troubleshooting.md"
-      ],
-      "abstained": false,
-      "abstention_correct": true,
-      "manual_review_required": true
-    },
-    {
-      "id": "q002",
-      "question": "What should I check when a database connection fails?",
-      "mode": "reranked_hybrid_threshold_2.0",
-      "threshold": 2.0,
-      "expected_answer": "Check the database hostname, port, credentials, and network connectivity.",
-      "answerable": true,
-      "answer": "For database connection failures, verify the database hostname, port, credentials, and network connectivity.",
-      "expected_sources": [
-        "database-troubleshooting.md"
-      ],
-      "retrieved_sources": [
-        "database-troubleshooting.md",
-        "account-help.md"
-      ],
-      "abstained": false,
-      "abstention_correct": true,
-      "manual_review_required": true
-    },
-    {
-      "id": "q003",
-      "question": "What are the support hours?",
-      "mode": "reranked_hybrid_threshold_2.0",
-      "threshold": 2.0,
-      "expected_answer": "Monday to Friday, 9 AM to 5 PM.",
-      "answerable": true,
-      "answer": "Monday to Friday, 9 AM to 5 PM",
-      "expected_sources": [
-        "support-hours.md"
-      ],
-      "retrieved_sources": [
-        "support-hours.md",
-        "database-troubleshooting.md"
-      ],
-      "abstained": false,
-      "abstention_correct": true,
-      "manual_review_required": true
-    },
-    {
-      "id": "q004",
-      "question": "Where can I change my account security settings?",
-      "mode": "reranked_hybrid_threshold_2.0",
-      "threshold": 2.0,
-      "expected_answer": "Open Account Settings and select Security.",
-      "answerable": true,
-      "answer": "I don't have enough information in the provided documents to answer that question.",
-      "expected_sources": [
-        "account-help.md"
-      ],
-      "retrieved_sources": [],
-      "abstained": true,
-      "abstention_correct": false,
-      "manual_review_required": true
-    },
-    {
-      "id": "q005",
-      "question": "Which database connection details should I verify?",
-      "mode": "reranked_hybrid_threshold_2.0",
-      "threshold": 2.0,
-      "expected_answer": "Verify the hostname, port, credentials, and network connectivity.",
-      "answerable": true,
-      "answer": "database hostname, port, credentials, network connectivity",
-      "expected_sources": [
-        "database-troubleshooting.md"
-      ],
-      "retrieved_sources": [
-        "database-troubleshooting.md",
-        "account-help.md"
-      ],
-      "abstained": false,
-      "abstention_correct": true,
-      "manual_review_required": true
-    },
-    {
-      "id": "q006",
-      "question": "Is support available on Saturday?",
-      "mode": "reranked_hybrid_threshold_2.0",
-      "threshold": 2.0,
-      "expected_answer": "The provided document lists support hours as Monday to Friday, 9 AM to 5 PM, so Saturday availability is not established.",
-      "answerable": false,
-      "answer": "I don't have enough information in the provided documents to answer that question.",
-      "expected_sources": [
-        "support-hours.md"
-      ],
-      "retrieved_sources": [
-        "support-hours.md",
-        "account-help.md"
-      ],
-      "abstained": true,
-      "abstention_correct": true,
-      "manual_review_required": true
-    },
-    {
-      "id": "q007",
-      "question": "What is the support team's phone number?",
-      "mode": "reranked_hybrid_threshold_2.0",
-      "threshold": 2.0,
-      "expected_answer": "The provided documents do not specify a support phone number.",
-      "answerable": false,
-      "answer": "I don't have enough information in the provided documents to answer that question.",
-      "expected_sources": [],
-      "retrieved_sources": [],
-      "abstained": true,
-      "abstention_correct": true,
-      "manual_review_required": true
-    },
-    {
-      "id": "q008",
-      "question": "How do I change my account password?",
-      "mode": "reranked_hybrid_threshold_2.0",
-      "threshold": 2.0,
-      "expected_answer": "Open Account Settings, select Security, and click Reset Password.",
-      "answerable": true,
-      "answer": "To change your account password, open Account Settings, select Security, and click Reset Password.",
-      "expected_sources": [
-        "account-help.md"
-      ],
-      "retrieved_sources": [
-        "account-help.md",
-        "database-troubleshooting.md"
-      ],
-      "abstained": false,
-      "abstention_correct": true,
-      "manual_review_required": true
-    },
-    {
-      "id": "q001",
-      "question": "How do I reset my password?",
-      "mode": "reranked_hybrid_threshold_2.5",
-      "threshold": 2.5,
-      "expected_answer": "Open Account Settings, select Security, and click Reset Password.",
-      "answerable": true,
-      "answer": "To reset your password, open Account Settings, select Security, and click Reset Password.",
-      "expected_sources": [
-        "account-help.md"
-      ],
-      "retrieved_sources": [
-        "account-help.md",
-        "database-troubleshooting.md"
-      ],
-      "abstained": false,
-      "abstention_correct": true,
-      "manual_review_required": true
-    },
-    {
-      "id": "q002",
-      "question": "What should I check when a database connection fails?",
-      "mode": "reranked_hybrid_threshold_2.5",
-      "threshold": 2.5,
-      "expected_answer": "Check the database hostname, port, credentials, and network connectivity.",
-      "answerable": true,
-      "answer": "For database connection failures, verify the database hostname, port, credentials, and network connectivity.",
-      "expected_sources": [
-        "database-troubleshooting.md"
-      ],
-      "retrieved_sources": [
-        "database-troubleshooting.md",
-        "account-help.md"
-      ],
-      "abstained": false,
-      "abstention_correct": true,
-      "manual_review_required": true
-    },
-    {
-      "id": "q003",
-      "question": "What are the support hours?",
-      "mode": "reranked_hybrid_threshold_2.5",
-      "threshold": 2.5,
-      "expected_answer": "Monday to Friday, 9 AM to 5 PM.",
-      "answerable": true,
-      "answer": "Monday to Friday, 9 AM to 5 PM",
-      "expected_sources": [
-        "support-hours.md"
-      ],
-      "retrieved_sources": [
-        "support-hours.md",
-        "database-troubleshooting.md"
-      ],
-      "abstained": false,
-      "abstention_correct": true,
-      "manual_review_required": true
-    },
-    {
-      "id": "q004",
-      "question": "Where can I change my account security settings?",
-      "mode": "reranked_hybrid_threshold_2.5",
-      "threshold": 2.5,
-      "expected_answer": "Open Account Settings and select Security.",
-      "answerable": true,
-      "answer": "I don't have enough information in the provided documents to answer that question.",
-      "expected_sources": [
-        "account-help.md"
-      ],
-      "retrieved_sources": [],
-      "abstained": true,
-      "abstention_correct": false,
-      "manual_review_required": true
-    },
-    {
-      "id": "q005",
-      "question": "Which database connection details should I verify?",
-      "mode": "reranked_hybrid_threshold_2.5",
-      "threshold": 2.5,
-      "expected_answer": "Verify the hostname, port, credentials, and network connectivity.",
-      "answerable": true,
-      "answer": "database hostname, port, credentials, network connectivity",
-      "expected_sources": [
-        "database-troubleshooting.md"
-      ],
-      "retrieved_sources": [
-        "database-troubleshooting.md",
-        "account-help.md"
-      ],
-      "abstained": false,
-      "abstention_correct": true,
-      "manual_review_required": true
-    },
-    {
-      "id": "q006",
-      "question": "Is support available on Saturday?",
-      "mode": "reranked_hybrid_threshold_2.5",
-      "threshold": 2.5,
-      "expected_answer": "The provided document lists support hours as Monday to Friday, 9 AM to 5 PM, so Saturday availability is not established.",
-      "answerable": false,
-      "answer": "I don't have enough information in the provided documents to answer that question.",
-      "expected_sources": [
-        "support-hours.md"
-      ],
-      "retrieved_sources": [],
-      "abstained": true,
-      "abstention_correct": true,
-      "manual_review_required": true
-    },
-    {
-      "id": "q007",
-      "question": "What is the support team's phone number?",
-      "mode": "reranked_hybrid_threshold_2.5",
-      "threshold": 2.5,
-      "expected_answer": "The provided documents do not specify a support phone number.",
-      "answerable": false,
-      "answer": "I don't have enough information in the provided documents to answer that question.",
-      "expected_sources": [],
-      "retrieved_sources": [],
-      "abstained": true,
-      "abstention_correct": true,
-      "manual_review_required": true
-    },
-    {
-      "id": "q008",
-      "question": "How do I change my account password?",
-      "mode": "reranked_hybrid_threshold_2.5",
-      "threshold": 2.5,
-      "expected_answer": "Open Account Settings, select Security, and click Reset Password.",
-      "answerable": true,
-      "answer": "To change your account password, open Account Settings, select Security, and click Reset Password.",
-      "expected_sources": [
-        "account-help.md"
-      ],
-      "retrieved_sources": [
-        "account-help.md",
-        "database-troubleshooting.md"
-      ],
-      "abstained": false,
-      "abstention_correct": true,
-      "manual_review_required": true
-    }
-  ],
   "thresholds_tested": [
     1.5,
     2.0,
@@ -1180,10 +3255,10 @@
   ],
   "notes": [
     "This is a small controlled evaluation corpus.",
-    "Answer correctness and groundedness require manual review.",
-    "Abstention detection checks for the configured fallback phrase.",
-    "Decision metrics measure answering versus abstaining, not factual correctness or groundedness.",
-    "Threshold results include both score-based rejection and any abstention performed by the generation pipeline.",
-    "Reranker scores are relevance signals, not calibrated probabilities of answer correctness."
+    "Threshold calibration uses reranker scores without generation.",
+    "A score above the threshold predicts answerability.",
+    "Decision accuracy does not measure factual correctness.",
+    "Reranker scores are relevance signals, not calibrated probabilities.",
+    "Evidence evaluation uses lexical matching, not semantic verification."
   ]
 }

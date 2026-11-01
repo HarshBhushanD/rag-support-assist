@@ -1,15 +1,18 @@
 {
   "summary": {
-    "total_answers": 8,
-    "answers_requiring_review": 8,
+    "total_answers": 32,
+    "answers_requiring_review": 32,
     "issue_counts": {
-      "extra_retrieved_sources": 7
+      "extra_retrieved_sources": 25,
+      "possible_false_abstention": 2,
+      "retrieval_miss": 3
     }
   },
   "answers": [
     {
       "id": "q001",
       "question": "How do I reset my password?",
+      "mode": "hybrid",
       "expected_answer": "Open Account Settings, select Security, and click Reset Password.",
       "answerable": true,
       "answer": "To reset your password, open Account Settings, select Security, and click Reset Password.",
@@ -30,6 +33,7 @@
     {
       "id": "q002",
       "question": "What should I check when a database connection fails?",
+      "mode": "hybrid",
       "expected_answer": "Check the database hostname, port, credentials, and network connectivity.",
       "answerable": true,
       "answer": "For database connection failures, verify the database hostname, port, credentials, and network connectivity.",
@@ -50,6 +54,7 @@
     {
       "id": "q003",
       "question": "What are the support hours?",
+      "mode": "hybrid",
       "expected_answer": "Monday to Friday, 9 AM to 5 PM.",
       "answerable": true,
       "answer": "Monday to Friday, 9 AM to 5 PM",
@@ -70,6 +75,7 @@
     {
       "id": "q004",
       "question": "Where can I change my account security settings?",
+      "mode": "hybrid",
       "expected_answer": "Open Account Settings and select Security.",
       "answerable": true,
       "answer": "Account Settings",
@@ -90,6 +96,7 @@
     {
       "id": "q005",
       "question": "Which database connection details should I verify?",
+      "mode": "hybrid",
       "expected_answer": "Verify the hostname, port, credentials, and network connectivity.",
       "answerable": true,
       "answer": "database hostname, port, credentials, network connectivity",
@@ -110,6 +117,7 @@
     {
       "id": "q006",
       "question": "Is support available on Saturday?",
+      "mode": "hybrid",
       "expected_answer": "The provided document lists support hours as Monday to Friday, 9 AM to 5 PM, so Saturday availability is not established.",
       "answerable": false,
       "answer": "I don't have enough information in the provided documents to answer that question.",
@@ -130,6 +138,7 @@
     {
       "id": "q007",
       "question": "What is the support team's phone number?",
+      "mode": "hybrid",
       "expected_answer": "The provided documents do not specify a support phone number.",
       "answerable": false,
       "answer": "I don't have enough information in the provided documents to answer that question.",
@@ -146,6 +155,507 @@
     {
       "id": "q008",
       "question": "How do I change my account password?",
+      "mode": "hybrid",
+      "expected_answer": "Open Account Settings, select Security, and click Reset Password.",
+      "answerable": true,
+      "answer": "To change your account password, open Account Settings, select Security, and click Reset Password.",
+      "expected_sources": [
+        "account-help.md"
+      ],
+      "retrieved_sources": [
+        "account-help.md",
+        "database-troubleshooting.md"
+      ],
+      "abstained": false,
+      "abstention_correct": true,
+      "manual_review_required": true,
+      "issues": [
+        "extra_retrieved_sources"
+      ]
+    },
+    {
+      "id": "q001",
+      "question": "How do I reset my password?",
+      "mode": "reranked_hybrid_threshold_1.5",
+      "threshold": 1.5,
+      "expected_answer": "Open Account Settings, select Security, and click Reset Password.",
+      "answerable": true,
+      "answer": "To reset your password, open Account Settings, select Security, and click Reset Password.",
+      "expected_sources": [
+        "account-help.md"
+      ],
+      "retrieved_sources": [
+        "account-help.md",
+        "database-troubleshooting.md"
+      ],
+      "abstained": false,
+      "abstention_correct": true,
+      "manual_review_required": true,
+      "issues": [
+        "extra_retrieved_sources"
+      ]
+    },
+    {
+      "id": "q002",
+      "question": "What should I check when a database connection fails?",
+      "mode": "reranked_hybrid_threshold_1.5",
+      "threshold": 1.5,
+      "expected_answer": "Check the database hostname, port, credentials, and network connectivity.",
+      "answerable": true,
+      "answer": "For database connection failures, verify the database hostname, port, credentials, and network connectivity.",
+      "expected_sources": [
+        "database-troubleshooting.md"
+      ],
+      "retrieved_sources": [
+        "database-troubleshooting.md",
+        "account-help.md"
+      ],
+      "abstained": false,
+      "abstention_correct": true,
+      "manual_review_required": true,
+      "issues": [
+        "extra_retrieved_sources"
+      ]
+    },
+    {
+      "id": "q003",
+      "question": "What are the support hours?",
+      "mode": "reranked_hybrid_threshold_1.5",
+      "threshold": 1.5,
+      "expected_answer": "Monday to Friday, 9 AM to 5 PM.",
+      "answerable": true,
+      "answer": "Monday to Friday, 9 AM to 5 PM",
+      "expected_sources": [
+        "support-hours.md"
+      ],
+      "retrieved_sources": [
+        "support-hours.md",
+        "database-troubleshooting.md"
+      ],
+      "abstained": false,
+      "abstention_correct": true,
+      "manual_review_required": true,
+      "issues": [
+        "extra_retrieved_sources"
+      ]
+    },
+    {
+      "id": "q004",
+      "question": "Where can I change my account security settings?",
+      "mode": "reranked_hybrid_threshold_1.5",
+      "threshold": 1.5,
+      "expected_answer": "Open Account Settings and select Security.",
+      "answerable": true,
+      "answer": "Account Settings",
+      "expected_sources": [
+        "account-help.md"
+      ],
+      "retrieved_sources": [
+        "account-help.md",
+        "database-troubleshooting.md"
+      ],
+      "abstained": false,
+      "abstention_correct": true,
+      "manual_review_required": true,
+      "issues": [
+        "extra_retrieved_sources"
+      ]
+    },
+    {
+      "id": "q005",
+      "question": "Which database connection details should I verify?",
+      "mode": "reranked_hybrid_threshold_1.5",
+      "threshold": 1.5,
+      "expected_answer": "Verify the hostname, port, credentials, and network connectivity.",
+      "answerable": true,
+      "answer": "database hostname, port, credentials, network connectivity",
+      "expected_sources": [
+        "database-troubleshooting.md"
+      ],
+      "retrieved_sources": [
+        "database-troubleshooting.md",
+        "account-help.md"
+      ],
+      "abstained": false,
+      "abstention_correct": true,
+      "manual_review_required": true,
+      "issues": [
+        "extra_retrieved_sources"
+      ]
+    },
+    {
+      "id": "q006",
+      "question": "Is support available on Saturday?",
+      "mode": "reranked_hybrid_threshold_1.5",
+      "threshold": 1.5,
+      "expected_answer": "The provided document lists support hours as Monday to Friday, 9 AM to 5 PM, so Saturday availability is not established.",
+      "answerable": false,
+      "answer": "I don't have enough information in the provided documents to answer that question.",
+      "expected_sources": [
+        "support-hours.md"
+      ],
+      "retrieved_sources": [
+        "support-hours.md",
+        "account-help.md"
+      ],
+      "abstained": true,
+      "abstention_correct": true,
+      "manual_review_required": true,
+      "issues": [
+        "extra_retrieved_sources"
+      ]
+    },
+    {
+      "id": "q007",
+      "question": "What is the support team's phone number?",
+      "mode": "reranked_hybrid_threshold_1.5",
+      "threshold": 1.5,
+      "expected_answer": "The provided documents do not specify a support phone number.",
+      "answerable": false,
+      "answer": "I don't have enough information in the provided documents to answer that question.",
+      "expected_sources": [],
+      "retrieved_sources": [],
+      "abstained": true,
+      "abstention_correct": true,
+      "manual_review_required": true,
+      "issues": []
+    },
+    {
+      "id": "q008",
+      "question": "How do I change my account password?",
+      "mode": "reranked_hybrid_threshold_1.5",
+      "threshold": 1.5,
+      "expected_answer": "Open Account Settings, select Security, and click Reset Password.",
+      "answerable": true,
+      "answer": "To change your account password, open Account Settings, select Security, and click Reset Password.",
+      "expected_sources": [
+        "account-help.md"
+      ],
+      "retrieved_sources": [
+        "account-help.md",
+        "database-troubleshooting.md"
+      ],
+      "abstained": false,
+      "abstention_correct": true,
+      "manual_review_required": true,
+      "issues": [
+        "extra_retrieved_sources"
+      ]
+    },
+    {
+      "id": "q001",
+      "question": "How do I reset my password?",
+      "mode": "reranked_hybrid_threshold_2.0",
+      "threshold": 2.0,
+      "expected_answer": "Open Account Settings, select Security, and click Reset Password.",
+      "answerable": true,
+      "answer": "To reset your password, open Account Settings, select Security, and click Reset Password.",
+      "expected_sources": [
+        "account-help.md"
+      ],
+      "retrieved_sources": [
+        "account-help.md",
+        "database-troubleshooting.md"
+      ],
+      "abstained": false,
+      "abstention_correct": true,
+      "manual_review_required": true,
+      "issues": [
+        "extra_retrieved_sources"
+      ]
+    },
+    {
+      "id": "q002",
+      "question": "What should I check when a database connection fails?",
+      "mode": "reranked_hybrid_threshold_2.0",
+      "threshold": 2.0,
+      "expected_answer": "Check the database hostname, port, credentials, and network connectivity.",
+      "answerable": true,
+      "answer": "For database connection failures, verify the database hostname, port, credentials, and network connectivity.",
+      "expected_sources": [
+        "database-troubleshooting.md"
+      ],
+      "retrieved_sources": [
+        "database-troubleshooting.md",
+        "account-help.md"
+      ],
+      "abstained": false,
+      "abstention_correct": true,
+      "manual_review_required": true,
+      "issues": [
+        "extra_retrieved_sources"
+      ]
+    },
+    {
+      "id": "q003",
+      "question": "What are the support hours?",
+      "mode": "reranked_hybrid_threshold_2.0",
+      "threshold": 2.0,
+      "expected_answer": "Monday to Friday, 9 AM to 5 PM.",
+      "answerable": true,
+      "answer": "Monday to Friday, 9 AM to 5 PM",
+      "expected_sources": [
+        "support-hours.md"
+      ],
+      "retrieved_sources": [
+        "support-hours.md",
+        "database-troubleshooting.md"
+      ],
+      "abstained": false,
+      "abstention_correct": true,
+      "manual_review_required": true,
+      "issues": [
+        "extra_retrieved_sources"
+      ]
+    },
+    {
+      "id": "q004",
+      "question": "Where can I change my account security settings?",
+      "mode": "reranked_hybrid_threshold_2.0",
+      "threshold": 2.0,
+      "expected_answer": "Open Account Settings and select Security.",
+      "answerable": true,
+      "answer": "I don't have enough information in the provided documents to answer that question.",
+      "expected_sources": [
+        "account-help.md"
+      ],
+      "retrieved_sources": [],
+      "abstained": true,
+      "abstention_correct": false,
+      "manual_review_required": true,
+      "issues": [
+        "possible_false_abstention",
+        "retrieval_miss"
+      ]
+    },
+    {
+      "id": "q005",
+      "question": "Which database connection details should I verify?",
+      "mode": "reranked_hybrid_threshold_2.0",
+      "threshold": 2.0,
+      "expected_answer": "Verify the hostname, port, credentials, and network connectivity.",
+      "answerable": true,
+      "answer": "database hostname, port, credentials, network connectivity",
+      "expected_sources": [
+        "database-troubleshooting.md"
+      ],
+      "retrieved_sources": [
+        "database-troubleshooting.md",
+        "account-help.md"
+      ],
+      "abstained": false,
+      "abstention_correct": true,
+      "manual_review_required": true,
+      "issues": [
+        "extra_retrieved_sources"
+      ]
+    },
+    {
+      "id": "q006",
+      "question": "Is support available on Saturday?",
+      "mode": "reranked_hybrid_threshold_2.0",
+      "threshold": 2.0,
+      "expected_answer": "The provided document lists support hours as Monday to Friday, 9 AM to 5 PM, so Saturday availability is not established.",
+      "answerable": false,
+      "answer": "I don't have enough information in the provided documents to answer that question.",
+      "expected_sources": [
+        "support-hours.md"
+      ],
+      "retrieved_sources": [
+        "support-hours.md",
+        "account-help.md"
+      ],
+      "abstained": true,
+      "abstention_correct": true,
+      "manual_review_required": true,
+      "issues": [
+        "extra_retrieved_sources"
+      ]
+    },
+    {
+      "id": "q007",
+      "question": "What is the support team's phone number?",
+      "mode": "reranked_hybrid_threshold_2.0",
+      "threshold": 2.0,
+      "expected_answer": "The provided documents do not specify a support phone number.",
+      "answerable": false,
+      "answer": "I don't have enough information in the provided documents to answer that question.",
+      "expected_sources": [],
+      "retrieved_sources": [],
+      "abstained": true,
+      "abstention_correct": true,
+      "manual_review_required": true,
+      "issues": []
+    },
+    {
+      "id": "q008",
+      "question": "How do I change my account password?",
+      "mode": "reranked_hybrid_threshold_2.0",
+      "threshold": 2.0,
+      "expected_answer": "Open Account Settings, select Security, and click Reset Password.",
+      "answerable": true,
+      "answer": "To change your account password, open Account Settings, select Security, and click Reset Password.",
+      "expected_sources": [
+        "account-help.md"
+      ],
+      "retrieved_sources": [
+        "account-help.md",
+        "database-troubleshooting.md"
+      ],
+      "abstained": false,
+      "abstention_correct": true,
+      "manual_review_required": true,
+      "issues": [
+        "extra_retrieved_sources"
+      ]
+    },
+    {
+      "id": "q001",
+      "question": "How do I reset my password?",
+      "mode": "reranked_hybrid_threshold_2.5",
+      "threshold": 2.5,
+      "expected_answer": "Open Account Settings, select Security, and click Reset Password.",
+      "answerable": true,
+      "answer": "To reset your password, open Account Settings, select Security, and click Reset Password.",
+      "expected_sources": [
+        "account-help.md"
+      ],
+      "retrieved_sources": [
+        "account-help.md",
+        "database-troubleshooting.md"
+      ],
+      "abstained": false,
+      "abstention_correct": true,
+      "manual_review_required": true,
+      "issues": [
+        "extra_retrieved_sources"
+      ]
+    },
+    {
+      "id": "q002",
+      "question": "What should I check when a database connection fails?",
+      "mode": "reranked_hybrid_threshold_2.5",
+      "threshold": 2.5,
+      "expected_answer": "Check the database hostname, port, credentials, and network connectivity.",
+      "answerable": true,
+      "answer": "For database connection failures, verify the database hostname, port, credentials, and network connectivity.",
+      "expected_sources": [
+        "database-troubleshooting.md"
+      ],
+      "retrieved_sources": [
+        "database-troubleshooting.md",
+        "account-help.md"
+      ],
+      "abstained": false,
+      "abstention_correct": true,
+      "manual_review_required": true,
+      "issues": [
+        "extra_retrieved_sources"
+      ]
+    },
+    {
+      "id": "q003",
+      "question": "What are the support hours?",
+      "mode": "reranked_hybrid_threshold_2.5",
+      "threshold": 2.5,
+      "expected_answer": "Monday to Friday, 9 AM to 5 PM.",
+      "answerable": true,
+      "answer": "Monday to Friday, 9 AM to 5 PM",
+      "expected_sources": [
+        "support-hours.md"
+      ],
+      "retrieved_sources": [
+        "support-hours.md",
+        "database-troubleshooting.md"
+      ],
+      "abstained": false,
+      "abstention_correct": true,
+      "manual_review_required": true,
+      "issues": [
+        "extra_retrieved_sources"
+      ]
+    },
+    {
+      "id": "q004",
+      "question": "Where can I change my account security settings?",
+      "mode": "reranked_hybrid_threshold_2.5",
+      "threshold": 2.5,
+      "expected_answer": "Open Account Settings and select Security.",
+      "answerable": true,
+      "answer": "I don't have enough information in the provided documents to answer that question.",
+      "expected_sources": [
+        "account-help.md"
+      ],
+      "retrieved_sources": [],
+      "abstained": true,
+      "abstention_correct": false,
+      "manual_review_required": true,
+      "issues": [
+        "possible_false_abstention",
+        "retrieval_miss"
+      ]
+    },
+    {
+      "id": "q005",
+      "question": "Which database connection details should I verify?",
+      "mode": "reranked_hybrid_threshold_2.5",
+      "threshold": 2.5,
+      "expected_answer": "Verify the hostname, port, credentials, and network connectivity.",
+      "answerable": true,
+      "answer": "database hostname, port, credentials, network connectivity",
+      "expected_sources": [
+        "database-troubleshooting.md"
+      ],
+      "retrieved_sources": [
+        "database-troubleshooting.md",
+        "account-help.md"
+      ],
+      "abstained": false,
+      "abstention_correct": true,
+      "manual_review_required": true,
+      "issues": [
+        "extra_retrieved_sources"
+      ]
+    },
+    {
+      "id": "q006",
+      "question": "Is support available on Saturday?",
+      "mode": "reranked_hybrid_threshold_2.5",
+      "threshold": 2.5,
+      "expected_answer": "The provided document lists support hours as Monday to Friday, 9 AM to 5 PM, so Saturday availability is not established.",
+      "answerable": false,
+      "answer": "I don't have enough information in the provided documents to answer that question.",
+      "expected_sources": [
+        "support-hours.md"
+      ],
+      "retrieved_sources": [],
+      "abstained": true,
+      "abstention_correct": true,
+      "manual_review_required": true,
+      "issues": [
+        "retrieval_miss"
+      ]
+    },
+    {
+      "id": "q007",
+      "question": "What is the support team's phone number?",
+      "mode": "reranked_hybrid_threshold_2.5",
+      "threshold": 2.5,
+      "expected_answer": "The provided documents do not specify a support phone number.",
+      "answerable": false,
+      "answer": "I don't have enough information in the provided documents to answer that question.",
+      "expected_sources": [],
+      "retrieved_sources": [],
+      "abstained": true,
+      "abstention_correct": true,
+      "manual_review_required": true,
+      "issues": []
+    },
+    {
+      "id": "q008",
+      "question": "How do I change my account password?",
+      "mode": "reranked_hybrid_threshold_2.5",
+      "threshold": 2.5,
       "expected_answer": "Open Account Settings, select Security, and click Reset Password.",
       "answerable": true,
       "answer": "To change your account password, open Account Settings, select Security, and click Reset Password.",
@@ -167,10 +677,15 @@
   "retrieval_metrics": {
     "dense": {
       "top_k": 2,
-      "queries_evaluated": 7,
+      "queries_evaluated": 8,
+      "answerable_queries": 6,
+      "unanswerable_queries": 2,
       "hit_rate_at_k": 1.0,
       "recall_at_k": 1.0,
       "mrr": 1.0,
+      "all_sources_recall_at_k": 1.0,
+      "unanswerable_empty_retrieval_rate": 0.0,
+      "unanswerable_returned_results_rate": 1.0,
       "details": [
         {
           "id": "q001",
@@ -182,7 +697,9 @@
             "account-help.md",
             "database-troubleshooting.md"
           ],
+          "is_unanswerable": false,
           "hit": true,
+          "all_sources_found": true,
           "recall": 1.0,
           "reciprocal_rank": 1.0
         },
@@ -196,7 +713,9 @@
             "database-troubleshooting.md",
             "support-hours.md"
           ],
+          "is_unanswerable": false,
           "hit": true,
+          "all_sources_found": true,
           "recall": 1.0,
           "reciprocal_rank": 1.0
         },
@@ -210,7 +729,9 @@
             "support-hours.md",
             "database-troubleshooting.md"
           ],
+          "is_unanswerable": false,
           "hit": true,
+          "all_sources_found": true,
           "recall": 1.0,
           "reciprocal_rank": 1.0
         },
@@ -224,7 +745,9 @@
             "account-help.md",
             "database-troubleshooting.md"
           ],
+          "is_unanswerable": false,
           "hit": true,
+          "all_sources_found": true,
           "recall": 1.0,
           "reciprocal_rank": 1.0
         },
@@ -238,7 +761,9 @@
             "database-troubleshooting.md",
             "account-help.md"
           ],
+          "is_unanswerable": false,
           "hit": true,
+          "all_sources_found": true,
           "recall": 1.0,
           "reciprocal_rank": 1.0
         },
@@ -252,9 +777,21 @@
             "support-hours.md",
             "database-troubleshooting.md"
           ],
-          "hit": true,
-          "recall": 1.0,
-          "reciprocal_rank": 1.0
+          "is_unanswerable": true,
+          "returned_results": true,
+          "empty_retrieval": false
+        },
+        {
+          "id": "q007",
+          "question": "What is the support team's phone number?",
+          "expected_sources": [],
+          "retrieved_sources": [
+            "support-hours.md",
+            "account-help.md"
+          ],
+          "is_unanswerable": true,
+          "returned_results": true,
+          "empty_retrieval": false
         },
         {
           "id": "q008",
@@ -266,7 +803,9 @@
             "account-help.md",
             "database-troubleshooting.md"
           ],
+          "is_unanswerable": false,
           "hit": true,
+          "all_sources_found": true,
           "recall": 1.0,
           "reciprocal_rank": 1.0
         }
@@ -274,10 +813,15 @@
     },
     "bm25": {
       "top_k": 2,
-      "queries_evaluated": 7,
+      "queries_evaluated": 8,
+      "answerable_queries": 6,
+      "unanswerable_queries": 2,
       "hit_rate_at_k": 1.0,
       "recall_at_k": 1.0,
       "mrr": 1.0,
+      "all_sources_recall_at_k": 1.0,
+      "unanswerable_empty_retrieval_rate": 0.0,
+      "unanswerable_returned_results_rate": 1.0,
       "details": [
         {
           "id": "q001",
@@ -289,7 +833,9 @@
             "account-help.md",
             "database-troubleshooting.md"
           ],
+          "is_unanswerable": false,
           "hit": true,
+          "all_sources_found": true,
           "recall": 1.0,
           "reciprocal_rank": 1.0
         },
@@ -303,7 +849,9 @@
             "database-troubleshooting.md",
             "account-help.md"
           ],
+          "is_unanswerable": false,
           "hit": true,
+          "all_sources_found": true,
           "recall": 1.0,
           "reciprocal_rank": 1.0
         },
@@ -317,7 +865,9 @@
             "support-hours.md",
             "database-troubleshooting.md"
           ],
+          "is_unanswerable": false,
           "hit": true,
+          "all_sources_found": true,
           "recall": 1.0,
           "reciprocal_rank": 1.0
         },
@@ -331,7 +881,9 @@
             "account-help.md",
             "database-troubleshooting.md"
           ],
+          "is_unanswerable": false,
           "hit": true,
+          "all_sources_found": true,
           "recall": 1.0,
           "reciprocal_rank": 1.0
         },
@@ -345,7 +897,9 @@
             "database-troubleshooting.md",
             "account-help.md"
           ],
+          "is_unanswerable": false,
           "hit": true,
+          "all_sources_found": true,
           "recall": 1.0,
           "reciprocal_rank": 1.0
         },
@@ -359,9 +913,21 @@
             "support-hours.md",
             "account-help.md"
           ],
-          "hit": true,
-          "recall": 1.0,
-          "reciprocal_rank": 1.0
+          "is_unanswerable": true,
+          "returned_results": true,
+          "empty_retrieval": false
+        },
+        {
+          "id": "q007",
+          "question": "What is the support team's phone number?",
+          "expected_sources": [],
+          "retrieved_sources": [
+            "support-hours.md",
+            "database-troubleshooting.md"
+          ],
+          "is_unanswerable": true,
+          "returned_results": true,
+          "empty_retrieval": false
         },
         {
           "id": "q008",
@@ -373,7 +939,9 @@
             "account-help.md",
             "database-troubleshooting.md"
           ],
+          "is_unanswerable": false,
           "hit": true,
+          "all_sources_found": true,
           "recall": 1.0,
           "reciprocal_rank": 1.0
         }
@@ -381,10 +949,15 @@
     },
     "hybrid": {
       "top_k": 2,
-      "queries_evaluated": 7,
+      "queries_evaluated": 8,
+      "answerable_queries": 6,
+      "unanswerable_queries": 2,
       "hit_rate_at_k": 1.0,
       "recall_at_k": 1.0,
       "mrr": 1.0,
+      "all_sources_recall_at_k": 1.0,
+      "unanswerable_empty_retrieval_rate": 0.0,
+      "unanswerable_returned_results_rate": 1.0,
       "details": [
         {
           "id": "q001",
@@ -396,7 +969,9 @@
             "account-help.md",
             "database-troubleshooting.md"
           ],
+          "is_unanswerable": false,
           "hit": true,
+          "all_sources_found": true,
           "recall": 1.0,
           "reciprocal_rank": 1.0
         },
@@ -410,7 +985,9 @@
             "database-troubleshooting.md",
             "support-hours.md"
           ],
+          "is_unanswerable": false,
           "hit": true,
+          "all_sources_found": true,
           "recall": 1.0,
           "reciprocal_rank": 1.0
         },
@@ -424,7 +1001,9 @@
             "support-hours.md",
             "database-troubleshooting.md"
           ],
+          "is_unanswerable": false,
           "hit": true,
+          "all_sources_found": true,
           "recall": 1.0,
           "reciprocal_rank": 1.0
         },
@@ -438,7 +1017,9 @@
             "account-help.md",
             "database-troubleshooting.md"
           ],
+          "is_unanswerable": false,
           "hit": true,
+          "all_sources_found": true,
           "recall": 1.0,
           "reciprocal_rank": 1.0
         },
@@ -452,7 +1033,9 @@
             "database-troubleshooting.md",
             "account-help.md"
           ],
+          "is_unanswerable": false,
           "hit": true,
+          "all_sources_found": true,
           "recall": 1.0,
           "reciprocal_rank": 1.0
         },
@@ -466,9 +1049,21 @@
             "support-hours.md",
             "database-troubleshooting.md"
           ],
-          "hit": true,
-          "recall": 1.0,
-          "reciprocal_rank": 1.0
+          "is_unanswerable": true,
+          "returned_results": true,
+          "empty_retrieval": false
+        },
+        {
+          "id": "q007",
+          "question": "What is the support team's phone number?",
+          "expected_sources": [],
+          "retrieved_sources": [
+            "support-hours.md",
+            "account-help.md"
+          ],
+          "is_unanswerable": true,
+          "returned_results": true,
+          "empty_retrieval": false
         },
         {
           "id": "q008",
@@ -480,7 +1075,145 @@
             "account-help.md",
             "database-troubleshooting.md"
           ],
+          "is_unanswerable": false,
           "hit": true,
+          "all_sources_found": true,
+          "recall": 1.0,
+          "reciprocal_rank": 1.0
+        }
+      ]
+    },
+    "reranked_hybrid": {
+      "top_k": 2,
+      "queries_evaluated": 8,
+      "answerable_queries": 6,
+      "unanswerable_queries": 2,
+      "hit_rate_at_k": 1.0,
+      "recall_at_k": 1.0,
+      "mrr": 1.0,
+      "all_sources_recall_at_k": 1.0,
+      "unanswerable_empty_retrieval_rate": 0.0,
+      "unanswerable_returned_results_rate": 1.0,
+      "details": [
+        {
+          "id": "q001",
+          "question": "How do I reset my password?",
+          "expected_sources": [
+            "account-help.md"
+          ],
+          "retrieved_sources": [
+            "account-help.md",
+            "database-troubleshooting.md"
+          ],
+          "is_unanswerable": false,
+          "hit": true,
+          "all_sources_found": true,
+          "recall": 1.0,
+          "reciprocal_rank": 1.0
+        },
+        {
+          "id": "q002",
+          "question": "What should I check when a database connection fails?",
+          "expected_sources": [
+            "database-troubleshooting.md"
+          ],
+          "retrieved_sources": [
+            "database-troubleshooting.md",
+            "account-help.md"
+          ],
+          "is_unanswerable": false,
+          "hit": true,
+          "all_sources_found": true,
+          "recall": 1.0,
+          "reciprocal_rank": 1.0
+        },
+        {
+          "id": "q003",
+          "question": "What are the support hours?",
+          "expected_sources": [
+            "support-hours.md"
+          ],
+          "retrieved_sources": [
+            "support-hours.md",
+            "database-troubleshooting.md"
+          ],
+          "is_unanswerable": false,
+          "hit": true,
+          "all_sources_found": true,
+          "recall": 1.0,
+          "reciprocal_rank": 1.0
+        },
+        {
+          "id": "q004",
+          "question": "Where can I change my account security settings?",
+          "expected_sources": [
+            "account-help.md"
+          ],
+          "retrieved_sources": [
+            "account-help.md",
+            "database-troubleshooting.md"
+          ],
+          "is_unanswerable": false,
+          "hit": true,
+          "all_sources_found": true,
+          "recall": 1.0,
+          "reciprocal_rank": 1.0
+        },
+        {
+          "id": "q005",
+          "question": "Which database connection details should I verify?",
+          "expected_sources": [
+            "database-troubleshooting.md"
+          ],
+          "retrieved_sources": [
+            "database-troubleshooting.md",
+            "account-help.md"
+          ],
+          "is_unanswerable": false,
+          "hit": true,
+          "all_sources_found": true,
+          "recall": 1.0,
+          "reciprocal_rank": 1.0
+        },
+        {
+          "id": "q006",
+          "question": "Is support available on Saturday?",
+          "expected_sources": [
+            "support-hours.md"
+          ],
+          "retrieved_sources": [
+            "support-hours.md",
+            "account-help.md"
+          ],
+          "is_unanswerable": true,
+          "returned_results": true,
+          "empty_retrieval": false
+        },
+        {
+          "id": "q007",
+          "question": "What is the support team's phone number?",
+          "expected_sources": [],
+          "retrieved_sources": [
+            "support-hours.md",
+            "database-troubleshooting.md"
+          ],
+          "is_unanswerable": true,
+          "returned_results": true,
+          "empty_retrieval": false
+        },
+        {
+          "id": "q008",
+          "question": "How do I change my account password?",
+          "expected_sources": [
+            "account-help.md"
+          ],
+          "retrieved_sources": [
+            "account-help.md",
+            "database-troubleshooting.md"
+          ],
+          "is_unanswerable": false,
+          "hit": true,
+          "all_sources_found": true,
           "recall": 1.0,
           "reciprocal_rank": 1.0
         }

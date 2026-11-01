@@ -17,6 +17,7 @@ STOPWORDS = {
     "of",
     "on",
     "or",
+    "see",
     "the",
     "to",
     "was",

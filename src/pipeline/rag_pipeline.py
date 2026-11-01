@@ -5,6 +5,7 @@ from math import isfinite
 from time import monotonic
 from typing import Any, Literal
 
+from src.evaluation.groundedness_evaluator import evaluate_groundedness
 from src.generation.generator import generate_answer
 from src.ingest.embedder import embed_texts
 from src.pipeline.observability import get_langfuse_client
@@ -65,47 +66,6 @@ def is_abstention_response(answer: str) -> bool:
     if compact_fallback in compact_answer:
         return True
     return any(phrase in normalized for phrase in ABSTENTION_PHRASES)
-
-
-def answer_is_lexically_supported(
-    answer: str,
-    chunks: list[dict[str, Any]],
-    min_token_coverage: float = 0.5,
-) -> bool:
-    """Apply a conservative lexical grounding heuristic.
-    This is not a semantic entailment or fact-verification model.
-    """
-    if not answer or not answer.strip() or not chunks:
-        return False
-    context = " ".join(
-        str(chunk.get("text", ""))
-        for chunk in chunks
-        if str(chunk.get("text", "")).strip()
-    )
-    if not context.strip():
-        return False
-    normalized_answer = normalize_text(answer)
-    normalized_context = normalize_text(context)
-    # Reject numeric details that do not appear in the evidence.
-    answer_numbers = NUMBER_PATTERN.findall(normalized_answer)
-    context_numbers = set(NUMBER_PATTERN.findall(normalized_context))
-    if any(number not in context_numbers for number in answer_numbers):
-        return False
-    answer_tokens = {
-        token
-        for token in WORD_PATTERN.findall(normalized_answer)
-        if token not in STOPWORDS and not token.isdigit()
-    }
-    context_tokens = {
-        token
-        for token in WORD_PATTERN.findall(normalized_context)
-        if token not in STOPWORDS and not token.isdigit()
-    }
-    if not answer_tokens:
-        return False
-    overlap = answer_tokens & context_tokens
-    coverage = len(overlap) / len(answer_tokens)
-    return coverage >= min_token_coverage
 
 
 class RAGPipeline:
@@ -443,10 +403,24 @@ class RAGPipeline:
                 trace.update(output={"status": "model_abstained"})
                 return response
 
-            if not answer_is_lexically_supported(answer, retrieved_chunks):
-                response = self._fallback_result(question, retrieved_chunks)
-                trace.update(output={"status": "grounding_fallback"})
-                return response
+            context = "\n".join(
+                str(chunk.get("text", "")) for chunk in retrieved_chunks
+            )
+            # Reject numeric claims that are not supported by retrieved evidence.
+            answer_numbers = NUMBER_PATTERN.findall(normalize_text(answer))
+            context_numbers = set(NUMBER_PATTERN.findall(normalize_text(context)))
+
+            if any(number not in context_numbers for number in answer_numbers):
+                return self._fallback_result(question, retrieved_chunks)
+
+            grounding_result = evaluate_groundedness(
+                answer=answer,
+                context=context,
+                min_token_coverage=0.8,
+            )
+
+            if not grounding_result["grounded"]:
+                return self._fallback_result(question, retrieved_chunks)
 
             response = {
                 "question": question,

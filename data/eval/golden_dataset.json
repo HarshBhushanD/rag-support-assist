@@ -5,55 +5,321 @@
     "question": "How do I reset my password?",
     "expected_sources": ["account-help.md"],
     "expected_answer": "Open Account Settings, select Security, and click Reset Password.",
-    "answerable": true
+    "answerable": true,
+    "required_evidence": [
+      "Account Settings",
+      "select Security",
+      "click Reset Password"
+    ]
   },
   {
     "id": "q002",
     "question": "What should I check when a database connection fails?",
     "expected_sources": ["database-troubleshooting.md"],
     "expected_answer": "Check the database hostname, port, credentials, and network connectivity.",
-    "answerable": true
+    "answerable": true,
+    "required_evidence": [
+      "database hostname",
+      "port",
+      "credentials",
+      "network connectivity"
+    ]
   },
   {
     "id": "q003",
     "question": "What are the support hours?",
     "expected_sources": ["support-hours.md"],
     "expected_answer": "Monday to Friday, 9 AM to 5 PM.",
-    "answerable": true
+    "answerable": true,
+    "required_evidence": [
+      "Monday to Friday",
+      "9 AM to 5 PM"
+    ]
   },
   {
     "id": "q004",
     "question": "Where can I change my account security settings?",
     "expected_sources": ["account-help.md"],
     "expected_answer": "Open Account Settings and select Security.",
-    "answerable": true
+    "answerable": true,
+    "required_evidence": [
+      "Account Settings",
+      "select Security"
+    ]
   },
   {
     "id": "q005",
     "question": "Which database connection details should I verify?",
     "expected_sources": ["database-troubleshooting.md"],
     "expected_answer": "Verify the hostname, port, credentials, and network connectivity.",
-    "answerable": true
+    "answerable": true,
+    "required_evidence": [
+      "database hostname",
+      "port",
+      "credentials",
+      "network connectivity"
+    ]
   },
   {
     "id": "q006",
     "question": "Is support available on Saturday?",
     "expected_sources": ["support-hours.md"],
     "expected_answer": "The provided document lists support hours as Monday to Friday, 9 AM to 5 PM, so Saturday availability is not established.",
-    "answerable": false
+    "answerable": false,
+    "required_evidence": [
+      "Saturday support availability"
+    ]
   },
   {
     "id": "q007",
     "question": "What is the support team's phone number?",
     "expected_sources": [],
     "expected_answer": "The provided documents do not specify a support phone number.",
-    "answerable": false
+    "answerable": false,
+    "required_evidence": [
+      "support phone number"
+    ]
   },
   {
     "id": "q008",
     "question": "How do I change my account password?",
     "expected_sources": ["account-help.md"],
     "expected_answer": "Open Account Settings, select Security, and click Reset Password.",
-    "answerable": true
+    "answerable": true,
+    "required_evidence": [
+      "Account Settings",
+      "select Security",
+      "click Reset Password"
+    ]
+  },
+  {
+    "id": "q009",
+    "question": "Which settings should I open to reset my password?",
+    "expected_sources": ["account-help.md"],
+    "expected_answer": "Open Account Settings, select Security, and click Reset Password.",
+    "answerable": true,
+    "required_evidence": [
+      "Account Settings",
+      "select Security",
+      "click Reset Password"
+    ]
+  },
+  {
+    "id": "q010",
+    "question": "What is the final action in the password reset process?",
+    "expected_sources": ["account-help.md"],
+    "expected_answer": "Click Reset Password.",
+    "answerable": true,
+    "required_evidence": [
+      "click Reset Password"
+    ]
+  },
+  {
+    "id": "q011",
+    "question": "Where does the password reset process begin?",
+    "expected_sources": ["account-help.md"],
+    "expected_answer": "Open Account Settings.",
+    "answerable": true,
+    "required_evidence": [
+      "Account Settings"
+    ]
+  },
+  {
+    "id": "q012",
+    "question": "Where is the Reset Password option located?",
+    "expected_sources": ["account-help.md"],
+    "expected_answer": "Open Account Settings and select Security.",
+    "answerable": true,
+    "required_evidence": [
+      "Account Settings",
+      "select Security",
+      "Reset Password"
+    ]
+  },
+  {
+    "id": "q013",
+    "question": "What network-related factor should I verify when the database cannot connect?",
+    "expected_sources": ["database-troubleshooting.md"],
+    "expected_answer": "Verify network connectivity.",
+    "answerable": true,
+    "required_evidence": [
+      "network connectivity"
+    ]
+  },
+  {
+    "id": "q014",
+    "question": "List all the details that should be checked for a database connection failure.",
+    "expected_sources": ["database-troubleshooting.md"],
+    "expected_answer": "Check the database hostname, port, credentials, and network connectivity.",
+    "answerable": true,
+    "required_evidence": [
+      "database hostname",
+      "port",
+      "credentials",
+      "network connectivity"
+    ]
+  },
+  {
+    "id": "q015",
+    "question": "Should I verify database credentials when troubleshooting a connection failure?",
+    "expected_sources": ["database-troubleshooting.md"],
+    "expected_answer": "Yes. Verify the database credentials.",
+    "answerable": true,
+    "required_evidence": [
+      "database credentials"
+    ]
+  },
+  {
+    "id": "q016",
+    "question": "What are the support hours on Friday?",
+    "expected_sources": ["support-hours.md"],
+    "expected_answer": "Friday is included in the support schedule: Monday to Friday, 9 AM to 5 PM.",
+    "answerable": true,
+    "required_evidence": [
+      "Friday",
+      "9 AM to 5 PM"
+    ]
+  },
+  {
+    "id": "q017",
+    "question": "During which hours is customer support available on weekdays?",
+    "expected_sources": ["support-hours.md"],
+    "expected_answer": "Monday to Friday, 9 AM to 5 PM.",
+    "answerable": true,
+    "required_evidence": [
+      "Monday to Friday",
+      "9 AM to 5 PM"
+    ]
+  },
+  {
+    "id": "q018",
+    "question": "Give me the official support schedule.",
+    "expected_sources": ["support-hours.md"],
+    "expected_answer": "Support hours are Monday to Friday, 9 AM to 5 PM.",
+    "answerable": true,
+    "required_evidence": [
+      "Monday to Friday",
+      "9 AM to 5 PM"
+    ]
+  },
+  {
+    "id": "q019",
+    "question": "Does the support team offer live chat?",
+    "expected_sources": [],
+    "expected_answer": "The provided documents do not specify whether live chat support is available.",
+    "answerable": false,
+    "required_evidence": [
+      "live chat availability"
+    ]
+  },
+  {
+    "id": "q020",
+    "question": "What is the support team's phone number?",
+    "expected_sources": [],
+    "expected_answer": "The provided documents do not specify a support phone number.",
+    "answerable": false,
+    "required_evidence": [
+      "support phone number"
+    ]
+  },
+  {
+    "id": "q021",
+    "question": "Can you provide the direct URL for the password reset page?",
+    "expected_sources": ["account-help.md"],
+    "expected_answer": "The document explains how to reset the password through Account Settings, but does not provide a direct URL.",
+    "answerable": false,
+    "required_evidence": [
+      "direct password reset URL"
+    ]
+  },
+  {
+    "id": "q022",
+    "question": "What is the minimum password length required?",
+    "expected_sources": ["account-help.md"],
+    "expected_answer": "The provided document does not specify a minimum password length.",
+    "answerable": false,
+    "required_evidence": [
+      "minimum password length"
+    ]
+  },
+  {
+    "id": "q023",
+    "question": "What is the name of the database server?",
+    "expected_sources": ["database-troubleshooting.md"],
+    "expected_answer": "The provided document does not specify the database server name.",
+    "answerable": false,
+    "required_evidence": [
+      "database server name"
+    ]
+  },
+  {
+    "id": "q024",
+    "question": "Which database port number should I use?",
+    "expected_sources": ["database-troubleshooting.md"],
+    "expected_answer": "The document says to verify the database port, but does not specify a port number.",
+    "answerable": false,
+    "required_evidence": [
+      "database port number"
+    ]
+  },
+  {
+    "id": "q025",
+    "question": "Does the support team work on Sundays?",
+    "expected_sources": ["support-hours.md"],
+    "expected_answer": "The document lists support hours as Monday to Friday, 9 AM to 5 PM, but does not explicitly establish Sunday availability.",
+    "answerable": false,
+    "required_evidence": [
+      "Sunday support availability"
+    ]
+  },
+  {
+    "id": "q026",
+    "question": "Is support available on public holidays?",
+    "expected_sources": ["support-hours.md"],
+    "expected_answer": "The provided document does not specify support availability on public holidays.",
+    "answerable": false,
+    "required_evidence": [
+      "public holiday support availability"
+    ]
+  },
+  {
+    "id": "q027",
+    "question": "Which time zone is used for the support schedule?",
+    "expected_sources": ["support-hours.md"],
+    "expected_answer": "The provided document does not specify a time zone.",
+    "answerable": false,
+    "required_evidence": [
+      "support schedule time zone"
+    ]
+  },
+  {
+    "id": "q028",
+    "question": "What is the database username?",
+    "expected_sources": ["database-troubleshooting.md"],
+    "expected_answer": "The provided document does not specify a database username.",
+    "answerable": false,
+    "required_evidence": [
+      "database username"
+    ]
+  },
+  {
+    "id": "q029",
+    "question": "Does the password reset process require email verification?",
+    "expected_sources": ["account-help.md"],
+    "expected_answer": "The provided document does not specify whether email verification is required.",
+    "answerable": false,
+    "required_evidence": [
+      "email verification requirement"
+    ]
+  },
+  {
+    "id": "q030",
+    "question": "How long does a password reset take to complete?",
+    "expected_sources": ["account-help.md"],
+    "expected_answer": "The provided document does not specify how long the password reset process takes.",
+    "answerable": false,
+    "required_evidence": [
+      "password reset duration"
+    ]
   }
 ]

@@ -746,3 +746,43 @@ def test_semantic_cache_embedding_failure_falls_back_gracefully(
     assert result["sources"] == ["account-help.md"]
     mock_generate.assert_called_once()
     assert not pipeline._semantic_cache
+
+
+def test_pipeline_rejects_unsupported_numeric_claim(retriever, chunks):
+    retriever.search_hybrid.return_value = chunks
+
+    with patch(
+        "src.pipeline.rag_pipeline.generate_answer",
+        return_value={
+            "answer": "Call support at 1234567890.",
+            "sources": ["account-help.md"],
+        },
+    ):
+        result = RAGPipeline(retriever).ask("What is the support number?")
+
+    assert result["answer"] == (
+        "I don't have enough information in the provided documents "
+        "to answer that question."
+    )
+    assert result["sources"] == []
+
+
+def test_pipeline_accepts_numeric_claim_supported_by_context(retriever):
+    chunks = [
+        {
+            "text": "The database uses port 5432.",
+            "source": "database-help.md",
+        }
+    ]
+    retriever.search_hybrid.return_value = chunks
+
+    with patch(
+        "src.pipeline.rag_pipeline.generate_answer",
+        return_value={
+            "answer": "The database uses port 5432.",
+            "sources": ["database-help.md"],
+        },
+    ):
+        result = RAGPipeline(retriever).ask("Which port does the database use?")
+
+    assert result["answer"] == "The database uses port 5432."

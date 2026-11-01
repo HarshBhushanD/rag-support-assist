@@ -1,0 +1,120 @@
+{
+  "summary": {
+    "documents_loaded": 3,
+    "chunks_created": 3,
+    "queries_evaluated": 6,
+    "correct_abstention_decisions": 6,
+    "decision_accuracy": 1.0,
+    "answerable_questions_answered": 3,
+    "unanswerable_questions_correctly_abstained": 3,
+    "answers_evaluated_for_groundedness": 3,
+    "grounded_answers": 3,
+    "groundedness_rate": 1.0,
+    "groundedness_method": "Content-token coverage (threshold 0.8); not semantic entailment.",
+    "warning": "Decision accuracy measures abstention behavior, not factual correctness. Groundedness is a lexical baseline, not proof of factual correctness. Review answers and sources manually."
+  },
+  "results": [
+    {
+      "id": "R001",
+      "question": "How do I troubleshoot a database connection?",
+      "answerable": true,
+      "expected_source": "troubleshooting.md",
+      "answer": "Verify the hostname, port, credentials, network access, and whether the database service is running.",
+      "abstained": false,
+      "abstention_correct": true,
+      "retrieved_sources": [
+        "troubleshooting.md",
+        "api-help.html",
+        "auth-help.md"
+      ],
+      "expected_source_found": true,
+      "grounded": true,
+      "groundedness_reason": "sufficient_content_token_coverage",
+      "groundedness_token_coverage": 1.0,
+      "manual_review_required": true
+    },
+    {
+      "id": "R002",
+      "question": "What should I check when an API request fails?",
+      "answerable": true,
+      "expected_source": "api-help.html",
+      "answer": "Verify the request URL, HTTP method, and authentication credentials.",
+      "abstained": false,
+      "abstention_correct": true,
+      "retrieved_sources": [
+        "api-help.html",
+        "auth-help.md",
+        "troubleshooting.md"
+      ],
+      "expected_source_found": true,
+      "grounded": true,
+      "groundedness_reason": "sufficient_content_token_coverage",
+      "groundedness_token_coverage": 1.0,
+      "manual_review_required": true
+    },
+    {
+      "id": "R003",
+      "question": "What should I check when authentication fails?",
+      "answerable": true,
+      "expected_source": "auth-help.md",
+      "answer": "Verify the username, password, account status, and authentication token expiration.",
+      "abstained": false,
+      "abstention_correct": true,
+      "retrieved_sources": [
+        "auth-help.md",
+        "api-help.html",
+        "troubleshooting.md"
+      ],
+      "expected_source_found": true,
+      "grounded": true,
+      "groundedness_reason": "sufficient_content_token_coverage",
+      "groundedness_token_coverage": 1.0,
+      "manual_review_required": true
+    },
+    {
+      "id": "R004",
+      "question": "What are the support team's working hours?",
+      "answerable": false,
+      "expected_source": null,
+      "answer": "I don't have enough information in the provided documents to answer that question.",
+      "abstained": true,
+      "abstention_correct": true,
+      "retrieved_sources": [],
+      "expected_source_found": null,
+      "grounded": null,
+      "groundedness_reason": "abstained",
+      "groundedness_token_coverage": null,
+      "manual_review_required": true
+    },
+    {
+      "id": "R005",
+      "question": "What is the support team's phone number?",
+      "answerable": false,
+      "expected_source": null,
+      "answer": "I don't have enough information in the provided documents to answer that question.",
+      "abstained": true,
+      "abstention_correct": true,
+      "retrieved_sources": [],
+      "expected_source_found": null,
+      "grounded": null,
+      "groundedness_reason": "abstained",
+      "groundedness_token_coverage": null,
+      "manual_review_required": true
+    },
+    {
+      "id": "R006",
+      "question": "Is support available on Saturday?",
+      "answerable": false,
+      "expected_source": null,
+      "answer": "I don't have enough information in the provided documents to answer that question.",
+      "abstained": true,
+      "abstention_correct": true,
+      "retrieved_sources": [],
+      "expected_source_found": null,
+      "grounded": null,
+      "groundedness_reason": "abstained",
+      "groundedness_token_coverage": null,
+      "manual_review_required": true
+    }
+  ]
+}

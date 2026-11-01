@@ -1,0 +1,220 @@
+{
+  "timestamp_utc": "2026-10-24T12:42:23.582491+00:00",
+  "environment": {
+    "python": "3.14.4",
+    "platform": "Windows-11-10.0.26300-SP0",
+    "model": "Qwen/Qwen2.5-0.5B-Instruct",
+    "embedding_model": "sentence-transformers/all-MiniLM-L6-v2",
+    "retrieval_mode": "hybrid",
+    "top_k": 2
+  },
+  "dataset": "golden_dataset.json",
+  "corpus": "evaluation_corpus.json",
+  "measurements": {
+    "questions": 8,
+    "repeats_per_phase": 1,
+    "expected_timed_queries": 16,
+    "successful_timed_queries": 16,
+    "failed_operations": [],
+    "cold_cache": {
+      "count": 8,
+      "mean_ms": 6721.6958874978445,
+      "p50_ms": 6420.600249992276,
+      "p95_ms": 8165.634975002467,
+      "min_ms": 6129.796599998372,
+      "max_ms": 8886.312100003124
+    },
+    "warm_cache": {
+      "count": 8,
+      "mean_ms": 0.01303750104852952,
+      "p50_ms": 0.012100004823878407,
+      "p95_ms": 0.016974999016383663,
+      "min_ms": 0.011199997970834374,
+      "max_ms": 0.01819999306462705
+    },
+    "warm_cache_speedup": 515566.27780720097,
+    "warm_phase_cache_hit_observations": 8,
+    "warm_phase_cache_miss_or_uncached_observations": 0,
+    "questions_cached_after_warmup": 6,
+    "per_question_observations": [
+      {
+        "phase": "cold",
+        "question": "How do I reset my password?",
+        "iteration": 1,
+        "latency_ms": 8886.312100003124,
+        "success": true,
+        "cache_status": "miss_or_not_cached",
+        "fallback": false,
+        "answerable": true
+      },
+      {
+        "phase": "cold",
+        "question": "What should I check when a database connection fails?",
+        "iteration": 1,
+        "latency_ms": 6189.637899995432,
+        "success": true,
+        "cache_status": "miss_or_not_cached",
+        "fallback": false,
+        "answerable": true
+      },
+      {
+        "phase": "cold",
+        "question": "What are the support hours?",
+        "iteration": 1,
+        "latency_ms": 6331.252799995127,
+        "success": true,
+        "cache_status": "miss_or_not_cached",
+        "fallback": false,
+        "answerable": true
+      },
+      {
+        "phase": "cold",
+        "question": "Where can I change my account security settings?",
+        "iteration": 1,
+        "latency_ms": 6509.947699989425,
+        "success": true,
+        "cache_status": "miss_or_not_cached",
+        "fallback": false,
+        "answerable": true
+      },
+      {
+        "phase": "cold",
+        "question": "Which database connection details should I verify?",
+        "iteration": 1,
+        "latency_ms": 6307.11500000325,
+        "success": true,
+        "cache_status": "miss_or_not_cached",
+        "fallback": false,
+        "answerable": true
+      },
+      {
+        "phase": "cold",
+        "question": "Is support available on Saturday?",
+        "iteration": 1,
+        "latency_ms": 6129.796599998372,
+        "success": true,
+        "cache_status": "miss_or_not_cached",
+        "fallback": true,
+        "answerable": false
+      },
+      {
+        "phase": "cold",
+        "question": "What is the support team's phone number?",
+        "iteration": 1,
+        "latency_ms": 6592.270399996778,
+        "success": true,
+        "cache_status": "miss_or_not_cached",
+        "fallback": true,
+        "answerable": false
+      },
+      {
+        "phase": "cold",
+        "question": "How do I change my account password?",
+        "iteration": 1,
+        "latency_ms": 6827.234600001248,
+        "success": true,
+        "cache_status": "miss_or_not_cached",
+        "fallback": false,
+        "answerable": true
+      },
+      {
+        "phase": "warm",
+        "question": "How do I reset my password?",
+        "iteration": 1,
+        "latency_ms": 0.01819999306462705,
+        "success": true,
+        "cache_status": "hit",
+        "fallback": false,
+        "answerable": true
+      },
+      {
+        "phase": "warm",
+        "question": "What should I check when a database connection fails?",
+        "iteration": 1,
+        "latency_ms": 0.014700010069645941,
+        "success": true,
+        "cache_status": "hit",
+        "fallback": false,
+        "answerable": true
+      },
+      {
+        "phase": "warm",
+        "question": "What are the support hours?",
+        "iteration": 1,
+        "latency_ms": 0.012499993317760527,
+        "success": true,
+        "cache_status": "hit",
+        "fallback": false,
+        "answerable": true
+      },
+      {
+        "phase": "warm",
+        "question": "Where can I change my account security settings?",
+        "iteration": 1,
+        "latency_ms": 0.011900003300979733,
+        "success": true,
+        "cache_status": "hit",
+        "fallback": false,
+        "answerable": true
+      },
+      {
+        "phase": "warm",
+        "question": "Which database connection details should I verify?",
+        "iteration": 1,
+        "latency_ms": 0.012300006346777081,
+        "success": true,
+        "cache_status": "hit",
+        "fallback": false,
+        "answerable": true
+      },
+      {
+        "phase": "warm",
+        "question": "Is support available on Saturday?",
+        "iteration": 1,
+        "latency_ms": 0.01170000177808106,
+        "success": true,
+        "cache_status": "hit",
+        "fallback": true,
+        "answerable": false
+      },
+      {
+        "phase": "warm",
+        "question": "What is the support team's phone number?",
+        "iteration": 1,
+        "latency_ms": 0.011800002539530396,
+        "success": true,
+        "cache_status": "hit",
+        "fallback": true,
+        "answerable": false
+      },
+      {
+        "phase": "warm",
+        "question": "How do I change my account password?",
+        "iteration": 1,
+        "latency_ms": 0.011199997970834374,
+        "success": true,
+        "cache_status": "hit",
+        "fallback": false,
+        "answerable": true
+      }
+    ],
+    "note": "Cache status is inferred from the pipeline's private response cache immediately before each query. Cold runs clear the response cache, but model weights remain loaded after their first load. Fallback responses use a separate, shorter cache TTL."
+  },
+  "cost_estimate": {
+    "queries": 1000,
+    "assumed_compute_cost_per_hour": 0.0,
+    "assumed_latency_ms_per_query": 6721.6958874978445,
+    "estimated_compute_hours": 1.867137746527179,
+    "estimated_cost_per_1000_queries": 0.0,
+    "estimate_scope": "Approximation using latency multiplied by the assumed compute hourly rate. Excludes idle time, model loading, storage, and other overhead. A zero hourly rate produces a zero estimate, not a real-world cost measurement."
+  },
+  "limitations": [
+    "The evaluation dataset has only eight questions.",
+    "Cold-cache means the response cache is cleared; model weights may remain loaded.",
+    "Warm-cache measurements represent repeated identical questions.",
+    "Fallback responses use a separate, shorter cache TTL.",
+    "Cache diagnostics inspect a private pipeline attribute.",
+    "The cost estimate is approximate and uses the supplied hourly rate.",
+    "Failed operations are excluded from latency summaries."
+  ]
+}
