@@ -78,6 +78,11 @@ def evaluate_evidence_dataset(
             if isinstance(chunk.get("text"), str)
         )
 
+        if item["id"] == "q015":
+            print("\n--- Q015 RETRIEVED CONTEXT ---")
+            print(context)
+            print("--- END Q015 CONTEXT ---\n")
+
         evidence = evaluate_evidence(
             required_evidence=item["required_evidence"],
             context=context,

@@ -97,3 +97,86 @@ def test_does_not_accept_partial_phrase_match():
 
     assert result["sufficient"] is False
     assert result["missing_evidence"] == ["network connectivity"]
+
+
+def test_rejects_database_credentials_partial_match():
+    result = evaluate_evidence(
+        required_evidence=["database credentials"],
+        context="Verify your credentials before connecting.",
+    )
+
+    assert result["sufficient"] is False
+    assert result["evidence_coverage"] == 0.0
+    assert result["missing_evidence"] == ["database credentials"]
+
+
+def test_accepts_explicit_database_port_alias():
+    result = evaluate_evidence(
+        required_evidence=["database port"],
+        context="Verify the database hostname, port, and network connectivity.",
+    )
+
+    assert result["sufficient"] is True
+
+
+def test_rejects_reversed_word_order():
+    result = evaluate_evidence(
+        required_evidence=["network connectivity"],
+        context="Check connectivity across the network.",
+    )
+
+    assert result["sufficient"] is False
+
+
+def test_rejects_negated_evidence():
+    result = evaluate_evidence(
+        required_evidence=["database connectivity"],
+        context="Database connectivity is not available.",
+    )
+
+    assert result["sufficient"] is False
+
+
+def test_rejects_evidence_with_no_prefix():
+    result = evaluate_evidence(
+        required_evidence=["database port"],
+        context="Verify the application port.",
+    )
+
+    assert result["sufficient"] is False
+
+
+def test_accepts_database_credentials_in_connection_list():
+    result = evaluate_evidence(
+        required_evidence=["database credentials"],
+        context=(
+            "For database connection failures, verify the database "
+            "hostname, port, credentials, and network connectivity."
+        ),
+    )
+
+    assert result["sufficient"] is True
+
+
+def test_rejects_credentials_without_database_context():
+    result = evaluate_evidence(
+        required_evidence=["database credentials"],
+        context=(
+            "Verify your credentials before logging in. "
+            "The database hostname is configured separately."
+        ),
+    )
+
+    assert result["sufficient"] is False
+
+
+def test_rejects_unrelated_database_and_credentials_in_same_sentence():
+    result = evaluate_evidence(
+        required_evidence=["database credentials"],
+        context=(
+            "The database hostname is configured separately, "
+            "while user credentials are used for application login."
+        ),
+    )
+
+    assert result["sufficient"] is False
