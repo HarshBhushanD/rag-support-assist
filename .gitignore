@@ -17,3 +17,4 @@ src/*.egg-info/
 # MLflow local tracking data
 mlflow.db
 mlruns/
+data/eval/faithfulness_cache.json

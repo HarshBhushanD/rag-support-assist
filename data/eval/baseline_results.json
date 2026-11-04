@@ -3253,6 +3253,775 @@
     2.0,
     2.5
   ],
+  "faithfulness_metrics": {
+    "retrieval_mode": "hybrid",
+    "top_k": 2,
+    "queries_evaluated": 30,
+    "queries_with_claims": 30,
+    "average_faithfulness": 0.6055555555555556,
+    "results": [
+      {
+        "id": "q001",
+        "question": "How do I reset my password?",
+        "answerable": true,
+        "answer": "To reset your password, open Account Settings, select Security, and click Reset Password.",
+        "sources": [
+          "account-help.md",
+          "database-troubleshooting.md"
+        ],
+        "faithfulness_score": 0.5,
+        "total_claims": 2,
+        "supported_claims": 1,
+        "unsupported_claims": 1,
+        "insufficient_evidence_claims": 0,
+        "status": "evaluated",
+        "claims": [
+          {
+            "claim": "To reset your password, open Account Settings, select Security, and click Reset Password.",
+            "verdict": "supported",
+            "reason": "The answer explicitly provides the steps to reset the password."
+          },
+          {
+            "claim": "For database connection failures, verify the database hostname, port, credentials, and network connectivity.",
+            "verdict": "unsupported",
+            "reason": "The answer does not provide any specific details about how to resolve database connection issues."
+          }
+        ]
+      },
+      {
+        "id": "q002",
+        "question": "What should I check when a database connection fails?",
+        "answerable": true,
+        "answer": "Verify the database hostname, port, credentials, and network connectivity.",
+        "sources": [
+          "database-troubleshooting.md",
+          "support-hours.md"
+        ],
+        "faithfulness_score": 1.0,
+        "total_claims": 1,
+        "supported_claims": 1,
+        "unsupported_claims": 0,
+        "insufficient_evidence_claims": 0,
+        "status": "evaluated",
+        "claims": [
+          {
+            "claim": "verify the database hostname, port, credentials, and network connectivity.",
+            "verdict": "supported",
+            "reason": "The answer explicitly mentions verifying these details."
+          }
+        ]
+      },
+      {
+        "id": "q003",
+        "question": "What are the support hours?",
+        "answerable": true,
+        "answer": "Support hours are Monday to Friday, 9 AM to 5 PM.",
+        "sources": [
+          "support-hours.md",
+          "database-troubleshooting.md"
+        ],
+        "faithfulness_score": 1.0,
+        "total_claims": 1,
+        "supported_claims": 1,
+        "unsupported_claims": 0,
+        "insufficient_evidence_claims": 0,
+        "status": "evaluated",
+        "claims": [
+          {
+            "claim": "support hours are Monday to Friday, 9 AM to 5 PM.",
+            "verdict": "supported",
+            "reason": "The answer explicitly states that support hours are Monday to Friday, 9 AM to 5 PM."
+          }
+        ]
+      },
+      {
+        "id": "q004",
+        "question": "Where can I change my account security settings?",
+        "answerable": true,
+        "answer": "To reset your password, open Account Settings, select Security, and click Reset Password.",
+        "sources": [
+          "account-help.md",
+          "database-troubleshooting.md"
+        ],
+        "faithfulness_score": 0.5,
+        "total_claims": 2,
+        "supported_claims": 1,
+        "unsupported_claims": 1,
+        "insufficient_evidence_claims": 0,
+        "status": "evaluated",
+        "claims": [
+          {
+            "claim": "To reset your password, open Account Settings, select Security, and click Reset Password.",
+            "verdict": "supported",
+            "reason": "The answer explicitly provides the steps to reset the password."
+          },
+          {
+            "claim": "For database connection failures, verify the database hostname, port, credentials, and network connectivity.",
+            "verdict": "unsupported",
+            "reason": "The answer does not provide any specific details about how to resolve database connection issues."
+          }
+        ]
+      },
+      {
+        "id": "q005",
+        "question": "Which database connection details should I verify?",
+        "answerable": true,
+        "answer": "database hostname, port, credentials, and network connectivity",
+        "sources": [
+          "database-troubleshooting.md",
+          "account-help.md"
+        ],
+        "faithfulness_score": 1.0,
+        "total_claims": 1,
+        "supported_claims": 1,
+        "unsupported_claims": 0,
+        "insufficient_evidence_claims": 0,
+        "status": "evaluated",
+        "claims": [
+          {
+            "claim": "verify the database hostname, port, credentials, and network connectivity",
+            "verdict": "supported",
+            "reason": "The answer explicitly mentions verifying these details for database connection failures."
+          }
+        ]
+      },
+      {
+        "id": "q006",
+        "question": "Is support available on Saturday?",
+        "answerable": false,
+        "answer": "No support available on Saturday.",
+        "sources": [
+          "support-hours.md",
+          "database-troubleshooting.md"
+        ],
+        "faithfulness_score": 0.0,
+        "total_claims": 2,
+        "supported_claims": 0,
+        "unsupported_claims": 2,
+        "insufficient_evidence_claims": 0,
+        "status": "evaluated",
+        "claims": [
+          {
+            "claim": "Support hours are Monday to Friday, 9 AM to 5 PM.",
+            "verdict": "unsupported",
+            "reason": "The answer provides specific details for weekdays (Monday to Friday), but does not mention weekends."
+          },
+          {
+            "claim": "For database connection failures, verify the database hostname, port, credentials, and network connectivity.",
+            "verdict": "unsupported",
+            "reason": "The answer does not provide any information about weekend connections or troubleshooting methods."
+          }
+        ]
+      },
+      {
+        "id": "q007",
+        "question": "What is the support team's phone number?",
+        "answerable": false,
+        "answer": "The support team's phone number is not mentioned in the given references.",
+        "sources": [
+          "support-hours.md",
+          "account-help.md"
+        ],
+        "faithfulness_score": 0.0,
+        "total_claims": 2,
+        "supported_claims": 0,
+        "unsupported_claims": 2,
+        "insufficient_evidence_claims": 0,
+        "status": "evaluated",
+        "claims": [
+          {
+            "claim": "support hours are Monday to Friday, 9 AM to 5 PM.",
+            "verdict": "unsupported",
+            "reason": "The reference context mentions support hours but does not specify the start and end times."
+          },
+          {
+            "claim": "To reset your password, open Account Settings, select Security, and click Reset Password.",
+            "verdict": "unsupported",
+            "reason": "The reference context provides steps for resetting passwords but does not mention any specific time frame."
+          }
+        ]
+      },
+      {
+        "id": "q008",
+        "question": "How do I change my account password?",
+        "answerable": true,
+        "answer": "To change your account password, open Account Settings, select Security, and click Reset Password.",
+        "sources": [
+          "account-help.md",
+          "database-troubleshooting.md"
+        ],
+        "faithfulness_score": 1.0,
+        "total_claims": 1,
+        "supported_claims": 1,
+        "unsupported_claims": 0,
+        "insufficient_evidence_claims": 0,
+        "status": "evaluated",
+        "claims": [
+          {
+            "claim": "To change your account password, open Account Settings, select Security, and click Reset Password.",
+            "verdict": "supported",
+            "reason": "The answer explicitly states how to change your account password."
+          }
+        ]
+      },
+      {
+        "id": "q009",
+        "question": "Which settings should I open to reset my password?",
+        "answerable": true,
+        "answer": "To reset your password, you should open Account Settings, select Security, and click Reset Password.",
+        "sources": [
+          "account-help.md",
+          "database-troubleshooting.md"
+        ],
+        "faithfulness_score": 0.5,
+        "total_claims": 2,
+        "supported_claims": 1,
+        "unsupported_claims": 1,
+        "insufficient_evidence_claims": 0,
+        "status": "evaluated",
+        "claims": [
+          {
+            "claim": "To reset your password, you should open Account Settings, select Security, and click Reset Password.",
+            "verdict": "supported",
+            "reason": "The answer explicitly provides a step-by-step guide for resetting the password."
+          },
+          {
+            "claim": "For database connection failures, verify the database hostname, port, credentials, and network connectivity.",
+            "verdict": "unsupported",
+            "reason": "The answer does not provide any specific steps or troubleshooting advice related to database connections."
+          }
+        ]
+      },
+      {
+        "id": "q010",
+        "question": "What is the final action in the password reset process?",
+        "answerable": true,
+        "answer": "Reset Password",
+        "sources": [
+          "account-help.md",
+          "database-troubleshooting.md"
+        ],
+        "faithfulness_score": 0.5,
+        "total_claims": 2,
+        "supported_claims": 1,
+        "unsupported_claims": 1,
+        "insufficient_evidence_claims": 0,
+        "status": "evaluated",
+        "claims": [
+          {
+            "claim": "reset password",
+            "verdict": "supported",
+            "reason": "The answer explicitly states 'To reset your password'"
+          },
+          {
+            "claim": "database connection failure",
+            "verdict": "unsupported",
+            "reason": "The answer mentions 'verify the database hostname, port, credentials, and network connectivity' but does not provide any specific details about these connections."
+          }
+        ]
+      },
+      {
+        "id": "q011",
+        "question": "Where does the password reset process begin?",
+        "answerable": true,
+        "answer": "To reset your password, open Account Settings, select Security, and click Reset Password.",
+        "sources": [
+          "account-help.md",
+          "database-troubleshooting.md"
+        ],
+        "faithfulness_score": 0.5,
+        "total_claims": 2,
+        "supported_claims": 1,
+        "unsupported_claims": 1,
+        "insufficient_evidence_claims": 0,
+        "status": "evaluated",
+        "claims": [
+          {
+            "claim": "To reset your password, open Account Settings, select Security, and click Reset Password.",
+            "verdict": "supported",
+            "reason": "The answer explicitly provides the steps to reset the password."
+          },
+          {
+            "claim": "For database connection failures, verify the database hostname, port, credentials, and network connectivity.",
+            "verdict": "unsupported",
+            "reason": "The answer does not provide any specific details about how to resolve database connection issues."
+          }
+        ]
+      },
+      {
+        "id": "q012",
+        "question": "Where is the Reset Password option located?",
+        "answerable": true,
+        "answer": "Account Settings",
+        "sources": [
+          "account-help.md",
+          "database-troubleshooting.md"
+        ],
+        "faithfulness_score": 0.5,
+        "total_claims": 2,
+        "supported_claims": 1,
+        "unsupported_claims": 1,
+        "insufficient_evidence_claims": 0,
+        "status": "evaluated",
+        "claims": [
+          {
+            "claim": "To reset your password, open Account Settings, select Security, and click Reset Password.",
+            "verdict": "supported",
+            "reason": "The answer explicitly provides the steps to reset the password."
+          },
+          {
+            "claim": "For database connection failures, verify the database hostname, port, credentials, and network connectivity.",
+            "verdict": "unsupported",
+            "reason": "The answer does not provide any specific details about how to resolve database connection issues."
+          }
+        ]
+      },
+      {
+        "id": "q013",
+        "question": "What network-related factor should I verify when the database cannot connect?",
+        "answerable": true,
+        "answer": "Verify the network connectivity.",
+        "sources": [
+          "database-troubleshooting.md",
+          "support-hours.md"
+        ],
+        "faithfulness_score": 1.0,
+        "total_claims": 1,
+        "supported_claims": 1,
+        "unsupported_claims": 0,
+        "insufficient_evidence_claims": 0,
+        "status": "evaluated",
+        "claims": [
+          {
+            "claim": "verify the network connectivity.",
+            "verdict": "supported",
+            "reason": "The answer explicitly mentions verifying the network connectivity."
+          }
+        ]
+      },
+      {
+        "id": "q014",
+        "question": "List all the details that should be checked for a database connection failure.",
+        "answerable": true,
+        "answer": "Verify the database hostname, port, credentials, and network connectivity.",
+        "sources": [
+          "database-troubleshooting.md",
+          "account-help.md"
+        ],
+        "faithfulness_score": 1.0,
+        "total_claims": 1,
+        "supported_claims": 1,
+        "unsupported_claims": 0,
+        "insufficient_evidence_claims": 0,
+        "status": "evaluated",
+        "claims": [
+          {
+            "claim": "verify the database hostname, port, credentials, and network connectivity.",
+            "verdict": "supported",
+            "reason": "The answer explicitly mentions verifying these details."
+          }
+        ]
+      },
+      {
+        "id": "q015",
+        "question": "Should I verify database credentials when troubleshooting a connection failure?",
+        "answerable": true,
+        "answer": "Yes, you should verify database credentials when troubleshooting a connection failure.",
+        "sources": [
+          "database-troubleshooting.md",
+          "account-help.md"
+        ],
+        "faithfulness_score": 1.0,
+        "total_claims": 1,
+        "supported_claims": 1,
+        "unsupported_claims": 0,
+        "insufficient_evidence_claims": 0,
+        "status": "evaluated",
+        "claims": [
+          {
+            "claim": "verify database credentials when troubleshooting a connection failure.",
+            "verdict": "supported",
+            "reason": "The answer explicitly mentions verifying database credentials for troubleshooting."
+          }
+        ]
+      },
+      {
+        "id": "q016",
+        "question": "What are the support hours on Friday?",
+        "answerable": true,
+        "answer": "Friday's support hours are 9 AM to 5 PM.",
+        "sources": [
+          "support-hours.md",
+          "database-troubleshooting.md"
+        ],
+        "faithfulness_score": 1.0,
+        "total_claims": 1,
+        "supported_claims": 1,
+        "unsupported_claims": 0,
+        "insufficient_evidence_claims": 0,
+        "status": "evaluated",
+        "claims": [
+          {
+            "claim": "Friday's support hours are 9 AM to 5 PM.",
+            "verdict": "supported",
+            "reason": "The answer explicitly states that Friday's support hours are 9 AM to 5 PM."
+          }
+        ]
+      },
+      {
+        "id": "q017",
+        "question": "During which hours is customer support available on weekdays?",
+        "answerable": true,
+        "answer": "Monday to Friday, 9 AM to 5 PM",
+        "sources": [
+          "support-hours.md",
+          "database-troubleshooting.md"
+        ],
+        "faithfulness_score": 0.5,
+        "total_claims": 2,
+        "supported_claims": 1,
+        "unsupported_claims": 1,
+        "insufficient_evidence_claims": 0,
+        "status": "evaluated",
+        "claims": [
+          {
+            "claim": "Support hours are Monday to Friday, 9 AM to 5 PM.",
+            "verdict": "supported",
+            "reason": "The answer explicitly states that support hours are Monday to Friday, 9 AM to 5 PM."
+          },
+          {
+            "claim": "For database connection failures, verify the database hostname, port, credentials, and network connectivity.",
+            "verdict": "unsupported",
+            "reason": "The answer provides specific details for troubleshooting database issues but does not mention verifying other aspects like hostname, port, credentials, or network connectivity."
+          }
+        ]
+      },
+      {
+        "id": "q018",
+        "question": "Give me the official support schedule.",
+        "answerable": true,
+        "answer": "The official support schedule is provided by the \"support-hours.md\" document, which states that support hours are Monday to Friday, 9 AM to 5 PM.",
+        "sources": [
+          "support-hours.md",
+          "database-troubleshooting.md"
+        ],
+        "faithfulness_score": 0.6666666666666666,
+        "total_claims": 3,
+        "supported_claims": 2,
+        "unsupported_claims": 1,
+        "insufficient_evidence_claims": 0,
+        "status": "evaluated",
+        "claims": [
+          {
+            "claim": "official support schedule is provided by the 'support-hours.md' document",
+            "verdict": "supported",
+            "reason": "The answer directly mentions that the official support schedule is provided by the 'support-hours.md' document."
+          },
+          {
+            "claim": "Monday to Friday, 9 AM to 5 PM is the time frame for support hours",
+            "verdict": "supported",
+            "reason": "The answer provides specific details regarding the time frame for support hours."
+          },
+          {
+            "claim": "verify the database hostname, port, credentials, and network connectivity for database connection failures",
+            "verdict": "unsupported",
+            "reason": "The answer does not provide any relevant information about verifying database connection details."
+          }
+        ]
+      },
+      {
+        "id": "q019",
+        "question": "Does the support team offer live chat?",
+        "answerable": false,
+        "answer": "No, the support team does not offer live chat.",
+        "sources": [
+          "support-hours.md",
+          "database-troubleshooting.md"
+        ],
+        "faithfulness_score": 0.0,
+        "total_claims": 2,
+        "supported_claims": 0,
+        "unsupported_claims": 2,
+        "insufficient_evidence_claims": 0,
+        "status": "evaluated",
+        "claims": [
+          {
+            "claim": "support hours are Monday to Friday, 9 AM to 5 PM.",
+            "verdict": "unsupported",
+            "reason": "The provided context does not mention any specific time frame for support hours."
+          },
+          {
+            "claim": "For database connection failures, verify the database hostname, port, credentials, and network connectivity.",
+            "verdict": "unsupported",
+            "reason": "The context does not provide any information about verifying database connection details."
+          }
+        ]
+      },
+      {
+        "id": "q020",
+        "question": "What is the support team's phone number?",
+        "answerable": false,
+        "answer": "The support team's phone number is not mentioned in the given references.",
+        "sources": [
+          "support-hours.md",
+          "account-help.md"
+        ],
+        "faithfulness_score": 0.0,
+        "total_claims": 2,
+        "supported_claims": 0,
+        "unsupported_claims": 2,
+        "insufficient_evidence_claims": 0,
+        "status": "evaluated",
+        "claims": [
+          {
+            "claim": "support hours are Monday to Friday, 9 AM to 5 PM.",
+            "verdict": "unsupported",
+            "reason": "The reference context mentions support hours but does not specify the start and end times."
+          },
+          {
+            "claim": "To reset your password, open Account Settings, select Security, and click Reset Password.",
+            "verdict": "unsupported",
+            "reason": "The reference context provides steps for resetting passwords but does not mention any specific time frame."
+          }
+        ]
+      },
+      {
+        "id": "q021",
+        "question": "Can you provide the direct URL for the password reset page?",
+        "answerable": false,
+        "answer": "The password reset page can be found at <https://account-help.md/password-reset>",
+        "sources": [
+          "account-help.md",
+          "database-troubleshooting.md"
+        ],
+        "faithfulness_score": 1.0,
+        "total_claims": 1,
+        "supported_claims": 1,
+        "unsupported_claims": 0,
+        "insufficient_evidence_claims": 0,
+        "status": "evaluated",
+        "claims": [
+          {
+            "claim": "Password reset page can be found at <https://account-help.md/password-reset>",
+            "verdict": "supported",
+            "reason": "The answer explicitly mentions the password reset page."
+          }
+        ]
+      },
+      {
+        "id": "q022",
+        "question": "What is the minimum password length required?",
+        "answerable": false,
+        "answer": "The minimum password length required is 8 characters.",
+        "sources": [
+          "account-help.md",
+          "database-troubleshooting.md"
+        ],
+        "faithfulness_score": 1.0,
+        "total_claims": 1,
+        "supported_claims": 1,
+        "unsupported_claims": 0,
+        "insufficient_evidence_claims": 0,
+        "status": "evaluated",
+        "claims": [
+          {
+            "claim": "minimum password length required is 8 characters.",
+            "verdict": "supported",
+            "reason": "The reference context provides a clear definition of the minimum password length requirement."
+          }
+        ]
+      },
+      {
+        "id": "q023",
+        "question": "What is the name of the database server?",
+        "answerable": false,
+        "answer": "MySQL",
+        "sources": [
+          "database-troubleshooting.md",
+          "account-help.md"
+        ],
+        "faithfulness_score": 1.0,
+        "total_claims": 1,
+        "supported_claims": 1,
+        "unsupported_claims": 0,
+        "insufficient_evidence_claims": 0,
+        "status": "evaluated",
+        "claims": [
+          {
+            "claim": "MySQL",
+            "verdict": "supported",
+            "reason": "The answer explicitly mentions MySQL as a database management system."
+          }
+        ]
+      },
+      {
+        "id": "q024",
+        "question": "Which database port number should I use?",
+        "answerable": false,
+        "answer": "The database port number you should use is 3306.",
+        "sources": [
+          "database-troubleshooting.md",
+          "account-help.md"
+        ],
+        "faithfulness_score": 1.0,
+        "total_claims": 1,
+        "supported_claims": 1,
+        "unsupported_claims": 0,
+        "insufficient_evidence_claims": 0,
+        "status": "evaluated",
+        "claims": [
+          {
+            "claim": "database port number you should use is 3306.",
+            "verdict": "supported",
+            "reason": "The answer explicitly states that the database port number should be 3306."
+          }
+        ]
+      },
+      {
+        "id": "q025",
+        "question": "Does the support team work on Sundays?",
+        "answerable": false,
+        "answer": "No, the support team does not work on Sundays.",
+        "sources": [
+          "support-hours.md",
+          "database-troubleshooting.md"
+        ],
+        "faithfulness_score": 0.0,
+        "total_claims": 2,
+        "supported_claims": 0,
+        "unsupported_claims": 2,
+        "insufficient_evidence_claims": 0,
+        "status": "evaluated",
+        "claims": [
+          {
+            "claim": "support hours are Monday to Friday, 9 AM to 5 PM.",
+            "verdict": "unsupported",
+            "reason": "The context provided does not mention any specific day other than Monday to Friday."
+          },
+          {
+            "claim": "For database connection failures, verify the database hostname, port, credentials, and network connectivity.",
+            "verdict": "unsupported",
+            "reason": "The context does not provide any information about database connection issues."
+          }
+        ]
+      },
+      {
+        "id": "q026",
+        "question": "Is support available on public holidays?",
+        "answerable": false,
+        "answer": "No support is available on public holidays.",
+        "sources": [
+          "support-hours.md",
+          "database-troubleshooting.md"
+        ],
+        "faithfulness_score": 0.0,
+        "total_claims": 1,
+        "supported_claims": 0,
+        "unsupported_claims": 1,
+        "insufficient_evidence_claims": 0,
+        "status": "evaluated",
+        "claims": [
+          {
+            "claim": "factual claim actually present in the answer",
+            "verdict": "unsupported",
+            "reason": "The answer mentions support hours for weekdays but does not provide any specific details about public holidays."
+          }
+        ]
+      },
+      {
+        "id": "q027",
+        "question": "Which time zone is used for the support schedule?",
+        "answerable": false,
+        "answer": "The time zone used for the support schedule is Eastern Standard Time (EST).",
+        "sources": [
+          "support-hours.md",
+          "database-troubleshooting.md"
+        ],
+        "faithfulness_score": 1.0,
+        "total_claims": 1,
+        "supported_claims": 1,
+        "unsupported_claims": 0,
+        "insufficient_evidence_claims": 0,
+        "status": "evaluated",
+        "claims": [
+          {
+            "claim": "Time zone used for support hours is Eastern Standard Time (EST)",
+            "verdict": "supported",
+            "reason": "Context provided explicitly mentions Eastern Standard Time (EST) as the time zone for support hours."
+          }
+        ]
+      },
+      {
+        "id": "q028",
+        "question": "What is the database username?",
+        "answerable": false,
+        "answer": "The database username is typically specified in the database hostname, port, credentials, and network connectivity settings.",
+        "sources": [
+          "database-troubleshooting.md",
+          "account-help.md"
+        ],
+        "faithfulness_score": 1.0,
+        "total_claims": 1,
+        "supported_claims": 1,
+        "unsupported_claims": 0,
+        "insufficient_evidence_claims": 0,
+        "status": "evaluated",
+        "claims": [
+          {
+            "claim": "database username is typically specified in the database hostname, port, credentials, and network connectivity settings.",
+            "verdict": "supported",
+            "reason": "The answer explicitly mentions the database username."
+          }
+        ]
+      },
+      {
+        "id": "q029",
+        "question": "Does the password reset process require email verification?",
+        "answerable": false,
+        "answer": "No, the password reset process does not require email verification.",
+        "sources": [
+          "account-help.md",
+          "database-troubleshooting.md"
+        ],
+        "faithfulness_score": 0.0,
+        "total_claims": 1,
+        "supported_claims": 0,
+        "unsupported_claims": 1,
+        "insufficient_evidence_claims": 0,
+        "status": "evaluated",
+        "claims": [
+          {
+            "claim": "Password reset requires email verification.",
+            "verdict": "unsupported",
+            "reason": "The answer explicitly states that password reset does not require email verification."
+          }
+        ]
+      },
+      {
+        "id": "q030",
+        "question": "How long does a password reset take to complete?",
+        "answerable": false,
+        "answer": "It's not possible to determine how long a password reset takes based solely on the given information. The context neither provides details about password resets nor specifies any specific time frame for completing such processes. Therefore, I must return the fallback sentence:\n\nFallback sentence:\nThe context does not contain sufficient information to answer this question.",
+        "sources": [
+          "account-help.md",
+          "support-hours.md"
+        ],
+        "faithfulness_score": 0.0,
+        "total_claims": 1,
+        "supported_claims": 0,
+        "unsupported_claims": 1,
+        "insufficient_evidence_claims": 0,
+        "status": "evaluated",
+        "claims": [
+          {
+            "claim": "Password reset process duration cannot be determined from the provided context.",
+            "verdict": "unsupported",
+            "reason": "The context does not mention anything about the duration of a password reset."
+          }
+        ]
+      }
+    ]
+  },
   "notes": [
     "This is a small controlled evaluation corpus.",
     "Threshold calibration uses reranker scores without generation.",
